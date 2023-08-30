@@ -1,28 +1,285 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { AuthenticateService } from '../services/auth.service';
 import { CrudService } from '../services/crud.service';
 import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { MessageService } from '../services/message.service';
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements AfterViewInit {
+  @ViewChild('cart') cart!: ElementRef;
+
+  isModalOpen = false;
+  hasCartItem: any;
+  showCart = true;
+  settingAddress: boolean = true;
+  totalpreco: number = 0;
+  step = 1;
+
+  trocarStep(valor: any){
+    this.step = valor;
+  }
+  public alertButtons = ['OK'];
+  lanches = [
+    {
+      id: 0, 
+      description: `X Burguer`,
+      items: `Pão com brioche, 1 Carne de Hamburguer,  Cheddar, Mussarela, Alface, Tomate`,
+      price: `33,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 1, 
+      description: `X Egg`, 
+      items: `Pão com brioche, 1 Carne de Hamburguer, Ovo Frito, Mussarela, Alface, Tomate`,
+      price: `25,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/17831235/pexels-photo-17831235/free-photo-of-hamburguer-sanduiche-fotografia-de-alimentos-fotografia-de-comida.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 2, 
+      description: `X Salada`,
+      items: `Pão com brioche, 1 Bisteca, Alface, Tomate, Cebola, Picles`,
+      price: `30,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/327158/pexels-photo-327158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 3,
+      description: `Fran Burguer`,
+      items: `Pão com brioche, 1 Frango empanado, Alface, Tomate, Cebola`,
+      price: `28,50`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/2983103/pexels-photo-2983103.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 4,
+      description: `X tudo`,
+      items: `Pão com brioche, 1 Carne de Hamburguer, 1 Ovo Frito, 1 Bisteca, 1 Frango Empanado, Cheddar, Mussarela, Alface, Tomate, Cebola,  Picles`,
+      price: `50,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/15476361/pexels-photo-15476361/free-photo-of-grande-enorme-importante-borda.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 5,
+      description: `Simplão`,
+      items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
+      price: `15.00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+  ];
+
+  porcoes = [
+    {
+      id: 6, 
+      description: `Batata Frita`,
+      items: `Batata Frita`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/8880739/pexels-photo-8880739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 7, 
+      description: `Cebola Frita`, 
+      items: `Cebola Frita`,
+      price: `15,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/6941050/pexels-photo-6941050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 8, 
+      description: `Frango Frito`,
+      items: `Frango Frito`,
+      price: `18,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/13795311/pexels-photo-13795311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 9,
+      description: `Nuggets`,
+      items: `Nuggets de frango`,
+      price: `28,50`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+  ];
+
+  bebidas = [
+    {
+      id: 10, 
+      description: `Coca-Cola`,
+      items: `Coca-Cola 500ML`,
+      price: `8,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/3200651/pexels-photo-3200651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 11, 
+      description: `Coca-Cola`, 
+      items: `Coca-Cola 700ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/2983100/pexels-photo-2983100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 12, 
+      description: `Pepsi`,
+      items: `Pepsi 500ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/9935862/pexels-photo-9935862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 13,
+      description: `Suco de Laranja`,
+      items: `Suco de Laranja 500ML`,
+      price: `15,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 14,
+      description: `Suco de Morango`,
+      items: `Suci de Morango 500ML`,
+      price: `15,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/7586828/pexels-photo-7586828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 15,
+      description: `Suco de Abacaxi`,
+      items: `Suco de Abacaxi 500ML`,
+      price: `15,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/5817633/pexels-photo-5817633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 16,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+  ];
+
+  ngAfterViewInit(): void {
+    console.log(this.cart);
+  }
+
+  selected(item_id: any, selected: boolean){
+    this.lanches.forEach(lanche=> {
+        if (lanche.id == item_id)
+        lanche.selected = !selected;
+    });
+    this.calculateTotal();
+    this.hasCartItem = this.lanches.filter(lanche => lanche.selected == true);
+  }
+  selected2(item_id: any, selected2: boolean){
+    this.porcoes.forEach(porcao=> {
+        if (porcao.id == item_id)
+          porcao.selected = !selected2;
+    });
+    this.calculateTotal();
+    this.hasCartItem = this.porcoes.filter(porcao => porcao.selected == true);
+  }
+  selected3(item_id: any, selected3: boolean){
+    this.bebidas.forEach(bebida=> {
+        if (bebida.id == item_id)
+        bebida.selected = !selected3;
+    });
+    this.calculateTotal();
+    this.hasCartItem = this.bebidas.filter(bebida => bebida.selected == true);
+  }
+
+
+  upDownCart(){
+    if (this.showCart) {
+      this.cart.nativeElement.classList.add('hide-cart');
+      this.showCart = false;
+    } else {
+      this.cart.nativeElement.classList.remove('hide-cart');
+      this.showCart = true;
+    }
+  }
+  calculateTotal() {
+    this.totalpreco = 0;
+
+    this.lanches.forEach(lanche => {
+      if (lanche.selected) {
+        this.totalpreco += parseFloat(lanche.price.replace(',', '.'));
+      }
+    });
+
+    this.porcoes.forEach(porcao => {
+      if (porcao.selected) {
+        this.totalpreco += parseFloat(porcao.price.replace(',', '.'));
+      }
+    });
+
+    this.bebidas.forEach(bebida => {
+      if (bebida.selected) {
+        this.totalpreco += parseFloat(bebida.price.replace(',', '.'));
+      }
+    });
+  }
+  
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+  setPaymentMode() {
+    this.settingAddress = !this.settingAddress;
+  }
+   
+  swiperSlideChanged(e: any){
+    console.log('changed: ', e);
+  } 
+
+
+
   isLoading: boolean = false;
 
   alunos = [];
-
-  nome = 'Joaozinho';
-
   aluno = {
     nome: null,
     idade: null,
     ra: null,
     id: null
   }
-
+  infos = [];
+  info = {
+    id: null,
+    nome: null,
+    telefone: null,
+    cep: null,
+    bairro: null,
+    rua: null,
+    numero : null
+  }
+  
   public file: any = {};
 
   constructor(
@@ -39,13 +296,22 @@ export class HomePage {
   realizarLogin(dados: any) {
     this._authenticate.login(dados.email, dados.password);
   }
-
   inserirAluno(dados: any){
     this.aluno.nome = dados.nome;
-    // this.aluno.idade = 10;
-    // this.aluno.ra = 321321;
-
-    this._crudService.insert(this.aluno, 'alunos');
+    this.aluno.idade = dados.idade;
+    this.aluno.ra = dados.ra;
+    this.aluno.id = dados.id;
+    this._crudService.insert(this.aluno, 'teste');
+  }
+  inserirInfo(dados: any){
+    this.info.id = dados.id;
+    this.info.nome = dados.nome;
+    this.info.telefone = dados.telefone;
+    this.info.cep = dados.cep;
+    this.info.bairro = dados.bairro;
+    this.info.rua = dados.rua;
+    this.info.numero = dados.numero;
+    this._crudService.insert(this.info, 'professores');
   }
 
   listarAlunos(){
@@ -54,7 +320,6 @@ export class HomePage {
       this.alunos = alunos;
     })
   }
-
 
   removerAluno(aluno: any){
     console.log(aluno);

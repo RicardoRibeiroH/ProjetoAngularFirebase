@@ -27,11 +27,11 @@ export class CrudService {
     * @param collection: string
     */
     insert(item: any, remoteCollectionName: string): Boolean {
-        console.log(item)
+        console.log(item);
         let result = false;
         
         if (!item) { 
-            this._message.show('Não foi possível salvar'); 
+            this._message.show('Não tem nenhum item'); 
             return false;
         }
 
@@ -39,11 +39,11 @@ export class CrudService {
         const dbInstance = collection(this.firestore, remoteCollectionName);
         addDoc(dbInstance, item)
           .then(() => {
-            this._message.show('Salvo com sucesso.');
+            this._message.show('Pedidio enviado.');
             result = true;
           })
           .catch(() => {
-            this._message.show('Erro ao salvar.');
+            this._message.show('nao foi possicel enviar o pedidio.');
           })
           .finally(() => {
             this.isLoading = false;

@@ -8,7 +8,420 @@
 
 <ion-content [fullscreen]="true">
 
-  <!-- FORMULÁRIO CRIAR CONTA -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-row class="ion-text-center">
+    <ion-col size="12">
+      <ion-text>
+        <h1>Lanche</h1>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <!-- lanches -->
+  <ion-row class="lanches ion-justify-content-center" id="lanches">
+    <ng-container *ngFor="let lanche of this.lanches">
+      <ng-container *ngIf="lanche.enabled">
+        <ng-container *ngIf="lanche.price">
+          <ion-col size="3">
+            <ion-card>
+              <img src="{{ lanche.image }}" width="600px" height="600px"/>
+              <ion-card-header>
+                <ion-card-title>{{ lanche.description }}</ion-card-title>
+                <ion-card-subtitle>
+                  <ion-row>
+                    <ion-col>
+                      <ion-label>
+                        <h2 class="price"> R$ {{ lanche.price }}</h2>
+                      </ion-label>
+                    </ion-col>
+                    <ion-col size="auto" class="ion-text-end" (click)="selected(lanche.id, lanche.selected)">
+                      <ng-container *ngIf="lanche.selected">
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </ng-container>
+                      <ng-container *ngIf="!lanche.selected">
+                        <ion-icon name="add-outline"></ion-icon>
+                      </ng-container>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-subtitle>
+              </ion-card-header>      
+              <ion-card-content>
+                {{ lanche.items }}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ion-row>
+  <!-- porções -->
+   <ion-row class="porcoes ion-text-center" id="porcoes">
+    <ion-col size="12">
+      <ion-text>
+        <h1>Porções</h1>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ng-container *ngFor="let porcao of this.porcoes">
+      <ng-container *ngIf="porcao.enabled">
+        <ng-container *ngIf="porcao.price">
+          <ion-col size="3">
+            <ion-card>
+              <img src="{{ porcao.image }}" width="600px" height="600px"/>
+              <ion-card-header>
+                <ion-card-title>{{ porcao.description }}</ion-card-title>
+                <ion-card-subtitle>
+                  <ion-row>
+                    <ion-col>
+                      <ion-label>
+                        <h2 class="price"> R$ {{ porcao.price }}</h2>
+                      </ion-label>
+                    </ion-col>
+                    <ion-col size="auto" class="ion-text-end" (click)="selected2(porcao.id, porcao.selected)">
+                      <ng-container *ngIf="porcao.selected">
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </ng-container>
+                      <ng-container *ngIf="!porcao.selected">
+                        <ion-icon name="add-outline"></ion-icon>
+                      </ng-container>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-subtitle>
+              </ion-card-header>      
+              <ion-card-content>
+                {{ porcao.items }}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ion-row>
+  <!-- bebidas -->
+   <ion-row class="bebidas ion-text-center" id="bebidas">
+    <ion-col size="12">
+      <ion-text>
+        <h1>Bebidas</h1>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ng-container *ngFor="let bebida of this.bebidas">
+      <ng-container *ngIf="bebida.enabled">
+        <ng-container *ngIf="bebida.price">
+          <ion-col size="3">
+            <ion-card>
+              <img src="{{ bebida.image }}" width="600px" height="600px"/>
+              <ion-card-header>
+                <ion-card-title>{{ bebida.description }}</ion-card-title>
+                <ion-card-subtitle>
+                  <ion-row>
+                    <ion-col>
+                      <ion-label>
+                        <h2 class="price"> R$ {{ bebida.price }}</h2>
+                      </ion-label>
+                    </ion-col>
+                    <ion-col size="auto" class="ion-text-end" (click)="selected3(bebida.id, bebida.selected)">
+                      <ng-container *ngIf="bebida.selected">
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </ng-container>
+                      <ng-container *ngIf="!bebida.selected">
+                        <ion-icon name="add-outline"></ion-icon>
+                      </ng-container>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-subtitle>
+              </ion-card-header>      
+              <ion-card-content>
+                {{ bebida.items }}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ion-row>
+  <!-- Cart -->
+  <ng-container *ngIf="this.hasCartItem">
+    <ng-container *ngIf="this.hasCartItem.length > 0">
+    <div class="cart">
+      <div class="cart-header" (click)="upDownCart()">
+        <p>Carrinhos <span>({{ this.hasCartItem.length }})</span></p>
+        <ng-container *ngIf="this.showCart">
+          <ion-icon name="caret-down-outline"></ion-icon>
+        </ng-container>
+        <ng-container *ngIf="!this.showCart">
+          <ion-icon name="caret-up-outline"></ion-icon>
+        </ng-container>
+      </div>
+      <div #cart class="card-content">
+        <ng-container *ngFor="let lanche of this.lanches">
+          <ng-container *ngIf="lanche.selected">
+            <ion-item>
+              <ion-icon name="trash-outline" slot="start" (click)="selected(lanche.id, lanche.selected)"></ion-icon>
+              <ion-thumbnail slot="start">
+                <img src="{{ lanche.image }}">
+              </ion-thumbnail>
+              <ion-label>{{ lanche.description }}</ion-label>
+              <ion-label>R$ {{ lanche.price }}</ion-label>
+            </ion-item>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngFor="let porcao of this.porcoes">
+          <ng-container *ngIf="porcao.selected">
+            <ion-item>
+              <ion-icon name="trash-outline" slot="start" (click)="selected2(porcao.id, porcao.selected)"></ion-icon>
+              <ion-thumbnail slot="start">
+                <img src="{{ porcao.image }}">
+              </ion-thumbnail>
+              <ion-label>{{ porcao.description }}</ion-label>
+              <ion-label>R$ {{ porcao.price }}</ion-label>
+            </ion-item>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngFor="let bebida of this.bebidas">
+          <ng-container *ngIf="bebida.selected">
+            <ion-item>
+              <ion-icon name="trash-outline" slot="start" (click)="selected3(bebida.id, bebida.selected)"></ion-icon>
+              <ion-thumbnail slot="start">
+                <img src="{{ bebida.image }}">
+              </ion-thumbnail>
+              <ion-label>{{ bebida.description }}</ion-label>
+              <ion-label>R$ {{ bebida.price }}</ion-label>
+            </ion-item>
+          </ng-container>
+        </ng-container>
+        <ion-item lines="none">
+          <div *ngIf="hasCartItem && hasCartItem.length > 0">
+            <p>Total: R$ {{ totalpreco.toFixed(2) }}</p>
+          </div>          
+          <ion-button slot="end" size="small" (click)="setOpen(true)">Finalizar</ion-button>
+        </ion-item>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<!-- Modal -->
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ng-container *ngIf="this.step == 1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ng-container *ngIf="this.settingAddress">
+              <ion-button (click)="setOpen(false)">
+                <ion-label>Cancelar</ion-label>
+                <ion-icon name="close-outline" slot="end"></ion-icon>
+              </ion-button>
+            </ng-container>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="trocarStep(2)">
+              <ion-label>Proximo</ion-label>
+              <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-row class="ion-justify-content-center">
+          
+              <ion-col size="12" size-lg="6">
+                <form #inserirInfoForm="ngForm" (ngSubmit)="inserirInfo(inserirInfoForm.value)">
+                  <ion-item lines="none">
+                    <ion-label>Insera seus dados</ion-label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="ID" name="id" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Nome" name="nome" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Telefone" name="telefone" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="CEP" name="cep" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Bairro" name="bairro" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Rua" name="rua" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Numero" name="numero" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-button color="light" slot="end" type="submit">Enviar</ion-button>
+                  </ion-item>
+                </form>
+          </ion-col>
+        </ion-row> 
+      </ion-content>
+    </ng-container>
+
+    <ng-container *ngIf="this.step == 2">
+        <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ng-container>
+              <ion-button (click)="trocarStep(1)">
+                <ion-label>Voltar</ion-label>
+                <ion-icon name="arrow-back-circle-outline"></ion-icon>
+              </ion-button>
+            </ng-container>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button id="present-alert" (click)="setOpen(false)">Click Me</ion-button>
+            <ion-alert
+              trigger="present-alert"
+              header="Pedidio Enviado"
+              [buttons]="alertButtons"
+            ></ion-alert>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+        <ion-accordion-group>
+          <ion-radio-group value="money">
+            <ion-accordion value="first">
+              <ion-item slot="header" color="light">
+                <ion-label>Pagar na Entrega</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-item>
+                  <ion-radio value="local-money">Dinheiro</ion-radio><br />
+                </ion-item>
+                <ion-item>
+                  <ion-radio value="local-credit-card">Cartão</ion-radio><br />
+                </ion-item>
+              </div>
+            </ion-accordion>
+            <ion-accordion value="second">
+              <ion-item slot="header" color="light">
+                <ion-label>Pagar Online</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-item>
+                  <ion-radio value="online-credit-card">Cartão</ion-radio><br />
+                </ion-item>
+                <ion-item>
+                  <ion-radio value="online-pix">Pix</ion-radio><br />
+                </ion-item>
+              </div>
+            </ion-accordion>
+          </ion-radio-group>
+        </ion-accordion-group>
+      </ng-container>  
+  </ng-template>
+  
+</ion-modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- FORMULÁRIO CRIAR CONTA
   <ion-row class="ion-justify-content-center">
     <ion-col size="12" size-lg="6">
       <form #criarContaForm="ngForm" (ngSubmit)="criarConta(criarContaForm.value)">
@@ -29,7 +442,7 @@
     </ion-col>
   </ion-row>
 
-<!-- FORMULÁRIO DE LOGIN -->
+ FORMULÁRIO DE LOGIN 
   <ion-row class="ion-justify-content-center">
     <ion-col size="12" size-lg="6">
       <form #loginForm="ngForm" (ngSubmit)="realizarLogin(loginForm.value)">
@@ -54,100 +467,10 @@
         </ion-item>
       </form>
     </ion-col>
-  </ion-row>
-
-  
-  <!-- FORMULÁRIO PARA INSERIR UM NOVO ALUNO -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <form #inserirAlunoForm="ngForm" (ngSubmit)="inserirAluno(inserirAlunoForm.value)">
-        <ion-item lines="none">
-          <ion-label>Inserir Novo Aluno</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Usuário" name="nome" ngModel type="text"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-button color="light" slot="end" type="submit">Inserir Aluno</ion-button>
-        </ion-item>
-      </form>
-    </ion-col>
-  </ion-row>
-
-
-  <!-- LISTAR TODOS ALUNOS -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <ion-item lines="none">
-        <ion-button color="light" slot="end" (click)="listarAlunos()">Listar Alunos</ion-button>
-      </ion-item>
-      <ng-container *ngFor="let aluno of this.alunos">
-        <h1>Nome: {{ aluno['nome'] }}</h1>
-        <h1>Idade: {{ aluno['idade'] }}</h1>
-      </ng-container>
-    </ion-col>
-  </ion-row>
-
-
-  <!-- FORMULÁRIO PARA REMOVER ALUNO -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <ng-container *ngFor="let aluno of this.alunos">
-        <form (ngSubmit)="removerAluno(aluno)">
-          <ion-item>
-            <ion-label>Nome do Aluno: {{ aluno['nome'] }}</ion-label>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-button color="light" slot="end" type="submit">Remover Aluno</ion-button>
-          </ion-item>
-        </form>
-      </ng-container>
-    </ion-col>
-  </ion-row>
-
-
-   <!-- FORMULÁRIO PARA CONSULTAR UM ALUNO -->
-   <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <form #consultarForm="ngForm" (ngSubmit)="consultarAluno(consultarForm.value)">
-        <ion-item lines="none">
-          <ion-label>Consultar Aluno</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Usuário" name="nome" ngModel type="text"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-button color="light" slot="end" type="submit">Consultar</ion-button>
-        </ion-item>
-      </form>
-    </ion-col>
-  </ion-row>
-
-
-     <!-- FORMULÁRIO ATUALIZAR UM ALUNO -->
-     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-lg="6">
-        <form #atualizarForm="ngForm" (ngSubmit)="atualizarDadosAluno(atualizarForm.value)">
-          <ion-item lines="none">
-            <ion-label>Atualizar Aluno</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-input label="Usuário" name="nome" ngModel type="text"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ng-container *ngIf="this.aluno.id == null">  
-              <ion-button color="light" slot="end" type="submit">Consultar</ion-button>
-            </ng-container>
-            <ng-container *ngIf="this.aluno.id != null">  
-              <ion-button color="light" slot="end" type="submit">Atualizar</ion-button>
-            </ng-container>
-          </ion-item>
-        </form>
-      </ion-col>
-    </ion-row>
-
-
-    <!-- TEMPLATE PARA ENVIAR ARQUIVO PARA O FIREBASE -->
+  </ion-row> -->
+  <!-- FORMULÁRIO PARA INSERIR UM NOVO ALUNO  -->
+  - 
+  <!-- TEMPLATE PARA ENVIAR ARQUIVO PARA O FIREBASE 
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" size-lg="6">
         <ion-item>
@@ -165,7 +488,7 @@
           <img src="https://firebasestorage.googleapis.com/v0/b/projetoexemplo-e640c.appspot.com/o/minha_imagem.jpeg?alt=media&token=5b63e63b-081b-493b-981d-4ff73b18b14e" alt="">
         </ion-item>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
 
   
