@@ -39,7 +39,7 @@ export class CrudService {
         const dbInstance = collection(this.firestore, remoteCollectionName);
         addDoc(dbInstance, item)
           .then(() => {
-            this._message.show('Pedidio enviado.');
+            this._message.show('informação enviada! Clique em proximo');
             result = true;
           })
           .catch(() => {

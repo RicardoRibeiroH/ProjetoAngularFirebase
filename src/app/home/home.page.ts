@@ -411,7 +411,6 @@ export class HomePage implements AfterViewInit {
   }
   infos = [];
   info = {
-    id: null,
     nome: null,
     telefone: null,
     cep: null,
@@ -444,7 +443,6 @@ export class HomePage implements AfterViewInit {
     this._crudService.insert(this.aluno, 'teste');
   }
   inserirInfo(dados: any){
-    this.info.id = dados.id;
     this.info.nome = dados.nome;
     this.info.telefone = dados.telefone;
     this.info.cep = dados.cep;
