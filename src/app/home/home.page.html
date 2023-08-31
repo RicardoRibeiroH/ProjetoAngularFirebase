@@ -250,11 +250,9 @@
       </ion-header>
       <ion-content>
         <ion-row class="ion-justify-content-center">
-          
               <ion-col size="12" size-lg="6">
                 <form #inserirInfoForm="ngForm" (ngSubmit)="inserirInfo(inserirInfoForm.value)">
                   <ion-item lines="none">
-                    <ion-label>Insera seus dados</ion-label>
                   </ion-item>
                   <ion-item>
                     <ion-input label="ID" name="id" ngModel type="text"></ion-input>
@@ -285,7 +283,6 @@
         </ion-row> 
       </ion-content>
     </ng-container>
-
     <ng-container *ngIf="this.step == 2">
         <ion-header>
         <ion-toolbar>
@@ -298,7 +295,7 @@
             </ng-container>
           </ion-buttons>
           <ion-buttons slot="end">
-            <ion-button id="present-alert" (click)="setOpen(false)">Click Me</ion-button>
+            <ion-button id="present-alert" (click)="setOpen(false)">Finalizar</ion-button>
             <ion-alert
               trigger="present-alert"
               header="Pedidio Enviado"
@@ -307,6 +304,7 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
+      <ion-row class="escolhaPagamento ion-justify-content-center">
         <ion-accordion-group>
           <ion-radio-group value="money">
             <ion-accordion value="first">
@@ -337,9 +335,9 @@
             </ion-accordion>
           </ion-radio-group>
         </ion-accordion-group>
+      </ion-row>
       </ng-container>  
   </ng-template>
-  
 </ion-modal>
 
 
