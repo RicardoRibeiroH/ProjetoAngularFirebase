@@ -20,6 +20,11 @@ export class HomePage implements AfterViewInit {
   totalpreco: number = 0;
   step = 1;
 
+  trocarElement = 'lanches';
+  trocarElemento(event: any){
+   this.trocarElement = event.detail.value;
+  }
+
   trocarStep(valor: any){
     this.step = valor;
   }
@@ -79,11 +84,38 @@ export class HomePage implements AfterViewInit {
       selected: false,
       image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
+    {
+      id: 6,
+      description: `Simplão`,
+      items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
+      price: `15.00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 7,
+      description: `Simplão`,
+      items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
+      price: `15.00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 8,
+      description: `Simplão`,
+      items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
+      price: `15.00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
   ];
 
   porcoes = [
     {
-      id: 6, 
+      id: 9, 
       description: `Batata Frita`,
       items: `Batata Frita`,
       price: `10,00`,
@@ -92,7 +124,7 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/8880739/pexels-photo-8880739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 7, 
+      id: 10, 
       description: `Cebola Frita`, 
       items: `Cebola Frita`,
       price: `15,00`,
@@ -101,7 +133,7 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/6941050/pexels-photo-6941050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 8, 
+      id: 11, 
       description: `Frango Frito`,
       items: `Frango Frito`,
       price: `18,00`,
@@ -110,7 +142,52 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/13795311/pexels-photo-13795311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 9,
+      id: 12,
+      description: `Nuggets`,
+      items: `Nuggets de frango`,
+      price: `28,50`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 13,
+      description: `Nuggets`,
+      items: `Nuggets de frango`,
+      price: `28,50`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 14,
+      description: `Nuggets`,
+      items: `Nuggets de frango`,
+      price: `28,50`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 15,
+      description: `Nuggets`,
+      items: `Nuggets de frango`,
+      price: `28,50`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 16,
+      description: `Nuggets`,
+      items: `Nuggets de frango`,
+      price: `28,50`,
+      enabled: true,
+      selected: false,
+      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+    },
+    {
+      id: 17,
       description: `Nuggets`,
       items: `Nuggets de frango`,
       price: `28,50`,
@@ -122,7 +199,7 @@ export class HomePage implements AfterViewInit {
 
   bebidas = [
     {
-      id: 10, 
+      id: 18, 
       description: `Coca-Cola`,
       items: `Coca-Cola 500ML`,
       price: `8,00`,
@@ -131,7 +208,7 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/3200651/pexels-photo-3200651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 11, 
+      id: 19, 
       description: `Coca-Cola`, 
       items: `Coca-Cola 700ML`,
       price: `10,00`,
@@ -140,7 +217,7 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/2983100/pexels-photo-2983100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 12, 
+      id: 20, 
       description: `Pepsi`,
       items: `Pepsi 500ML`,
       price: `10,00`,
@@ -149,7 +226,7 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/9935862/pexels-photo-9935862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 13,
+      id: 21,
       description: `Suco de Laranja`,
       items: `Suco de Laranja 500ML`,
       price: `15,00`,
@@ -158,7 +235,7 @@ export class HomePage implements AfterViewInit {
       image: `https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
     },
     {
-      id: 14,
+      id: 22,
       description: `Suco de Morango`,
       items: `Suci de Morango 500ML`,
       price: `15,00`,
@@ -167,7 +244,7 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/7586828/pexels-photo-7586828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 15,
+      id: 23,
       description: `Suco de Abacaxi`,
       items: `Suco de Abacaxi 500ML`,
       price: `15,00`,
@@ -176,7 +253,70 @@ export class HomePage implements AfterViewInit {
       image: `https://images.pexels.com/photos/5817633/pexels-photo-5817633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
-      id: 16,
+      id: 24,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 25,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 26,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 27,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 28,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 29,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 230,
+      description: `Àgua`,
+      items: `Àgua 600ML`,
+      price: `10,00`,
+      enabled: true,
+      selected: false,
+      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
+    },
+    {
+      id: 31,
       description: `Àgua`,
       items: `Àgua 600ML`,
       price: `10,00`,
