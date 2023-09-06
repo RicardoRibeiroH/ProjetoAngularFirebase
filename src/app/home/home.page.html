@@ -1,10 +1,28 @@
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
+  <ion-content class="ion-padding">
+    <ion-row class="link-meu">
+      <ion-col size="12">
+        <a href="../home/home.page.html">Cardapio</a>
+      </ion-col>
+      <ion-col size="12">
+        <a href="#">Fale Conosco</a>
+      </ion-col>
+      <ion-col size="12">
+        <a href="#">Termos de Uso</a>
+      </ion-col>
+      <ion-col size="12">
+        <a href="../politica/politica.page.html">Politica de Privacidade</a>
+      </ion-col>
+      <ion-col size="12">
+        <a href="#">Login</a>
+      </ion-col> 
+  </ion-row>
+  </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
@@ -42,9 +60,9 @@
       <ng-container *ngFor="let lanche of this.lanches">
         <ng-container *ngIf="lanche.enabled">
           <ng-container *ngIf="lanche.price">
-            <ion-col size="2">
+            <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
               <ion-card>
-                <img src="{{ lanche.image }}" width="400px" height="400px"/>
+                <img src="{{ lanche.image }}" width="300px" height="300px"/>
                 <ion-card-header>
                   <ion-card-title>{{ lanche.description }}</ion-card-title>
                   <ion-card-subtitle>
@@ -89,7 +107,7 @@
       <ng-container *ngFor="let porcao of this.porcoes">
         <ng-container *ngIf="porcao.enabled">
           <ng-container *ngIf="porcao.price">
-            <ion-col size="2">
+            <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
               <ion-card>
                 <img src="{{ porcao.image }}" width="400px" height="400px"/>
                 <ion-card-header>
@@ -135,7 +153,7 @@
       <ng-container *ngFor="let bebida of this.bebidas">
         <ng-container *ngIf="bebida.enabled">
           <ng-container *ngIf="bebida.price">
-            <ion-col size="2">
+            <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
               <ion-card>
                 <img src="{{ bebida.image }}" width="400px" height="400px"/>
                 <ion-card-header>
@@ -254,28 +272,28 @@
         <ion-content>
           <ion-row class="ion-justify-content-center">
                 <ion-col size="12" size-lg="6">
-                  <form #inserirInfoForm="ngForm" (ngSubmit)="inserirInfo(inserirInfoForm.value)">
+                  <form>
                     <ion-item lines="none">
                     </ion-item>
                     <ion-item>
-                      <ion-input label="Nome" name="nome" ngModel type="text"></ion-input>
+                      <ion-input label="Nome" name="nome"  type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input label="Telefone" name="telefone" ngModel type="text"></ion-input>
+                      <ion-input label="Telefone" name="telefone"  type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input label="CEP" name="cep" ngModel type="text"></ion-input>
+                      <ion-input label="CEP" name="cep" type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input label="Bairro" name="bairro" ngModel type="text"></ion-input>
+                      <ion-input label="Bairro" name="bairro"  type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input label="Rua" name="rua" ngModel type="text"></ion-input>
+                      <ion-input label="Rua" name="rua"  type="text"></ion-input>
                     </ion-item>
                     <ion-item>
-                      <ion-input label="Numero" name="numero" ngModel type="text"></ion-input>
+                      <ion-input label="Numero" name="numero" type="text"></ion-input>
                     </ion-item>
-                      <ion-button color="light" slot="end" type="submit" class="bnt__infos-loc">Enviar</ion-button>
+                      
                   </form>
             </ion-col>
           </ion-row> 
@@ -294,6 +312,7 @@
             </ion-buttons>
             <ion-buttons slot="end">
               <ion-button id="present-alert" (click)="setOpen(false)">Finalizar</ion-button>
+              <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
               <ion-alert
                 trigger="present-alert"
                 header="Pedidio Enviado"

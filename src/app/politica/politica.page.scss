@@ -1,0 +1,20 @@
+*{
+    text-decoration: none;
+}
+.text-top{
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 0.8em;
+}
+main{
+    margin-left: 10%;
+}
+.link-form:hover{
+    color: red;
+}
+ion-content > ion-row > ion-col > a{
+    color: black;
+}
+ion-content > ion-row > ion-col > a:hover{
+    color: rgb(206, 204, 204);
+  }

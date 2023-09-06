@@ -330,6 +330,17 @@ export class HomePage implements AfterViewInit {
     console.log(this.cart);
   }
 
+  add = 'mais';
+
+  adicionarcarrinho(item_id: any,  selected: boolean, add: any){
+    this.lanches.forEach(lanche=> {
+      if (lanche.id == item_id)
+      lanche.selected = add;
+  });
+  this.calculateTotal();
+  this.hasCartItem = this.lanches.filter(lanche => lanche.selected == true);
+  }
+
   selected(item_id: any, selected: boolean){
     this.lanches.forEach(lanche=> {
         if (lanche.id == item_id)

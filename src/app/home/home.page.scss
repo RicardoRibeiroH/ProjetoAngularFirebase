@@ -1,4 +1,12 @@
-
+*{
+  text-decoration: none;
+}
+a{
+  color: black;
+}
+a:hover{
+  color: rgb(206, 204, 204);
+}
 ion-card {
     height: 100%;
   }
@@ -93,4 +101,21 @@ ion-card {
   .bnt__infos-loc{
     margin-top: 10px;
     margin-left: 35%;
+  }
+
+  @media only screen and (max-width: 1025px){
+    .cart{
+      width: 50%;
+    }
+  }
+  @media only screen and (max-width: 650px){
+    .cart{
+      width: 90%;
+    }
+  }
+  @media only screen and (max-width: 450px){
+    ion-card > img{
+      width: 200px;
+      height: 200px;
+    }
   }
