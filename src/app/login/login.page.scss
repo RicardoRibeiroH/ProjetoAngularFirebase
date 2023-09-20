@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+    // outline: 1px solid rgb(255, 128, 128);
+    background: rgb(253,29,29);
+    background: linear-gradient(119deg, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 50%);
+}
+
+.img-logo{
+    width: 150px;
+}
+
+.btn-cadastro{
+    width: 200px;
+    position: absolute;
+    right: 0;
+    top: 15%;
+}
+
+.card-bg{
+    width: 25vw;
+    height: 50vh;
+    left: 17%;
+    top: 10%;
+}
+
+.input-login{
+    left: 18%;
+    width: 16vw;
+    height: 30px;
+    margin-top: 5%;
+}
+
+.title-login{
+    text-align: center;
+    font-size: 3em;
+    margin-top: 8%;
+    margin-bottom: 12%;
+}
+
+.text{
+    margin: 5%;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.btn-registro{
+    width: 200px;
+    position: absolute;
+    left: 27.5%;
+    
+}
+
+.img-right{
+    width: 30vw;
+}
+

@@ -1,13 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="login-page">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-row>
+    <ion-col size="6" class="cabecalho"><img src="../../assets/logo nova tcc/sem fundo/sem fundo 2.png" alt="Logo di Free Fire" class="img-logo"></ion-col>
+    <ion-col size="6" class="cabecalho"><ion-button class="btn-cadastro">Ir para Cadastro <ion-icon name="arrow-forward-outline" alt="Botão para ir a tela de Cadastro"></ion-icon></ion-button></ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-card class="card-bg">
+        <h2 class="title-login">Login</h2>
+        <ion-input class="input-login" label="E-mail" label-placement="floating" fill="outline" placeholder="Digite um E-mail valido"></ion-input>
+        <ion-input class="input-login" label="Senha" label-placement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
+        <p class="text">Não possui Cadastro ainda? <br> <a href="#">Cadastre-se </a>aqui.</p>
+        <ion-button class="btn-registro">Ir para Cadastro</ion-button>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6">
+      <img src="../../assets/img/hamburger.png" alt="Imagem de um hamburger no centro da tela" class="img-right">
+    </ion-col>
+  </ion-row>
+
 </ion-content>
