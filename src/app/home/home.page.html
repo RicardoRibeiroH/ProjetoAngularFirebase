@@ -46,55 +46,61 @@
         <ion-label>BEBIDAS</ion-label>
       </ion-segment-button>
     </ion-segment>
-    
-   <!-- lanches -->
-    <ng-container *ngIf="trocarElement == 'lanches'">
-    <ion-row class="ion-text-center">
-      <ion-col size="12">
-        <ion-text>
-          <h1>Lanche</h1>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="lanches ion-justify-content-center" id="lanches">
-      <ng-container *ngFor="let lanche of this.lanches">
-        <ng-container *ngIf="lanche.enabled">
-          <ng-container *ngIf="lanche.price">
-            <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
-              <ion-card>
-                <img src="{{ lanche.image }}" width="300px" height="300px"/>
-                <ion-card-header>
-                  <ion-card-title>{{ lanche.description }}</ion-card-title>
-                  <ion-card-subtitle>
-                    <ion-row>
-                      <ion-col>
-                        <ion-label>
-                          <h2 class="price"> R$ {{ lanche.price }}</h2>
-                        </ion-label>
-                      </ion-col>
-                      <ion-col size="auto" class="ion-text-end" (click)="selected(lanche.id, lanche.selected)">
-                        <ng-container *ngIf="lanche.selected">
-                          <ion-icon name="remove-outline"></ion-icon>
-                        </ng-container>
-                        <ng-container *ngIf="!lanche.selected">
-                          <ion-icon name="add-outline"></ion-icon>
-                        </ng-container>
-                      </ion-col>
-                    </ion-row>
-                  </ion-card-subtitle>
-                </ion-card-header>      
-                <ion-card-content>
-                  {{ lanche.items }}
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
+   
+    <ng-container *ngFor="let produto of this.produtos">
+      <ng-container *ngIf="produto.type == 'lanche'">
+        <ion-row class="ion-text-center">
+          <ion-col size="12">
+            <ion-text>
+              <h1>Lanche</h1>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ng-container *ngFor="let lanche of this.lanches">
+            <ng-container *ngIf="lanche.enabled">
+              <ng-container *ngIf="lanche.price">
+                <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
+                  <ion-card>
+                    <img src="{{ lanche.image }}" width="300px" height="300px"/>
+                    <ion-card-header>
+                      <ion-card-title>{{ lanche.description }}</ion-card-title>
+                      <ion-card-subtitle>
+                        <ion-row>
+                          <ion-col>
+                            <ion-label>
+                              <h2 class="price"> R$ {{ lanche.price }}</h2>
+                            </ion-label>
+                          </ion-col>
+                          <ion-col size="auto" class="ion-text-end" >
+                            <ng-container *ngIf="lanche.selected">
+                              <ion-icon name="remove-outline" (click)="selected(lanche.id, lanche.selected)"></ion-icon>
+                              <ion-icon name="add-outline"></ion-icon>
+                            </ng-container>
+                            <ng-container *ngIf="!lanche.selected">
+                                <ion-input label="Qtde" type="number" placeholder="000" ></ion-input>
+                              <ion-icon name="add-outline" (click)="selected(lanche.id, lanche.selected)"></ion-icon>
+                            </ng-container>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-subtitle>
+                    </ion-card-header>      
+                    <ion-card-content>
+                      {{ lanche.items }}
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ng-container>
+            </ng-container>
           </ng-container>
-        </ng-container>
+        </ion-row>
       </ng-container>
-    </ion-row>
+    </ng-container>
+    <!-- <ng-container *ngIf="trocarElement == 'lanches'">
+    
   </ng-container>
   
-    <!-- porções -->
+    
     <ng-container *ngIf="trocarElement == 'porcoes'">
     <ion-row class="ion-text-center">
       <ion-col size="12">
@@ -140,7 +146,8 @@
       </ng-container>
     </ion-row>
   </ng-container>
-    <!-- bebidas -->
+    
+
     <ng-container *ngIf="trocarElement == 'bebidas' ">
     <ion-row class="ion-text-center">
       <ion-col size="12">
@@ -186,7 +193,7 @@
       </ng-container>
     </ion-row>
   </ng-container>
-    <!-- Cart -->
+    
     <ng-container *ngIf="this.hasCartItem">
       <ng-container *ngIf="this.hasCartItem.length > 0">
       <div class="cart">
@@ -247,7 +254,7 @@
     </ng-container>
   </ng-container>
   
-  <!-- Modal -->
+  
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ng-container *ngIf="this.step == 1">
@@ -357,6 +364,7 @@
     </ng-template>
   </ion-modal>
   
+   -->
   
   
   
@@ -364,9 +372,7 @@
   
   
   
-  
-  
-  
+
   
   
   
@@ -526,7 +532,7 @@
   
   
     
-  
+      <!-- [(lanche.quantidade)] -->
   </ion-content>  
 </div>
 

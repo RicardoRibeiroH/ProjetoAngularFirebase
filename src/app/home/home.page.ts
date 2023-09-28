@@ -29,12 +29,14 @@ export class HomePage implements AfterViewInit {
     this.step = valor;
   }
   public alertButtons = ['OK'];
-  lanches = [
+  produtos = [
     {
       id: 0, 
       description: `X Burguer`,
       items: `Pão com brioche, 1 Carne de Hamburguer,  Cheddar, Mussarela, Alface, Tomate`,
       price: `33,00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -44,6 +46,8 @@ export class HomePage implements AfterViewInit {
       description: `X Egg`, 
       items: `Pão com brioche, 1 Carne de Hamburguer, Ovo Frito, Mussarela, Alface, Tomate`,
       price: `25,00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/17831235/pexels-photo-17831235/free-photo-of-hamburguer-sanduiche-fotografia-de-alimentos-fotografia-de-comida.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -53,6 +57,8 @@ export class HomePage implements AfterViewInit {
       description: `X Salada`,
       items: `Pão com brioche, 1 Bisteca, Alface, Tomate, Cebola, Picles`,
       price: `30,00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/327158/pexels-photo-327158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -62,6 +68,8 @@ export class HomePage implements AfterViewInit {
       description: `Fran Burguer`,
       items: `Pão com brioche, 1 Frango empanado, Alface, Tomate, Cebola`,
       price: `28,50`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/2983103/pexels-photo-2983103.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -71,6 +79,8 @@ export class HomePage implements AfterViewInit {
       description: `X tudo`,
       items: `Pão com brioche, 1 Carne de Hamburguer, 1 Ovo Frito, 1 Bisteca, 1 Frango Empanado, Cheddar, Mussarela, Alface, Tomate, Cebola,  Picles`,
       price: `50,00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/15476361/pexels-photo-15476361/free-photo-of-grande-enorme-importante-borda.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -80,6 +90,8 @@ export class HomePage implements AfterViewInit {
       description: `Simplão`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
       price: `15.00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -89,6 +101,8 @@ export class HomePage implements AfterViewInit {
       description: `Simplão`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
       price: `15.00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -98,6 +112,8 @@ export class HomePage implements AfterViewInit {
       description: `Simplão`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
       price: `15.00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -107,18 +123,19 @@ export class HomePage implements AfterViewInit {
       description: `Simplão`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
       price: `15.00`,
+      type: 'lanche',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
-  ];
-
-  porcoes = [
     {
       id: 9, 
       description: `Batata Frita`,
       items: `Batata Frita`,
       price: `10,00`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/8880739/pexels-photo-8880739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -128,6 +145,8 @@ export class HomePage implements AfterViewInit {
       description: `Cebola Frita`, 
       items: `Cebola Frita`,
       price: `15,00`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/6941050/pexels-photo-6941050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -137,6 +156,8 @@ export class HomePage implements AfterViewInit {
       description: `Frango Frito`,
       items: `Frango Frito`,
       price: `18,00`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/13795311/pexels-photo-13795311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -146,6 +167,8 @@ export class HomePage implements AfterViewInit {
       description: `Nuggets`,
       items: `Nuggets de frango`,
       price: `28,50`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -155,6 +178,8 @@ export class HomePage implements AfterViewInit {
       description: `Nuggets`,
       items: `Nuggets de frango`,
       price: `28,50`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -164,6 +189,8 @@ export class HomePage implements AfterViewInit {
       description: `Nuggets`,
       items: `Nuggets de frango`,
       price: `28,50`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -173,6 +200,8 @@ export class HomePage implements AfterViewInit {
       description: `Nuggets`,
       items: `Nuggets de frango`,
       price: `28,50`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -182,6 +211,8 @@ export class HomePage implements AfterViewInit {
       description: `Nuggets`,
       items: `Nuggets de frango`,
       price: `28,50`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -191,18 +222,19 @@ export class HomePage implements AfterViewInit {
       description: `Nuggets`,
       items: `Nuggets de frango`,
       price: `28,50`,
+      type: 'porcao',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
-  ];
-
-  bebidas = [
     {
       id: 18, 
       description: `Coca-Cola`,
       items: `Coca-Cola 500ML`,
       price: `8,00`,
+      type: 'bebida',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/3200651/pexels-photo-3200651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -212,6 +244,8 @@ export class HomePage implements AfterViewInit {
       description: `Coca-Cola`, 
       items: `Coca-Cola 700ML`,
       price: `10,00`,
+      type: 'bebida',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/2983100/pexels-photo-2983100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -221,6 +255,8 @@ export class HomePage implements AfterViewInit {
       description: `Pepsi`,
       items: `Pepsi 500ML`,
       price: `10,00`,
+      type: 'bebida',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/9935862/pexels-photo-9935862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -230,6 +266,8 @@ export class HomePage implements AfterViewInit {
       description: `Suco de Laranja`,
       items: `Suco de Laranja 500ML`,
       price: `15,00`,
+      type: 'bebida',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
@@ -239,6 +277,8 @@ export class HomePage implements AfterViewInit {
       description: `Suco de Morango`,
       items: `Suci de Morango 500ML`,
       price: `15,00`,
+      type: 'bebida',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/7586828/pexels-photo-7586828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -248,6 +288,8 @@ export class HomePage implements AfterViewInit {
       description: `Suco de Abacaxi`,
       items: `Suco de Abacaxi 500ML`,
       price: `15,00`,
+      type: 'bebida',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/5817633/pexels-photo-5817633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -257,69 +299,8 @@ export class HomePage implements AfterViewInit {
       description: `Àgua`,
       items: `Àgua 600ML`,
       price: `10,00`,
-      enabled: true,
-      selected: false,
-      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
-    },
-    {
-      id: 25,
-      description: `Àgua`,
-      items: `Àgua 600ML`,
-      price: `10,00`,
-      enabled: true,
-      selected: false,
-      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
-    },
-    {
-      id: 26,
-      description: `Àgua`,
-      items: `Àgua 600ML`,
-      price: `10,00`,
-      enabled: true,
-      selected: false,
-      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
-    },
-    {
-      id: 27,
-      description: `Àgua`,
-      items: `Àgua 600ML`,
-      price: `10,00`,
-      enabled: true,
-      selected: false,
-      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
-    },
-    {
-      id: 28,
-      description: `Àgua`,
-      items: `Àgua 600ML`,
-      price: `10,00`,
-      enabled: true,
-      selected: false,
-      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
-    },
-    {
-      id: 29,
-      description: `Àgua`,
-      items: `Àgua 600ML`,
-      price: `10,00`,
-      enabled: true,
-      selected: false,
-      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
-    },
-    {
-      id: 230,
-      description: `Àgua`,
-      items: `Àgua 600ML`,
-      price: `10,00`,
-      enabled: true,
-      selected: false,
-      image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
-    },
-    {
-      id: 31,
-      description: `Àgua`,
-      items: `Àgua 600ML`,
-      price: `10,00`,
+      type: 'bebida',
+      quantidade: 0,
       enabled: true,
       selected: false,
       image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
@@ -330,43 +311,24 @@ export class HomePage implements AfterViewInit {
     console.log(this.cart);
   }
 
-  add = 'mais';
-
   adicionarcarrinho(item_id: any,  selected: boolean, add: any){
-    this.lanches.forEach(lanche=> {
-      if (lanche.id == item_id)
-      lanche.selected = add;
+    this.produtos.forEach(produto=> {
+      if (produto.id == item_id)
+      produto.selected = add;
   });
   this.calculateTotal();
-  this.hasCartItem = this.lanches.filter(lanche => lanche.selected == true);
+  this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
   }
 
   selected(item_id: any, selected: boolean){
-    this.lanches.forEach(lanche=> {
-        if (lanche.id == item_id)
-        lanche.selected = !selected;
+    this.produtos.forEach(produto=> {
+        if (produto.id == item_id)
+        produto.selected = !selected;
     });
     this.calculateTotal();
-    this.hasCartItem = this.lanches.filter(lanche => lanche.selected == true);
+    this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
   }
-  selected2(item_id: any, selected2: boolean){
-    this.porcoes.forEach(porcao=> {
-        if (porcao.id == item_id)
-          porcao.selected = !selected2;
-    });
-    this.calculateTotal();
-    this.hasCartItem = this.porcoes.filter(porcao => porcao.selected == true);
-  }
-  selected3(item_id: any, selected3: boolean){
-    this.bebidas.forEach(bebida=> {
-        if (bebida.id == item_id)
-        bebida.selected = !selected3;
-    });
-    this.calculateTotal();
-    this.hasCartItem = this.bebidas.filter(bebida => bebida.selected == true);
-  }
-
-
+  
   upDownCart(){
     if (this.showCart) {
       this.cart.nativeElement.classList.add('hide-cart');
@@ -378,22 +340,9 @@ export class HomePage implements AfterViewInit {
   }
   calculateTotal() {
     this.totalpreco = 0;
-
-    this.lanches.forEach(lanche => {
-      if (lanche.selected) {
-        this.totalpreco += parseFloat(lanche.price.replace(',', '.'));
-      }
-    });
-
-    this.porcoes.forEach(porcao => {
-      if (porcao.selected) {
-        this.totalpreco += parseFloat(porcao.price.replace(',', '.'));
-      }
-    });
-
-    this.bebidas.forEach(bebida => {
-      if (bebida.selected) {
-        this.totalpreco += parseFloat(bebida.price.replace(',', '.'));
+    this.produtos.forEach(produto => {
+      if (produto.selected) {
+        this.totalpreco += parseFloat(produto.price.replace(',', '.'));
       }
     });
   }
@@ -559,5 +508,5 @@ export class HomePage implements AfterViewInit {
         }
       );
   }
-
+// chartJS
 }
