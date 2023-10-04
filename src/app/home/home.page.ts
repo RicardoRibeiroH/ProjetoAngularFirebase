@@ -22,6 +22,7 @@ export class HomePage implements AfterViewInit {
 
   trocarElement = 'lanches';
   trocarElemento(event: any){
+    console.log(event);
    this.trocarElement = event.detail.value;
   }
 
