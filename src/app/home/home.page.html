@@ -168,7 +168,156 @@
         </ng-container>
       </ion-row>
     </ng-container>
-  </ion-content>  
+  </ion-content> 
+   
+   <!-- Cart -->
+   <ng-container *ngIf="this.hasCartItem">
+    <ng-container *ngIf="this.hasCartItem.length > 0">
+    <div class="cart">
+      <div class="cart-header" (click)="upDownCart()">
+        <p>Carrinhos <span>({{ this.hasCartItem.length }})</span></p>
+        <ng-container *ngIf="this.showCart">
+          <ion-icon name="caret-down-outline"></ion-icon>
+        </ng-container>
+        <ng-container *ngIf="!this.showCart">
+          <ion-icon name="caret-up-outline"></ion-icon>
+        </ng-container>
+      </div>
+      <div #cart class="card-content">
+        <ng-container *ngFor="let produto of this.produtos">
+          <ng-container *ngIf="produto.selected">
+            <ion-item>
+              <ion-icon name="trash-outline" slot="start" (click)="selected(produto.id, produto.selected)"></ion-icon>
+              <ion-thumbnail slot="start">
+                <img src="{{ produto.image }}">
+              </ion-thumbnail>
+              <ion-label>{{ produto.description }}</ion-label>
+              <ion-label>R$ {{ produto.price }}</ion-label>
+            </ion-item>
+          </ng-container>
+        </ng-container>
+        <ion-item lines="none">
+          <div *ngIf="hasCartItem && hasCartItem.length > 0">
+            <p>Total: R$ {{ totalpreco.toFixed(2) }}</p>
+          </div>          
+          <ion-button slot="end" size="small" (click)="setOpen(true)">Finalizar</ion-button>
+        </ion-item>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<!-- Modal -->
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ng-container *ngIf="this.step == 1">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ng-container *ngIf="this.settingAddress">
+              <ion-button (click)="setOpen(false)">
+                <ion-label>Cancelar</ion-label>
+                <ion-icon name="close-outline" slot="end"></ion-icon>
+              </ion-button>
+            </ng-container>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="trocarStep(2)">
+              <ion-label>Proximo</ion-label>
+              <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-row class="ion-justify-content-center">
+              <ion-col size="12" size-lg="6">
+                <form #inserirInfoForm="ngForm" (ngSubmit)="inserirInfo(inserirInfoForm.value)">
+                  <ion-item lines="none">
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Nome" name="nome" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Telefone" name="telefone" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="CEP" name="cep" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Bairro" name="bairro" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Rua" name="rua" ngModel type="text"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Numero" name="numero" ngModel type="text"></ion-input>
+                  </ion-item>
+                    <ion-button color="light" slot="end" type="submit" class="bnt__infos-loc">Enviar</ion-button>
+                </form>
+          </ion-col>
+        </ion-row> 
+      </ion-content>
+    </ng-container>
+    <ng-container *ngIf="this.step == 2">
+        <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ng-container>
+              <ion-button (click)="trocarStep(1)">
+                <ion-label>Voltar</ion-label>
+                <ion-icon name="arrow-back-circle-outline"></ion-icon>
+              </ion-button>
+            </ng-container>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button id="present-alert" (click)="setOpen(false)">
+              <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
+              <ion-label>Finalizar</ion-label>
+            </ion-button>
+            <ion-alert
+              trigger="present-alert"
+              header="Pedidio Enviado"
+              [buttons]="alertButtons"
+            ></ion-alert>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-row class="escolhaPagamento ion-justify-content-center">
+        <ion-accordion-group>
+          <ion-radio-group value="money">
+            <ion-accordion value="first">
+              <ion-item slot="header" color="light">
+                <ion-label>Pagar na Entrega</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-item>
+                  <ion-radio value="local-money">Dinheiro</ion-radio><br />
+                </ion-item>
+                <ion-item>
+                  <ion-radio value="local-credit-card">Cartão</ion-radio><br />
+                </ion-item>
+              </div>
+            </ion-accordion>
+            <ion-accordion value="second">
+              <ion-item slot="header" color="light">
+                <ion-label>Pagar Online</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-item>
+                  <ion-radio value="online-credit-card">Cartão</ion-radio><br />
+                </ion-item>
+                <ion-item>
+                  <ion-radio value="online-pix">Pix</ion-radio><br />
+                </ion-item>
+              </div>
+            </ion-accordion>
+          </ion-radio-group>
+        </ion-accordion-group>
+      </ion-row>
+      </ng-container>  
+  </ng-template>
+</ion-modal>
 </div>
 
 
