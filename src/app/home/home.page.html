@@ -50,7 +50,7 @@
     <ng-container>
       <ion-row class="lanches ion-justify-content-center" id="lanches">
         <ng-container *ngFor="let produto of this.produtos">
-          <ng-container *ngIf="trocarElement == 'produto.type = 'lanche''">
+          <ng-container *ngIf="trocarElement == 'lanches'">
           <ng-container *ngIf="produto.type == 'lanche'">
             <ng-container *ngIf="produto.enabled">
               <ng-container *ngIf="produto.price">
@@ -66,12 +66,14 @@
                               <h2 class="price"> R$ {{ produto.price }}</h2>
                             </ion-label>
                           </ion-col>
-                          <ion-col size="auto" class="ion-text-end" (click)="selected(produto.id, produto.selected)">
+                          <ion-col size="auto" class="ion-text-end" >
                             <ng-container *ngIf="produto.selected">
-                              <ion-icon name="remove-outline"></ion-icon>
+                              <ion-icon name="remove-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
+                              <ion-icon name="add-outline"></ion-icon>
                             </ng-container>
                             <ng-container *ngIf="!produto.selected">
-                              <ion-icon name="add-outline"></ion-icon>
+                                <ion-input label="Qtde" type="number" placeholder="000"></ion-input>
+                              <ion-icon name="add-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -86,7 +88,7 @@
             </ng-container>
           </ng-container>
         </ng-container>
-        <ng-container *ngIf="trocarElement == 'produto.type = 'porcao''">
+        <ng-container *ngIf="trocarElement == 'porcoes'">
           <ng-container *ngIf="produto.type == 'porcao'">
             <ng-container *ngIf="produto.enabled">
               <ng-container *ngIf="produto.price">
@@ -102,12 +104,14 @@
                               <h2 class="price"> R$ {{ produto.price }}</h2>
                             </ion-label>
                           </ion-col>
-                          <ion-col size="auto" class="ion-text-end" (click)="selected(produto.id, produto.selected)">
+                          <ion-col size="auto" class="ion-text-end" >
                             <ng-container *ngIf="produto.selected">
-                              <ion-icon name="remove-outline"></ion-icon>
+                              <ion-icon name="remove-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
+                              <ion-icon name="add-outline"></ion-icon>
                             </ng-container>
                             <ng-container *ngIf="!produto.selected">
-                              <ion-icon name="add-outline"></ion-icon>
+                                <ion-input label="Qtde" type="number" placeholder="000"></ion-input>
+                              <ion-icon name="add-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -123,7 +127,7 @@
           </ng-container>
         </ng-container>
 
-        <ng-container *ngIf="trocarElement == 'produto.type = 'porcao''">
+        <ng-container *ngIf="trocarElement == 'bebidas'">
           <ng-container *ngIf="produto.type == 'bebida'">
             <ng-container *ngIf="produto.enabled">
               <ng-container *ngIf="produto.price">
@@ -139,12 +143,14 @@
                               <h2 class="price"> R$ {{ produto.price }}</h2>
                             </ion-label>
                           </ion-col>
-                          <ion-col size="auto" class="ion-text-end" (click)="selected(produto.id, produto.selected)">
+                          <ion-col size="auto" class="ion-text-end" >
                             <ng-container *ngIf="produto.selected">
-                              <ion-icon name="remove-outline"></ion-icon>
+                              <ion-icon name="remove-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
+                              <ion-icon name="add-outline"></ion-icon>
                             </ng-container>
                             <ng-container *ngIf="!produto.selected">
-                              <ion-icon name="add-outline"></ion-icon>
+                                <ion-input label="Qtde" type="number" placeholder="000"></ion-input>
+                              <ion-icon name="add-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
                             </ng-container>
                           </ion-col>
                         </ion-row>
