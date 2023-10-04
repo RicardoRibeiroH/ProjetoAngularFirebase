@@ -54,7 +54,8 @@
           <ng-container *ngIf="produto.type == 'lanche'">
             <ng-container *ngIf="produto.enabled">
               <ng-container *ngIf="produto.price">
-                <ion-col size="2">
+                <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
+                  
                   <ion-card>
                     <img src="{{ produto.image }}" width="400px" height="400px"/>
                     <ion-card-header>
@@ -83,6 +84,7 @@
                       {{ produto.items }}
                     </ion-card-content>
                   </ion-card>
+              
                 </ion-col>
               </ng-container>
             </ng-container>
@@ -92,7 +94,7 @@
           <ng-container *ngIf="produto.type == 'porcao'">
             <ng-container *ngIf="produto.enabled">
               <ng-container *ngIf="produto.price">
-                <ion-col size="2">
+                <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
                   <ion-card>
                     <img src="{{ produto.image }}" width="400px" height="400px"/>
                     <ion-card-header>
@@ -122,6 +124,7 @@
                     </ion-card-content>
                   </ion-card>
                 </ion-col>
+                
               </ng-container>
             </ng-container>
           </ng-container>
@@ -131,7 +134,7 @@
           <ng-container *ngIf="produto.type == 'bebida'">
             <ng-container *ngIf="produto.enabled">
               <ng-container *ngIf="produto.price">
-                <ion-col size="2">
+                <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
                   <ion-card>
                     <img src="{{ produto.image }}" width="400px" height="400px"/>
                     <ion-card-header>
@@ -166,6 +169,7 @@
           </ng-container>
         </ng-container>
         </ng-container>
+      
       </ion-row>
     </ng-container>
   </ion-content> 
