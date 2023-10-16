@@ -3,7 +3,7 @@ import { AuthenticateService } from '../services/auth.service';
 import { CrudService } from '../services/crud.service';
 import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { MessageService } from '../services/message.service';
-import { isNull } from 'util';
+import { Routes, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +30,9 @@ export class HomePage implements AfterViewInit {
     this.step = valor;
   }
   public alertButtons = ['OK'];
+  
+  
+  
   produtos = [
     {
       id: 0, 
@@ -308,6 +311,8 @@ export class HomePage implements AfterViewInit {
     },
   ];
 
+  
+  
   ngAfterViewInit(): void {
     console.log(this.cart);
   }

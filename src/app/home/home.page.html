@@ -16,10 +16,10 @@
         <a href="#">Termos de Uso</a>
       </ion-col>
       <ion-col size="12">
-        <a href="../politica/politica.page.html">Politica de Privacidade</a>
+        <a routerLink="/politica">Politica de Privacidade</a>
       </ion-col>
       <ion-col size="12">
-        <a href="#">Login</a>
+        <a routerlink="/login">Login</a>
       </ion-col> 
   </ion-row>
   </ion-content>
@@ -112,7 +112,7 @@
                               <ion-icon name="add-outline"></ion-icon>
                             </ng-container>
                             <ng-container *ngIf="!produto.selected">
-                                <ion-input label="Qtde" type="number" placeholder="000"></ion-input>
+                              <ion-input id="quantidadeInput" label="Qtde" type="number" placeholder="000"></ion-input>
                               <ion-icon name="add-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
                             </ng-container>
                           </ion-col>
