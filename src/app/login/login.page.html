@@ -1,31 +1,38 @@
 <ion-content [fullscreen]="true">
-  <section class="login-page">
-  
+  <section class="login_page">
     <div class="wave">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <svg 
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 1200 120" 
+        preserveAspectRatio="none">
           <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
       </svg>
   </div>
 
-  <ion-row>
-    <ion-col size="6" class="cabecalho"><img src="../../assets/img/dashboard flavor/logo nova 2023/sem fundo/logo sem fundo.png" alt="Logo di Free Fire" class="img-logo"></ion-col>
-    <ion-col size="6" class="cabecalho"><ion-button class="btn-cadastro">Ir para Cadastro <ion-icon name="arrow-forward-outline" alt="Botão para ir a tela de Cadastro"></ion-icon></ion-button></ion-col>
-  </ion-row>
+      <ion-row>
+        <ion-col size="12"> <img src="../../assets/img/dashboard flavor/logo nova 2023/sem fundo/logo sem fundo.png" width="180px" alt=""></ion-col>
+      </ion-row>
 
-  <ion-row>
-    <ion-col size="5">
-      <ion-card class="card-bg"></ion-card>
-        <h2 class="title-login">Login</h2>
-        <ion-input class="input-login" label="E-mail" label-placement="floating" fill="outline" placeholder="Digite um E-mail valido"></ion-input>
-        <ion-input class="input-login" label="Senha" label-placement="floating" fill="outline" type="password" placeholder="Digite sua senha"></ion-input>
-        <p class="text">Não possui Cadastro ainda? <br> <a href="#">Cadastre-se </a>aqui.</p>
-        <ion-button class="btn-registro">Fazer Login</ion-button>
+    <ion-row>
       
-    </ion-col>
-    <ion-col size="7 ">
-      <img src="../../assets/img/hamburger.png" alt="Imagem de um hamburger no centro da tela" class="img-right">
-    </ion-col>
-  </ion-row>
+      <ion-col size="6" class="ion-text-center"> 
 
-</section>
+          <div class="back-dark"></div>
+
+          <h3>Login</h3>
+
+          <ion-input class="text_input" label="E-mail" label-placement="floating" fill="outline"></ion-input> 
+          <ion-input class="text_input" label="Senha" label-placement="floating" fill="outline"></ion-input> 
+          <p>Não possui Login? <br> Cadastre-se <a href="#">aqui</a></p>
+          <ion-button class="btn_input">Login</ion-button>
+
+      </ion-col>
+
+      <ion-col size="6"> 
+        <img src="../../assets/img/hamburger.png" width="480px" alt="">
+      </ion-col>
+
+    </ion-row>
+  </section>
 </ion-content>
