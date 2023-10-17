@@ -19,7 +19,6 @@ export class HomePage implements AfterViewInit {
   settingAddress: boolean = true;
   totalpreco: number = 0;
   step = 1;
-
   trocarElement = 'lanches';
   trocarElemento(event: any){
     console.log(event);
@@ -30,9 +29,15 @@ export class HomePage implements AfterViewInit {
     this.step = valor;
   }
   public alertButtons = ['OK'];
-  
-  
-  
+  // quantidadeInput = document.getElementById('quantidadeInput');
+  // atualizarQtd(attQtd: number, selected: boolean, item_id: any) {
+  //   this.produtos.forEach(produto=> {
+  //     if (produto){
+  //       produto.quantidade = this.quantidadeInput;
+  //       console.log(attQtd);
+  //     }
+  // });
+  // }
   produtos = [
     {
       id: 0, 

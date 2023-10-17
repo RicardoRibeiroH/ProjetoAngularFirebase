@@ -7,13 +7,13 @@
   <ion-content class="ion-padding">
     <ion-row class="link-meu">
       <ion-col size="12">
-        <a href="../home/home.page.html">Cardapio</a>
+        <a routerLink="/home">Cardapio</a>
       </ion-col>
       <ion-col size="12">
-        <a href="#">Fale Conosco</a>
+        <a routerLink="/">Fale Conosco</a>
       </ion-col>
       <ion-col size="12">
-        <a href="#">Termos de Uso</a>
+        <a routerLink="/">Termos de Uso</a>
       </ion-col>
       <ion-col size="12">
         <a routerLink="/politica">Politica de Privacidade</a>
@@ -72,10 +72,10 @@
                           <ion-col size="auto" class="ion-text-end" >
                             <ng-container *ngIf="produto.selected">
                               <ion-icon name="remove-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
-                              <ion-icon name="add-outline"></ion-icon>
                             </ng-container>
                             <ng-container *ngIf="!produto.selected">
-                                <ion-input label="Qtde" type="number" placeholder="000"></ion-input>
+                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidadeInput" ></ion-input> 
+                              <!-- (click)="atualizarQtd(produto.quantidade, produto.selected, produto.id)" -->
                               <ion-icon name="add-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
                             </ng-container>
                           </ion-col>
@@ -111,10 +111,9 @@
                           <ion-col size="auto" class="ion-text-end" >
                             <ng-container *ngIf="produto.selected">
                               <ion-icon name="remove-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
-                              <ion-icon name="add-outline"></ion-icon>
                             </ng-container>
                             <ng-container *ngIf="!produto.selected">
-                              <ion-input id="quantidadeInput" label="Qtde" type="number" placeholder="000"></ion-input>
+                              <ion-input id="quantidadeInput" label="Quantidade" type="number" placeholder="000"></ion-input>
                               <ion-icon name="add-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
                             </ng-container>
                           </ion-col>
@@ -152,10 +151,10 @@
                           <ion-col size="auto" class="ion-text-end" >
                             <ng-container *ngIf="produto.selected">
                               <ion-icon name="remove-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
-                              <ion-icon name="add-outline"></ion-icon>
+                            
                             </ng-container>
                             <ng-container *ngIf="!produto.selected">
-                                <ion-input label="Qtde" type="number" placeholder="000"></ion-input>
+                                <ion-input label="Quantidade" type="number" placeholder="000"></ion-input>
                               <ion-icon name="add-outline" (click)="selected(produto.id, produto.selected)"></ion-icon>
                             </ng-container>
                           </ion-col>
