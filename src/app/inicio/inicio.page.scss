@@ -1,0 +1,16 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 1px black dashed;
+}
+.top-side{
+    margin-left: 10%;
+    
+    & .menu-link{
+        margin-top: 6%;
+        & a{
+            color: rgb(7, 6, 6);
+        }
+    }
+}
