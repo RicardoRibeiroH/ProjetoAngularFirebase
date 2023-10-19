@@ -85,15 +85,6 @@ header {
 //     }
 // }
 
-
-
-
-
-
-
-
-
-
 // .wave {
 //     position: absolute;
 //     top: 0;
@@ -115,3 +106,50 @@ header {
 // .wave .shape-fill {
 //     fill: #F28705;
 // }
+
+
+@media (max-width: 400px){
+    img {
+        display: none;
+    }
+
+    .back-dark{
+    display: none;
+    }
+
+    h3{
+        margin-top: 40%;
+        color: black;
+    }
+
+    .btn_input{
+        // margin-left: 80%;
+        // display: flex;
+        // justify-content: center;
+        width: 30%;
+        align-items: center;
+    }
+
+    .text_input{
+        margin-top: 2%;
+        left: 23%;
+        color: black;
+        border-radius: 10px;
+        outline: 1px solid rgb(26, 26, 26);
+    }
+
+    p{
+        margin-top: 3%;
+        text-align: center;
+        color: black;
+    }
+
+    .waves{
+        position: absolute;
+        right: 0;
+        left: 0;
+        z-index: -1;
+        transform: rotate(180deg);
+    }
+    
+}
