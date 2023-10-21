@@ -45,14 +45,17 @@
         }
     }
 }
-.cards-mid-top{
-    margin-top: 5%;
-    & ion-card{
-        width: 300px;
-        height: 150px;
-       
-    }
-    & .cads-top-bt{
-        margin-top: 20px;
+.conteudo-card{
+    background-color: #000080;
+    & .card-mid-top{
+        & ion-card{
+            height: 200px;
+            margin: 20px;
+            & h1{
+                font-weight: bold;
+                font-size: 2em;
+                margin-top: 20px;
+            }
+        }
     }
 }
