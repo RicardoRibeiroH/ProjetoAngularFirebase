@@ -2,6 +2,7 @@
 *{
     margin:0;
     padding: 0;
+    // outline: 1px dashed orange;
 }
 .top-side{
     background-color: #F29F05;
@@ -52,10 +53,85 @@
             height: 200px;
             margin: 20px;
             & h1{
+                
                 font-weight: bold;
                 font-size: 2em;
-                margin-top: 20px;
+                
             }
         }
     }
 }
+ion-footer{ 
+    & .footer-top{
+        background-color: black;
+        
+        & .col-footer-2{
+            margin-top: 50px;
+            h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            ion-label{
+                
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-3{
+            margin-top: 50px;
+            h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            ion-label{
+               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-4{
+            margin-top: 50px;
+            h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;               
+            }
+            ion-label{
+               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-5{
+            margin-top: 50px;
+            h2{
+                color: white; 
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;              
+            }
+            ion-label{
+               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-6{
+            margin-top: 100px;
+        }
+    }
+    & .footer-bottom{
+        height: 100px;
+        background-color: red;
+        & .text-footer{
+            margin-top: 50px;
+            & ion-label{           
+            color: white;
+            
+        }
+        }
+       
+    }
+}
+
