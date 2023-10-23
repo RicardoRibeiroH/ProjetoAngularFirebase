@@ -43,6 +43,9 @@
         }
     }
 }
+.ion-segment{
+    --indicator-color: #F29F05;
+}
 .conteudo-card{
     background-color: #000080;
     & .card-mid-top{
@@ -131,7 +134,7 @@
                 border-radius: 50px;
                 width: 40px;
                 height: 60px;
-                background-color: rgb(245, 245, 245);
+                background-color: rgb(252, 250, 250);
             }   
             & .img-card-5{
                 margin-left: 20px;
@@ -146,7 +149,7 @@
     }
 }
 .sobre-nos{
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(252, 250, 250);
     & .row-sobre{
         & .text-title-sobre{
             font-size: 2em;
@@ -166,13 +169,16 @@ ion-footer{
         background-color: black;      
         & .col-footer-2{
             margin-top: 50px;
-            h2{
+            & .img-footer{
+                margin-top: 10%;
+            }
+            & h2{
                 color: white;
                 margin-top: 50px;
                 font-weight: bold;
                 font-size: 1.2em;
             }
-            ion-label{                
+            & ion-label{               
                 color: rgb(160, 159, 159);
             }
         }  
@@ -184,8 +190,7 @@ ion-footer{
                 font-weight: bold;
                 font-size: 1.2em;
             }
-            ion-label{
-               
+            ion-label{   
                 color: rgb(160, 159, 159);
             }
         }  
@@ -226,7 +231,7 @@ ion-footer{
             margin-top: 50px;
             & ion-label{           
             color: white;
-        }
+            }   
         }
        
     }
