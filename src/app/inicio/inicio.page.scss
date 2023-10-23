@@ -7,7 +7,7 @@
 .top-side{
     background: url('../../assets/tela de inicio/imagem-fundo.jpeg') no-repeat center/cover;
     background-color: #F29F05;
-    height: 80%;
+    height: 100%;
     & ion-header{
         margin-left: 10%;
     }
@@ -19,29 +19,27 @@
         
     }
     & .conteudo-top{
-        margin-left: 10%;
-        margin-top: 2%;
+        margin-top: 10%;
         & .conteudo-text{
-            width: 80%;
+            width: 100%;
         }
         & .text-title-top{
-            font-size: 3em;
+            font-size: 4em;
             font-family: 'Merriweather', serif;
             font-weight: bold;
             color: white;
         }
         & .text-title-second{
             margin-top: 10px;
-            font-size: 0.8em;
-            font-family: 'Merriweather', serif;        
+            font-size: 0.8em;       
             color: white;
         }
         & ion-button{
             margin-top: 20px;
             --background: #F27405;
-            
             font-weight: bold;
             color: white;
+            font-size: 1.2em;
         }
     }
 }
@@ -64,8 +62,6 @@
     margin-right: 10%;
     & .item-mid{
         background-color:  #F29F05;
-        
-        
         & ion-card{
             height: 150px;
             margin-top: 40px;
@@ -145,6 +141,22 @@
         & .card-bottom{
             height: 90px;
             margin-top: 20px;
+            margin-bottom: 40px;
+        }
+    }
+}
+.sobre-nos{
+    background-color: rgb(241, 241, 241);
+    & .row-sobre{
+        & .text-title-sobre{
+            font-size: 2em;
+            font-family: 'Merriweather', serif;    
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        & .text-title-second-sobre{
+            font-size: 1.2em;
+            margin-top: 10px;
             margin-bottom: 40px;
         }
     }
