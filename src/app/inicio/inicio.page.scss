@@ -63,7 +63,8 @@
     
     & .item-mid{
         margin-bottom: 5%;
-     
+        margin-left: 10%;
+        margin-right: 10%;
         background-color:  #F29F05;
         & ion-card{
             height: 150px;
@@ -72,18 +73,23 @@
             & .text-title-card{
                 & ion-label{
                     font-size: 1.5em;
+                    font-weight: bold;
+                    color: black;
                 }
             }
             & .text-title-second-card{
                 margin-top: 40%;
                 & ion-label{
+                    font-weight: bold;
                     font-size: 1.5em;
+                    color: black;
                 }              
             }
             & .text-title-card-2{
                 & ion-label{
                     color: white;
                     font-size: 1.5em;
+                    font-weight: bold;
                 }
             }
             & .text-title-second-card-2{
@@ -91,12 +97,14 @@
                 & ion-label{
                     color: white;
                     font-size: 1.5em;
+                    font-weight: bold;
                 }              
             }
             & .text-title-card-4{             
                 & ion-label{
                     color: black;
                     font-size: 1.2em;
+                    font-weight: bold;
                 }              
             }
             & .text-title-card-5{    
@@ -104,6 +112,7 @@
                 & ion-label{
                     color: black;
                     font-size: 1.2em;
+                    font-weight: bold;
                 }              
             }
             & .button-card-5{
@@ -113,7 +122,7 @@
                 margin-top: 15%;
                 border-radius: 50px;
                 width: 120px;
-                height: 70px;
+                height: 80px;
                 background-color: #F29F05;
             }   
             & .img-card-2 {
