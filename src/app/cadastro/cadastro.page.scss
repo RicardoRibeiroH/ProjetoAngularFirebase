@@ -1,11 +1,11 @@
 *{
-    // outline: 1px solid salmon;
+    outline: 1px solid salmon;
 }
 
 h3{
     font-size: 2em;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
     color: white;
 }
 
@@ -23,6 +23,10 @@ p{
     --border-radius: 10px;
 }
 
+.conteudo{
+    height: 100%;
+}
+
 .btn_input{
     // align-items: center;
     --background: #E3371E;
@@ -31,9 +35,9 @@ p{
 
 .back-dark{
     position: absolute;
-    height: 50vh;
+    height: 55vh;
     width: 45vh;
-    top: 10%;
+    top: 3%;
     left: 28%;
     background-color: rgb(61, 61, 61);
     opacity: 0.9;
