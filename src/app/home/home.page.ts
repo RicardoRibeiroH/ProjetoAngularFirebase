@@ -309,6 +309,149 @@ export class HomePage implements AfterViewInit {
       selected: false,
       image: `https://images.unsplash.com/photo-1576468475364-6ff071f7bc7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80`
     },
+    {
+      id: 25,
+      description: `Coxinha`,
+      items: `Coxinha`,
+      price: `8,00`,
+      type: `salgados`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/salgados/1.jpg`
+    },
+    {
+      id: 26,
+      description: `Esfirra`,
+      items: `Esfirra`,
+      price: `05,00`,
+      type: `salgados`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/salgados/2.jpg`
+    },
+    {
+      id: 27,
+      description: `Kibe`,
+      items: `Kibe`,
+      price: `10,00`,
+      type: `salgados`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/salgados/3.jpg`
+    },
+    {
+      id: 28,
+      description: `Pão de Queijo`,
+      items: `Pão de Queijo`,
+      price: `2,00`,
+      type: `salgados`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/salgados/4.jpg`
+    },
+    {
+      id: 29,
+      description: `Bolinha de Queijo`,
+      items: `Bolinha de Queijo`,
+      price: `3,00`,
+      type: `salgados`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/salgados/6.jpg`
+    },
+    {
+      id: 30,
+      description: `Salchicha Empanada`,
+      items: `Salchicha Empanada`,
+      price: `8,00`,
+      type: `salgados`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/salgados/7.jpg`
+    },
+    {
+      id: 31,
+      description: `Empada`,
+      items: `Empada`,
+      price: `5,00`,
+      type: `salgados`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/salgados/7.jpg`
+    },
+    {
+      id: 32,
+      description: `Milk Shake de Brigadeiro`,
+      items: `Milk Shake`,
+      price: `8,00`,
+      type: `sorvetes`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/sorvete/1.jpg`
+    },
+    {
+      id: 33,
+      description: `Milk Shake de Leite Condensado`,
+      items: `Milk Shake`,
+      price: `6,00`,
+      type: `sorvetes`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/sorvete/sorvete 2.jpg`
+    },
+    {
+      id: 34,
+      description: `Milk Shake de Chocolate`,
+      items: `Milk Shake`,
+      price: `10,00`,
+      type: `sorvetes`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/sorvete/3.jpg`
+    },
+    {
+      id: 35,
+      description: `Milk Shake de Morango`,
+      items: `Milk Shake`,
+      price: `12,00`,
+      type: `sorvetes`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/sorvete/4.jpg`
+    },
+    {
+      id: 36,
+      description: `Milk Shake de Caramelo de Chocolate`,
+      items: `Milk Shake`,
+      price: `11,00`,
+      type: `sorvetes`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/sorvete/5.jpg`
+    },
+    {
+      id: 38,
+      description: `Sorvete de Menta`,
+      items: `Sorvete`,
+      price: `8,00`,
+      type: `sorvetes`,
+      quantidade: 0,
+      enabled: true,
+      selected: false,
+      image: `../../assets/imagens comida/sorvete/7.jpg`
+    },
   ];
 
   
