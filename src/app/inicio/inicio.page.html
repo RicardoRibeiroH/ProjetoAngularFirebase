@@ -3,15 +3,15 @@
     <ion-header class="ion-no-border">
         <ion-row>
           <ion-col size="6">
-            <img src="../../assets/logo branco e preto/logo cópia.png" alt="logo flavor fleet" width="150px">
+            <img src="../../assets/logo branco e preto/logo cópia.png" alt="logo flavor fleet" width="150px" routerLink="/inicio">
           </ion-col>
           <ion-col size="6">
             <div class="menu-link">
             <ion-row>
-              <ion-col size="2"><a>HOME</a></ion-col>
-              <ion-col size="2"><a>CARDAPIO</a></ion-col>
-              <ion-col size="2"><a>POLITICA</a></ion-col>
-              <ion-col size="2"><a>LOGIN</a></ion-col>
+              <ion-col size="2"><a routerLink="/inicio">HOME</a></ion-col>
+              <ion-col size="2"><a routerLink="/home">CARDAPIO</a></ion-col>
+              <ion-col size="2"><a routerLink="/politica">POLITICA</a></ion-col>
+              <ion-col size="2"><a routerLink="/login">LOGIN</a></ion-col>
             </ion-row>
           </div>
           </ion-col>
@@ -22,7 +22,7 @@
             <div class="conteudo-text">
               <h1 class="text-title-top ion-text-uppercase">Delicie-se com uma explosão de sabores </h1>
               <p class="text-title-second">Explore nosso site e descubra um mundo de sabores! Navegue em nosso cardápio, faça reservas, e mantenha-se atualizado com ofertas especiais e eventos emocionantes. Sua jornada gastronômica começa aqui.</p>
-              <ion-button shape="round">VER CARDAPIO</ion-button>
+              <ion-button shape="round" routerLink="/home">VER CARDAPIO</ion-button>
           </div>
           </ion-col>
         </ion-row>

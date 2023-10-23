@@ -91,9 +91,9 @@ export class HomePage implements AfterViewInit {
     },
     {
       id: 5,
-      description: `Simplão`,
+      description: `Lanche Kid`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `15.00`,
+      price: `10.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -102,14 +102,14 @@ export class HomePage implements AfterViewInit {
     },
     {
       id: 6,
-      description: `Simplão`,
+      description: `Moda da Casa`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `15.00`,
+      price: `20.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
       selected: false,
-      image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+      image: `https://i.pinimg.com/564x/50/db/c6/50dbc630710c7b0d0e81a8b7a2a85628.jpg`
     },
     {
       id: 7,
@@ -120,18 +120,7 @@ export class HomePage implements AfterViewInit {
       quantidade: 0,
       enabled: true,
       selected: false,
-      image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-    },
-    {
-      id: 8,
-      description: `Simplão`,
-      items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `15.00`,
-      type: 'lanche',
-      quantidade: 0,
-      enabled: true,
-      selected: false,
-      image: `https://images.pexels.com/photos/8862211/pexels-photo-8862211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
+      image: `https://i.pinimg.com/564x/b3/75/af/b375af02b61f7c35698104ffd1cb9470.jpg`
     },
     {
       id: 9, 
@@ -165,72 +154,6 @@ export class HomePage implements AfterViewInit {
       enabled: true,
       selected: false,
       image: `https://images.pexels.com/photos/13795311/pexels-photo-13795311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-    },
-    {
-      id: 12,
-      description: `Nuggets`,
-      items: `Nuggets de frango`,
-      price: `28,50`,
-      type: 'porcao',
-      quantidade: 0,
-      enabled: true,
-      selected: false,
-      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-    },
-    {
-      id: 13,
-      description: `Nuggets`,
-      items: `Nuggets de frango`,
-      price: `28,50`,
-      type: 'porcao',
-      quantidade: 0,
-      enabled: true,
-      selected: false,
-      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-    },
-    {
-      id: 14,
-      description: `Nuggets`,
-      items: `Nuggets de frango`,
-      price: `28,50`,
-      type: 'porcao',
-      quantidade: 0,
-      enabled: true,
-      selected: false,
-      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-    },
-    {
-      id: 15,
-      description: `Nuggets`,
-      items: `Nuggets de frango`,
-      price: `28,50`,
-      type: 'porcao',
-      quantidade: 0,
-      enabled: true,
-      selected: false,
-      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-    },
-    {
-      id: 16,
-      description: `Nuggets`,
-      items: `Nuggets de frango`,
-      price: `28,50`,
-      type: 'porcao',
-      quantidade: 0,
-      enabled: true,
-      selected: false,
-      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
-    },
-    {
-      id: 17,
-      description: `Nuggets`,
-      items: `Nuggets de frango`,
-      price: `28,50`,
-      type: 'porcao',
-      quantidade: 0,
-      enabled: true,
-      selected: false,
-      image: `https://images.pexels.com/photos/17282046/pexels-photo-17282046/free-photo-of-ovo-frito-fornada-assando-brasil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
     },
     {
       id: 18, 
