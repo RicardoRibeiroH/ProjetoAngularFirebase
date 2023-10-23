@@ -53,7 +53,7 @@ ion-card {
       bottom: 0;
       right: 0;
       width: 30%;
-      max-height: 80vh; /* Limit the height of the cart */
+      max-height: 80vh; 
       background: rgb(180, 182, 184);
       border-radius: 8px;
       overflow-y: auto;
@@ -111,14 +111,7 @@ ion-card {
   .card-content {
     padding-top: 4px;
   }
-  
-  .escolhaPagamento{
-    margin-bottom: 100%;
-  }
-  .bnt__infos-loc{
-    margin-top: 10px;
-    margin-left: 35%;
-  }
+
 
   @media only screen and (max-width: 1025px){
     .cart{

@@ -18,9 +18,10 @@ const routes: Routes = [
   {
     path: 'politica',
     loadChildren: () => import('./politica/politica.module').then( m => m.PoliticaPageModule)
-  },  {
-    path: 'cadastro',
-    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   }
 
 

@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    // outline: 1px dashed orange;
+}
+.top-side{
+    background: url('../../assets/tela de inicio/imagem-fundo.jpeg') no-repeat center/cover;
+    background-color: #F29F05;
+    height: 100%;
+    & ion-header{
+        margin-left: 10%;
+    }
+    & .menu-link{
+        margin-top: 8%;
+        & a{
+            color: white;        
+        }
+        
+    }
+    & .conteudo-top{
+        margin-top: 10%;
+        & .conteudo-text{
+            width: 100%;
+        }
+        & .text-title-top{
+            font-size: 4em;
+            font-family: 'Merriweather', serif;
+            font-weight: bold;
+            color: white;
+        }
+        & .text-title-second{
+            margin-top: 10px;
+            font-size: 0.8em;       
+            color: white;
+        }
+        & ion-button{
+            margin-top: 20px;
+            --background: #F27405;
+            font-weight: bold;
+            color: white;
+            font-size: 1.2em;
+        }
+    }
+}
+.ion-segment{
+    --indicator-color: #F29F05;
+}
+.conteudo-card{
+    background-color: #000080;
+    & .card-mid-top{
+        & ion-card{
+            height: 200px;
+            margin: 20px;
+            & h1{
+                font-weight: bold;
+                font-size: 2em;            
+            }
+        }
+    }
+}
+.card-mid{
+    
+    & .item-mid{
+        margin-bottom: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+        background-color:  #F29F05;
+        & ion-card{
+            height: 150px;
+            margin-top: 40px;
+            margin-left: 10px;
+            & .text-title-card{
+                & ion-label{
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    color: black;
+                }
+            }
+            & .text-title-second-card{
+                margin-top: 40%;
+                & ion-label{
+                    font-weight: bold;
+                    font-size: 1.5em;
+                    color: black;
+                }              
+            }
+            & .text-title-card-2{
+                & ion-label{
+                    color: white;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }
+            }
+            & .text-title-second-card-2{
+                margin-top: 40%;
+                & ion-label{
+                    color: white;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }              
+            }
+            & .text-title-card-4{             
+                & ion-label{
+                    color: black;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                }              
+            }
+            & .text-title-card-5{    
+                margin-top: 5px;         
+                & ion-label{
+                    color: black;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                }              
+            }
+            & .button-card-5{
+                margin-top: 20px;
+            }
+            & .img-card-1{
+                margin-top: 15%;
+                border-radius: 50px;
+                width: 120px;
+                height: 80px;
+                background-color: #F29F05;
+            }   
+            & .img-card-2 {
+                margin-top: 15%;
+                border-radius: 50px;
+                width: 120px;
+                height: 80px;
+                background-color: white;
+            }   
+            & .img-card-3 {
+                margin-top: 15%;
+                border-radius: 50px;
+                width: 120px;
+                height: 80px;
+                background-color: rgb(168, 166, 166);
+            }   
+            & .img-card-4 {
+                border-radius: 50px;
+                width: 40px;
+                height: 60px;
+                background-color: rgb(252, 250, 250);
+            }   
+            & .img-card-5{
+                margin-left: 20px;
+                
+            }   
+        }
+        & .card-bottom{
+            height: 90px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+    }
+}
+.sobre-nos{
+    background-color: rgb(252, 250, 250);
+    & .row-sobre{
+        & .text-title-sobre{
+            font-size: 2em;
+            font-family: 'Merriweather', serif;    
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        & .text-title-second-sobre{
+            font-size: 1.2em;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+    }
+}
+ion-footer{ 
+    & .footer-top{
+        background-color: black;      
+        & .col-footer-2{
+            margin-top: 50px;
+            & .img-footer{
+                margin-top: 10%;
+            }
+            & h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            & ion-label{               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-3{
+            margin-top: 50px;
+            h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            ion-label{   
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-4{
+            margin-top: 50px;
+            h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;               
+            }
+            ion-label{
+               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-5{
+            margin-top: 50px;
+            h2{
+                color: white; 
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;              
+            }
+            ion-label{
+               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-6{
+            margin-top: 100px;
+        }
+    }
+    & .footer-bottom{
+        height: 100px;
+        background-color: red;
+        & .text-footer{
+            margin-top: 50px;
+            & ion-label{           
+            color: white;
+            }   
+        }
+       
+    }
+}
+

@@ -50,15 +50,12 @@
             </ion-segment>
           </ion-col>
           <ion-col size="1" class="img">          
-          <a id="logo" href="../home/home.page.html"><img src="../../assets/logo nova tcc/sem fundo/logo.png" alt="logo" width="100px"></a>
+            <a id="logo" href="../home/home.page.html"><img src="../../assets/logo nova tcc/sem fundo/logo.png" alt="logo" width="100px"></a>
           </ion-col>
     </ion-row>
     </ion-toolbar>
   </ion-header>
-
   <ion-content class="ion-padding"> 
-    
-
     <ng-container>
       <ion-row class="lanches ion-justify-content-center" id="lanches">
         <ng-container *ngFor="let produto of this.produtos">
@@ -68,7 +65,7 @@
               <ng-container *ngIf="produto.price">
                 <ion-col size-xs="6" size-md="4" size-lg="3" size-xl="2">
                   <ion-card>
-                    <img src="{{ produto.image }}" width="400px" height="400px"/>        
+                    <img src="{{ produto.image }}" width="300px" height="300px"/>        
                     <ion-row class="ion-justify-content-center">
                       <ion-col size="12" class="ion-text-center ion-margin-top">
                         <ion-card-title class="name-prod">{{ produto.description }}</ion-card-title>
