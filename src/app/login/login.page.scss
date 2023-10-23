@@ -1,0 +1,154 @@
+*{
+    outline: 1px solid salmon;
+}
+
+h3{
+    font-size: 2em;
+    text-align: center;
+    margin-top: 5%;
+    color: white;
+}
+
+p{
+    margin-top: 3%;
+    text-align: center;
+    color: white;
+}
+
+.text_input{
+    width: 30vh;
+    margin-top: 3%;
+    left: 35%;
+    color: white;
+    --border-radius: 10px;
+}
+
+.btn_input{
+    // align-items: center;
+    --background: #F28705;
+    --border-radius: 10px;
+}
+
+.back-dark{
+    position: absolute;
+    height: 50vh;
+    width: 45vh;
+    left: 28%;
+    background-color: rgb(61, 61, 61);
+    opacity: 0.9;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+
+
+
+header {
+    position: relative;
+  }
+
+.waves{
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    transform: rotate(180deg);
+}
+
+.wave-1{
+    animation: moveWave1 2s ease-in infinite alternate;
+}
+@keyframes moveWave1 {
+    from{
+        // transform: translateX(-200px);
+        transform: translateY(-200px);
+    }
+}
+
+// .wave-2{
+//     animation: moveWave2 3s 1.2s ease-in-out infinite alternate;
+// }
+// @keyframes moveWave2 {
+//     from{
+//         transform: translateX(-180px);
+//     }
+// }
+
+// .wave-3{
+//     animation: moveWave3 3s 0.7s ease-in-out infinite alternate;
+// }
+// @keyframes moveWave3 {
+//     from{
+//         transform: translateX(-160px);
+//     }
+// }
+
+
+@media (max-width: 400px){
+    img {
+        display: none;
+    }
+
+    .back-dark{
+    display: none;
+    }
+
+    h3{
+        margin-top: 40%;
+        color: black;
+    }
+
+    .btn_input{
+        // margin-left: 80%;
+        // display: flex;
+        // justify-content: center;
+        width: 30%;
+        align-items: center;
+        --background-activated:#e09231;
+    }
+
+    .text_input{
+        margin-top: 2%;
+        left: 23%;
+        color: black;
+        border-radius: 10px;
+        outline: 1px solid rgb(26, 26, 26);
+    }
+
+    p{
+        margin-top: 3%;
+        text-align: center;
+        color: black;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+// .wave {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     overflow: hidden;
+//     line-height: 0;
+//     transform: rotate(180deg);
+//     z-index: -1;
+// }
+
+// .wave svg {
+//     position: relative;
+//     display: block;
+//     width: calc(123% + 1.3px);
+//     height: 650px;
+// }
+
+// .wave .shape-fill {
+//     fill: #F28705;
+// }
