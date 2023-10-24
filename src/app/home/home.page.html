@@ -9,20 +9,20 @@
   <ion-content class="ion-padding">
     <ion-row class="link-menu">
       <ion-col size="12">
-        <a href="../home/home.page.html">Cardapio</a>
+        <a routerLink="/home">Cardapio</a>
       </ion-col>
       <ion-col size="12">
-        <a href="#">Fale Conosco</a>
+        <a routerLink="#">Fale Conosco</a>
       </ion-col>
       <ion-col size="12">
-        <a href="#">Termos de Uso</a>
+        <a routerLink="/politica">Termos de Uso</a>
       </ion-col>
       <ion-col size="12">
         <a routerLink="/politica">Politica de Privacidade</a>
       </ion-col>
       <ion-col size="12">
-        <a routerlink="/login">Login</a>
-      </ion-col> 
+        <a routerLink="/login">Login</a>
+      </ion-col>
   </ion-row>
   </ion-content>
 </ion-menu>
@@ -54,7 +54,7 @@
             </ion-segment>
           </ion-col>
           <ion-col size="1" class="img">          
-            <a id="logo" href="../home/home.page.html"><img src="../../assets/logo nova tcc/sem fundo/logo.png" alt="logo" width="100px" routerLink="/inicio"></a>
+            <a id="logo" routerLink="/inicio"><img src="../../assets/logo nova tcc/sem fundo/logo.png" alt="logo" width="100px" routerLink="/inicio"></a>
           </ion-col>
     </ion-row>
     </ion-toolbar>
@@ -345,7 +345,7 @@
           <div *ngIf="hasCartItem && hasCartItem.length > 0">
             <p>Total: R$ {{ totalpreco.toFixed(2) }}</p>
           </div>          
-          <ion-button slot="end" size="small" (click)="setOpen(true)">Finalizar</ion-button>
+          <ion-button slot="end" size="small" (click)="setOpen(true)" class="carrinho-btn">Finalizar</ion-button>
         </ion-item>
       </div>
     </div>
@@ -361,14 +361,14 @@
           <ion-buttons slot="start">
             <ng-container *ngIf="this.settingAddress">
               <ion-button (click)="setOpen(false)">
-                <ion-label>Cancelar</ion-label>
+                <ion-label class="text-modal-previous">Cancelar</ion-label>
                 <ion-icon name="close-outline" slot="end"></ion-icon>
               </ion-button>
             </ng-container>
           </ion-buttons>
           <ion-buttons slot="end">
             <ion-button (click)="trocarStep(2)">
-              <ion-label>Proximo</ion-label>
+              <ion-label class="text-modal-next">Próximo</ion-label>
               <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
             </ion-button>
           </ion-buttons>
@@ -410,15 +410,15 @@
           <ion-buttons slot="start">
             <ng-container>
               <ion-button (click)="trocarStep(1)">
-                <ion-label>Voltar</ion-label>
                 <ion-icon name="arrow-back-circle-outline"></ion-icon>
+                <ion-label class="text-modal-previous">Voltar</ion-label>
               </ion-button>
             </ng-container>
           </ion-buttons>
           <ion-buttons slot="end">
             <ion-button id="present-alert" (click)="setOpen(false)">
               <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
-              <ion-label>Finalizar</ion-label>
+              <ion-label class="text-modal-next">Finalizar</ion-label>
             </ion-button>
             <ion-alert
               trigger="present-alert"

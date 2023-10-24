@@ -84,6 +84,25 @@ ion-card {
       }
     }
   }
+
+  .carrinho-btn{
+    --background: red;
+    color: whitesmoke;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .text-modal-next{
+    color: rgb(0, 255, 106);
+    font-weight: bold;
+  }
+
+
+  .text-modal-previous{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+  }
+
   .bnt__infos-loc{
     margin-left: 40%;
   }
@@ -93,6 +112,7 @@ ion-card {
   
   ion-button {
     --background: rgb(180, 182, 184);
+    
   }
   
   .hide-cart {

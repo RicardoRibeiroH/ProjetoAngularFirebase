@@ -13,4 +13,10 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
+  isAlertOpen = false;
+  public alertButtons = ['OK'];
+
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+  }
 }
