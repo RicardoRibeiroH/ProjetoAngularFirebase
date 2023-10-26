@@ -43,40 +43,34 @@
 
     <ion-row>
 
-      <ion-col size="12" size-xl="6" class="ion-text-center">
+      <ion-col size="12" size-xl="6">
 
         <div class="back-dark"></div>
 
-        <h3>Login</h3>
-        <ion-input class="text_input" label="E-mail" label-placement="floating" fill="outline" ></ion-input>
-        <ion-input class="text_input" label="Senha" type="password" label-placement="floating" fill="outline"></ion-input>
-        <p>Não possui Login? <br> Cadastre-se <a routerLink="/cadastro">aqui</a></p>
-        <a routerLink="/inicio"><ion-button class="btn_input">Login</ion-button></a>
-
-        <!-- <ion-row>
+         <ion-row>
           <ion-col size="12">
             <h3>Login</h3>
           </ion-col>
           <ion-col size="12">
-            <ion-input class="text_input" label="E-mail" label-placement="floating" fill="outline"></ion-input>
+            <ion-input class="text_input" label="E-mail" label-placement="floating" fill="outline" [(ngModel)]="email" (keyup.enter)="clicarBotao()"></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-input class="text_input" label="Senha" type="password" label-placement="floating" fill="outline"></ion-input>
+            <ion-input class="text_input" label="Senha" type="password" label-placement="floating" fill="outline" [(ngModel)]="senha" (keyup.enter)="clicarBotao()"></ion-input>
           </ion-col>
+          
           <ion-col size="12">
             <p>Não possui Login? <br> Cadastre-se <a routerLink="/cadastro">aqui</a></p>
           </ion-col>
           <ion-col size="12" class="ion-text-center">
-            <a routerLink="/inicio"><ion-button class="btn_input">Login</ion-button></a>
+            <a routerLink="/inicio"><ion-button class="btn_input" (click)="clicarBotao()">Login</ion-button></a>
           </ion-col>
-        </ion-row> -->
+        </ion-row> 
 
       </ion-col>
 
       <ion-col size="12" size-xl="6">
         <img src="../../assets/img/hamburger.png" width="480px" alt="">
       </ion-col>
-
     </ion-row>
   </section>
 </ion-content>

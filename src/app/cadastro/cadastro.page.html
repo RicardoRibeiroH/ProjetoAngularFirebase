@@ -34,18 +34,16 @@
 
       <ion-row>
 
-        <ion-col size="12" size-xl="6" class="ion-text-center">
-
+        <ion-col size="12" size-xl="6">
           <div class="back-dark"></div>
-
-          <!-- <ion-row>
+           <ion-row>
             <ion-col size="12">
               <h3>Cadastro</h3>
             </ion-col>
             <ion-col size="12">
               <ion-input class="text_input" label="Nome" label-placement="floating" fill="outline"></ion-input>
             </ion-col>
-            <ion-col size="12">0
+            <ion-col size="12">
               <ion-input class="text_input" label="E-mail" label-placement="floating" fill="outline"></ion-input>
             </ion-col>
             <ion-col size="12">
@@ -57,13 +55,7 @@
             <ion-col size="12" class="ion-text-center">
               <a routerLink="/login"><ion-button class="btn_input ion-text-center" color="danger" (click)="setOpen(true)">Cadastre-se</ion-button></a>
             </ion-col>
-          </ion-row>   -->
-          <h3>Cadastro</h3>
-          <ion-input class="text_input" label="Nome" label-placement="floating" fill="outline"></ion-input>
-          <ion-input class="text_input" label="E-mail" label-placement="floating" fill="outline"></ion-input>
-          <ion-input class="text_input" label="Senha" type="password" label-placement="floating" fill="outline"></ion-input>
-          <p>Já possui Cadastro? <br> Faça seu Login <a routerLink="/login">aqui</a></p>
-          <a routerLink="/login"><ion-button class="btn_input" color="danger" (click)="setOpen(true)">Cadastre-se</ion-button></a>
+          </ion-row>  
           <ion-alert [isOpen]="isAlertOpen" header="Cadastro Realizado com Sucesso!" [buttons]="alertButtons" (didDismiss)="setOpen(false)" class="alert-cadastro"></ion-alert>
         </ion-col>
 

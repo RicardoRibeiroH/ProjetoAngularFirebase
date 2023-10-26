@@ -158,3 +158,75 @@ ion-card {
       height: 200px;
     }
   }
+  ion-footer{ 
+    & .footer-top{
+        background-color: black;      
+        & .col-footer-2{
+            margin-top: 50px;
+            & .img-footer{
+                margin-top: 10%;
+            }
+            & h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            & ion-label{               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-3{
+            margin-top: 50px;
+            h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            ion-label{   
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-4{
+            margin-top: 50px;
+            h2{
+                color: white;
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;               
+            }
+            ion-label{
+               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-5{
+            margin-top: 50px;
+            h2{
+                color: white; 
+                margin-top: 50px;
+                font-weight: bold;
+                font-size: 1.2em;              
+            }
+            ion-label{
+               
+                color: rgb(160, 159, 159);
+            }
+        }  
+        & .col-footer-6{
+            margin-top: 100px;
+        }
+    }
+    & .footer-bottom{
+        height: 100px;
+        background-color: red;
+        & .text-footer{
+            margin-top: 50px;
+            & ion-label{           
+            color: white;
+            }   
+        }
+       
+    }
+}

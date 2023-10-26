@@ -17,6 +17,9 @@
         & a{
             color: white;        
         }
+        & a:hover{
+            color: #F29F05;        
+        }
         
     }
     & .conteudo-top{
@@ -50,6 +53,7 @@
 .conteudo-card{
     background-color: #000080;
     & .card-mid-top{
+        
         & ion-card{
             height: 200px;
             margin: 20px;
@@ -61,12 +65,13 @@
     }
 }
 .card-mid{
-    
+    margin-top: 5%;
     & .item-mid{
         margin-bottom: 5%;
         margin-left: 10%;
         margin-right: 10%;
         background-color:  #F29F05;
+        border-radius: 20px;
         & ion-card{
             height: 150px;
             margin-top: 40px;
