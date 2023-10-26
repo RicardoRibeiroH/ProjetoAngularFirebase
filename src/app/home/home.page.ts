@@ -17,8 +17,9 @@ export class HomePage implements AfterViewInit {
   hasCartItem: any;
   showCart = true;
   settingAddress: boolean = true;
-  totalpreco: number = 0;
   step = 1;
+  quantidade: number = 0;
+  totalpreco: number = 0;
 
   trocarElement = 'lanches';
   trocarElemento(event: any){
@@ -93,7 +94,7 @@ export class HomePage implements AfterViewInit {
       id: 5,
       description: `Lanche Kid`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `10.00`,
+      price: `10,00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -104,7 +105,7 @@ export class HomePage implements AfterViewInit {
       id: 6,
       description: `Moda da Casa`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `20.00`,
+      price: `20,00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -115,7 +116,7 @@ export class HomePage implements AfterViewInit {
       id: 7,
       description: `Simplão`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `15.00`,
+      price: `15,00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -247,7 +248,7 @@ export class HomePage implements AfterViewInit {
       id: 26,
       description: `Esfirra`,
       items: `Esfirra`,
-      price: `05,00`,
+      price: `5,00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -285,7 +286,7 @@ export class HomePage implements AfterViewInit {
       quantidade: 0,
       enabled: true,
       selected: false,
-      image: `../../assets/imagens comida/salgados/6.jpg`
+      image: `../../assets/imagens comida/salgados/5.jpg`
     },
     {
       id: 30,
@@ -296,7 +297,7 @@ export class HomePage implements AfterViewInit {
       quantidade: 0,
       enabled: true,
       selected: false,
-      image: `../../assets/imagens comida/salgados/7.jpg`
+      image: `../../assets/imagens comida/salgados/6.jpg`
     },
     {
       id: 31,
@@ -351,29 +352,29 @@ export class HomePage implements AfterViewInit {
       quantidade: 0,
       enabled: true,
       selected: false,
-      image: `../../assets/imagens comida/sorvete/4.jpg`
+      image: `../../assets/imagens comida/sorvete/5.jpg`
     },
     {
       id: 36,
-      description: `Milk Shake de Caramelo de Chocolate`,
-      items: `Milk Shake`,
+      description: `Casquinha Mista`,
+      items: `Sorvete`,
       price: `11,00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
       selected: false,
-      image: `../../assets/imagens comida/sorvete/5.jpg`
+      image: `https://i.pinimg.com/564x/41/1b/5e/411b5e417518396288fd781b7abd7c38.jpg`
     },
     {
       id: 38,
-      description: `Sorvete de Menta`,
+      description: `Casquinha de Chocolate`,
       items: `Sorvete`,
       price: `8,00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
       selected: false,
-      image: `../../assets/imagens comida/sorvete/7.jpg`
+      image: `https://i.pinimg.com/564x/9e/e3/49/9ee349e1b8eae6dba323059914d95813.jpgg`
     },
   ];
 
@@ -388,7 +389,7 @@ export class HomePage implements AfterViewInit {
       if (produto.id == item_id)
       produto.selected = add;
   });
-  this.calculateTotal();
+  this.calcularTotal();
   this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
   }
 
@@ -397,7 +398,7 @@ export class HomePage implements AfterViewInit {
         if (produto.id == item_id)
         produto.selected = !selected;
     });
-    this.calculateTotal();
+    this.calcularTotal();
     this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
   }
   
@@ -410,7 +411,7 @@ export class HomePage implements AfterViewInit {
       this.showCart = true;
     }
   }
-  calculateTotal() {
+  calcularTotal() {
     this.totalpreco = 0;
     this.produtos.forEach(produto => {
       if (produto.selected) {
@@ -418,6 +419,7 @@ export class HomePage implements AfterViewInit {
       }
     });
   }
+ 
   
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
