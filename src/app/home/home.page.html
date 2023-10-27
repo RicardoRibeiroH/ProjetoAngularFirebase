@@ -94,8 +94,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" [(ngModel)]="quantidade" (ionChange)="calcularTotal()"></ion-input>
-                     
+                              <ion-input label="{{produto.description}}" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()"></ion-input>
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -315,82 +314,6 @@
       
       </ion-row>
     </ng-container>
-    <ion-footer>
-      <div class="footer-top">
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="" class="col-footer-1 ion-text-start">
-            <img src="../../assets/icons usado no footer/hamburguer footer.png" alt="hambueguer" width="300px">
-          </ion-col>
-          <ion-col size="2" class="col-footer-2 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>Fale Conosco</h2>
-              </ion-col>
-              <ion-col size="12">
-                <img src="../../assets/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px" class="img-footer">
-                <ion-label>(15)99999-9999</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <img src="../../assets/icons usado no footer/e-mail cópia.png" alt="email" width="25px">
-                <ion-label>flavor.fleet@gmail.com</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="2" class="col-footer-3 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>Institucional</h2>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Home</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Sobre</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Contato</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="2" class="col-footer-4 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>O que Procura ?</h2>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Combos</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Promoções</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="3" class="col-footer-5 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>Onde nos encontrar?</h2>
-              </ion-col>
-              <ion-col size="6" class="ion-text-end">
-                <img src="../../assets/icons usado no footer/instagram cópia.png" alt="logo instagram" width="25px">
-              </ion-col>
-              <ion-col size="6" class="ion-text-start">
-                <img src="../../assets/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px">
-              </ion-col>
-              <ion-col size="12" class="ion-text-end">
-                <img src="../../assets/icons usado no footer/footer hamburguer.png" alt="hambueguer" width="200px">
-              </ion-col>
-            </ion-row>
-          </ion-col>    
-        </ion-row>
-      </div>
-      <div class="footer-bottom">
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="12" class="ion-text-center text-footer">
-            <ion-label class="ion-margin-top">&copy; Flavor Fleet 2023. Todos os direitos reservados</ion-label>
-          </ion-col>
-        </ion-row>
-      </div>
-    </ion-footer>
   </ion-content> 
    
    <!-- Cart -->
@@ -421,7 +344,7 @@
         </ng-container>
         <ion-item lines="none">
           <div *ngIf="hasCartItem && hasCartItem.length > 0">
-            <p>Total: R$ {{ totalpreco.toFixed(2) }}</p>
+            <p>Total: R$ {{ total.toFixed(2) }}</p>
           </div>          
           <ion-button slot="end" size="small" (click)="setOpen(true)" class="carrinho-btn">Finalizar</ion-button>
         </ion-item>

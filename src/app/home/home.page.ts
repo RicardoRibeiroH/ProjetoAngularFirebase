@@ -20,8 +20,9 @@ export class HomePage implements AfterViewInit {
   step = 1;
   quantidade: number = 0;
   totalpreco: number = 0;
-
+  total: number = 0;
   trocarElement = 'lanches';
+  produtoSelecionado: any;
   trocarElemento(event: any){
     console.log(event);
    this.trocarElement = event.detail.value;
@@ -39,7 +40,7 @@ export class HomePage implements AfterViewInit {
       id: 0, 
       description: `X Burguer`,
       items: `Pão com brioche, 1 Carne de Hamburguer,  Cheddar, Mussarela, Alface, Tomate`,
-      price: `33,00`,
+      price: `33.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -50,7 +51,7 @@ export class HomePage implements AfterViewInit {
       id: 1, 
       description: `X Egg`, 
       items: `Pão com brioche, 1 Carne de Hamburguer, Ovo Frito, Mussarela, Alface, Tomate`,
-      price: `25,00`,
+      price: `25.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -61,7 +62,7 @@ export class HomePage implements AfterViewInit {
       id: 2, 
       description: `X Salada`,
       items: `Pão com brioche, 1 Bisteca, Alface, Tomate, Cebola, Picles`,
-      price: `30,00`,
+      price: `30.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -72,7 +73,7 @@ export class HomePage implements AfterViewInit {
       id: 3,
       description: `Fran Burguer`,
       items: `Pão com brioche, 1 Frango empanado, Alface, Tomate, Cebola`,
-      price: `28,50`,
+      price: `28.50`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -83,7 +84,7 @@ export class HomePage implements AfterViewInit {
       id: 4,
       description: `X tudo`,
       items: `Pão com brioche, 1 Carne de Hamburguer, 1 Ovo Frito, 1 Bisteca, 1 Frango Empanado, Cheddar, Mussarela, Alface, Tomate, Cebola,  Picles`,
-      price: `50,00`,
+      price: `50.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -94,7 +95,7 @@ export class HomePage implements AfterViewInit {
       id: 5,
       description: `Lanche Kid`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `10,00`,
+      price: `10.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -105,7 +106,7 @@ export class HomePage implements AfterViewInit {
       id: 6,
       description: `Moda da Casa`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `20,00`,
+      price: `20.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -116,7 +117,7 @@ export class HomePage implements AfterViewInit {
       id: 7,
       description: `Simplão`,
       items: `Pão com Brioche, 1 Carne de Hamburguer, Cheddar`,
-      price: `15,00`,
+      price: `15.00`,
       type: 'lanche',
       quantidade: 0,
       enabled: true,
@@ -127,7 +128,7 @@ export class HomePage implements AfterViewInit {
       id: 9, 
       description: `Batata Frita`,
       items: `Batata Frita`,
-      price: `10,00`,
+      price: `10.00`,
       type: 'porcao',
       quantidade: 0,
       enabled: true,
@@ -138,7 +139,7 @@ export class HomePage implements AfterViewInit {
       id: 10, 
       description: `Cebola Frita`, 
       items: `Cebola Frita`,
-      price: `15,00`,
+      price: `15.00`,
       type: 'porcao',
       quantidade: 0,
       enabled: true,
@@ -149,7 +150,7 @@ export class HomePage implements AfterViewInit {
       id: 11, 
       description: `Frango Frito`,
       items: `Frango Frito`,
-      price: `18,00`,
+      price: `18.00`,
       type: 'porcao',
       quantidade: 0,
       enabled: true,
@@ -160,7 +161,7 @@ export class HomePage implements AfterViewInit {
       id: 18, 
       description: `Coca-Cola`,
       items: `Coca-Cola 500ML`,
-      price: `8,00`,
+      price: `8.00`,
       type: 'bebida',
       quantidade: 0,
       enabled: true,
@@ -171,7 +172,7 @@ export class HomePage implements AfterViewInit {
       id: 19, 
       description: `Coca-Cola`, 
       items: `Coca-Cola 700ML`,
-      price: `10,00`,
+      price: `10.00`,
       type: 'bebida',
       quantidade: 0,
       enabled: true,
@@ -182,7 +183,7 @@ export class HomePage implements AfterViewInit {
       id: 20, 
       description: `Pepsi`,
       items: `Pepsi 500ML`,
-      price: `10,00`,
+      price: `10.00`,
       type: 'bebida',
       quantidade: 0,
       enabled: true,
@@ -193,7 +194,7 @@ export class HomePage implements AfterViewInit {
       id: 21,
       description: `Suco de Laranja`,
       items: `Suco de Laranja 500ML`,
-      price: `15,00`,
+      price: `15.00`,
       type: 'bebida',
       quantidade: 0,
       enabled: true,
@@ -204,7 +205,7 @@ export class HomePage implements AfterViewInit {
       id: 22,
       description: `Suco de Morango`,
       items: `Suci de Morango 500ML`,
-      price: `15,00`,
+      price: `15.00`,
       type: 'bebida',
       quantidade: 0,
       enabled: true,
@@ -215,7 +216,7 @@ export class HomePage implements AfterViewInit {
       id: 23,
       description: `Suco de Abacaxi`,
       items: `Suco de Abacaxi 500ML`,
-      price: `15,00`,
+      price: `15.00`,
       type: 'bebida',
       quantidade: 0,
       enabled: true,
@@ -226,7 +227,7 @@ export class HomePage implements AfterViewInit {
       id: 24,
       description: `Àgua`,
       items: `Àgua 600ML`,
-      price: `10,00`,
+      price: `10.00`,
       type: 'bebida',
       quantidade: 0,
       enabled: true,
@@ -237,7 +238,7 @@ export class HomePage implements AfterViewInit {
       id: 25,
       description: `Coxinha`,
       items: `Coxinha`,
-      price: `8,00`,
+      price: `8.00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -248,7 +249,7 @@ export class HomePage implements AfterViewInit {
       id: 26,
       description: `Esfirra`,
       items: `Esfirra`,
-      price: `5,00`,
+      price: `5.00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -259,7 +260,7 @@ export class HomePage implements AfterViewInit {
       id: 27,
       description: `Kibe`,
       items: `Kibe`,
-      price: `10,00`,
+      price: `10.00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -270,7 +271,7 @@ export class HomePage implements AfterViewInit {
       id: 28,
       description: `Pão de Queijo`,
       items: `Pão de Queijo`,
-      price: `2,00`,
+      price: `2.00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -281,7 +282,7 @@ export class HomePage implements AfterViewInit {
       id: 29,
       description: `Bolinha de Queijo`,
       items: `Bolinha de Queijo`,
-      price: `3,00`,
+      price: `3.00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -292,7 +293,7 @@ export class HomePage implements AfterViewInit {
       id: 30,
       description: `Salchicha Empanada`,
       items: `Salchicha Empanada`,
-      price: `8,00`,
+      price: `8.00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -303,7 +304,7 @@ export class HomePage implements AfterViewInit {
       id: 31,
       description: `Empada`,
       items: `Empada`,
-      price: `5,00`,
+      price: `5.00`,
       type: `salgados`,
       quantidade: 0,
       enabled: true,
@@ -314,7 +315,7 @@ export class HomePage implements AfterViewInit {
       id: 32,
       description: `Milk Shake de Brigadeiro`,
       items: `Milk Shake`,
-      price: `8,00`,
+      price: `8.00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
@@ -325,7 +326,7 @@ export class HomePage implements AfterViewInit {
       id: 33,
       description: `Milk Shake de Leite Condensado`,
       items: `Milk Shake`,
-      price: `6,00`,
+      price: `6.00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
@@ -336,7 +337,7 @@ export class HomePage implements AfterViewInit {
       id: 34,
       description: `Milk Shake de Chocolate`,
       items: `Milk Shake`,
-      price: `10,00`,
+      price: `10.00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
@@ -347,7 +348,7 @@ export class HomePage implements AfterViewInit {
       id: 35,
       description: `Milk Shake de Morango`,
       items: `Milk Shake`,
-      price: `12,00`,
+      price: `12.00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
@@ -358,7 +359,7 @@ export class HomePage implements AfterViewInit {
       id: 36,
       description: `Casquinha Mista`,
       items: `Sorvete`,
-      price: `11,00`,
+      price: `11.00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
@@ -369,7 +370,7 @@ export class HomePage implements AfterViewInit {
       id: 38,
       description: `Casquinha de Chocolate`,
       items: `Sorvete`,
-      price: `8,00`,
+      price: `8.00`,
       type: `sorvetes`,
       quantidade: 0,
       enabled: true,
@@ -411,15 +412,14 @@ export class HomePage implements AfterViewInit {
       this.showCart = true;
     }
   }
-  calcularTotal() {
-    this.totalpreco = 0;
-    this.produtos.forEach(produto => {
-      if (produto.selected) {
-        this.totalpreco += parseFloat(produto.price.replace(',', '.'));
-      }
-    });
-  }
  
+  
+  calcularTotal() {
+    this.total = 0; // Zere o total para recalcular
+    for (const produto of this.produtos) {
+      this.total += parseFloat(produto.price) * produto.quantidade;
+    }
+  }
   
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
