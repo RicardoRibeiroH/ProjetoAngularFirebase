@@ -94,7 +94,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="{{produto.description}}" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()"></ion-input>
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -113,6 +113,7 @@
             </ng-container>
           </ng-container>
         </ng-container>
+        <!-- porcoes -->
         <ng-container *ngIf="trocarElement == 'porcoes'">
           <ng-container *ngIf="produto.type == 'porcao'">
             <ng-container *ngIf="produto.enabled">
@@ -143,7 +144,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>                 
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -162,7 +163,6 @@
             </ng-container>
           </ng-container>
         </ng-container>
-
         <ng-container *ngIf="trocarElement == 'bebidas'">
           <ng-container *ngIf="produto.type == 'bebida'">
             <ng-container *ngIf="produto.enabled">
@@ -193,7 +193,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>                   
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -212,6 +212,7 @@
             </ng-container>
           </ng-container>
         </ng-container>
+        <!-- salgados -->
         <ng-container *ngIf="trocarElement == 'salgados'">
           <ng-container *ngIf="produto.type == 'salgados'">
             <ng-container *ngIf="produto.enabled">
@@ -225,7 +226,7 @@
                       </ion-col>
                       <ion-col size="12" class="ion-margin-top">
                         <ion-row>
-                          <ion-col size="10">
+                          <ion-col size="8">
                             <ion-label>
                               <h2 class="price"> R$ {{ produto.price }}</h2>
                             </ion-label>
@@ -242,7 +243,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>              
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -261,6 +262,7 @@
             </ng-container>
           </ng-container>
         </ng-container>
+        <!-- sorvetes -->
         <ng-container *ngIf="trocarElement == 'sorvetes'">
           <ng-container *ngIf="produto.type == 'sorvetes'">
             <ng-container *ngIf="produto.enabled">
@@ -291,7 +293,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>                
                             </ng-container>
                           </ion-col>
                         </ion-row>
