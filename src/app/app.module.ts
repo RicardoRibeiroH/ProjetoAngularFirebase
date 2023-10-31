@@ -13,6 +13,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 
+import { Chart } from 'chart.js';
+import { registerables } from 'chart.js';
+Chart.register(...registerables);
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

@@ -1,0 +1,11 @@
+.c-grafico{
+    height: 50%;
+    width: 50%;
+    border: 1px solid black;
+}
+ion-header{
+    & ion-icon{
+        margin-right: 10px;
+        font-size: 2em;
+    }
+}
