@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'politica',
     loadChildren: () => import('./politica/politica.module').then( m => m.PoliticaPageModule)
+  },  {
+    path: 'aula',
+    loadChildren: () => import('./aula/aula.module').then( m => m.AulaPageModule)
   }
+
 
 ];
 
