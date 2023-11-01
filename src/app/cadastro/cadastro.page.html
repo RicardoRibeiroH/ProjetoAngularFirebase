@@ -1,15 +1,7 @@
 <ion-content [fullscreen]="true">
-  <div class="conteudo">
+  <!-- <div class="conteudo">
+
     <section class="login_page">
-      <!-- <div class="wave">
-      <svg 
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 1200 120" 
-        preserveAspectRatio="none">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-      </svg>
-  </div> -->
 
       <header>
 
@@ -40,6 +32,9 @@
             <ion-col size="12">
               <h3>Cadastro</h3>
             </ion-col>
+            <form #inserir="ngForm" (ngSubmit)="adicionarFuncionarios(inserir.value)">
+              
+            </form>
             <ion-col size="12">
               <ion-input class="text_input" label="Nome" label-placement="floating" fill="outline"></ion-input>
             </ion-col>
@@ -65,5 +60,14 @@
 
       </ion-row>
     </section>
-  </div>
+  </div> -->
+
+  <ion-content [fullscreen]="true">
+    <form #inserir="ngForm" (ngSubmit)="adicionarFuncionarios(inserir.value)">
+      <ion-input ngModel name="nome" type="text" placeholder="Nome"></ion-input>
+      <ion-input ngModel name="email" type="text" placeholder="Email"></ion-input>
+      <ion-input ngModel name="senha" type="password" placeholder="Senha"></ion-input>
+      <ion-button type="submit">Enviar</ion-button>
+    </form>
+  </ion-content>
 </ion-content>
