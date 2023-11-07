@@ -65,7 +65,7 @@
   <ion-content [fullscreen]="true">
     <form #inserir="ngForm" (ngSubmit)="adicionarFuncionarios(inserir.value)">
       <ion-input ngModel name="nome" type="text" placeholder="Nome"></ion-input>
-      <ion-input ngModel name="email" type="text" placeholder="Email"></ion-input>
+      <ion-input ngModel name="email" type="email" placeholder="Email"></ion-input>
       <ion-input ngModel name="senha" type="password" placeholder="Senha"></ion-input>
       <ion-button type="submit">Enviar</ion-button>
     </form>
