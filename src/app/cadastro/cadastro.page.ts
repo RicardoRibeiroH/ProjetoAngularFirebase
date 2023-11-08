@@ -20,7 +20,7 @@ export class CadastroPage implements OnInit {
     this.isAlertOpen = isOpen;
   }
   adicionarFuncionarios(form: any){
-    let funcionarios = form;
+    let usuario = form;
     // console.log(form);
     fetch('http://localhost/tcc2/cadastro/cadastro.php',
     {
@@ -28,7 +28,7 @@ export class CadastroPage implements OnInit {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(funcionarios)
+      body: JSON.stringify(usuario)
     })
     .then(resp => resp.json())
     .then(resp=> {

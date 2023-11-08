@@ -94,8 +94,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" [(ngModel)]="quantidade" (ionChange)="calcularTotal()"></ion-input>
-                     
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -114,6 +113,7 @@
             </ng-container>
           </ng-container>
         </ng-container>
+        <!-- porcoes -->
         <ng-container *ngIf="trocarElement == 'porcoes'">
           <ng-container *ngIf="produto.type == 'porcao'">
             <ng-container *ngIf="produto.enabled">
@@ -144,7 +144,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>                 
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -163,7 +163,6 @@
             </ng-container>
           </ng-container>
         </ng-container>
-
         <ng-container *ngIf="trocarElement == 'bebidas'">
           <ng-container *ngIf="produto.type == 'bebida'">
             <ng-container *ngIf="produto.enabled">
@@ -194,7 +193,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>                   
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -213,6 +212,7 @@
             </ng-container>
           </ng-container>
         </ng-container>
+        <!-- salgados -->
         <ng-container *ngIf="trocarElement == 'salgados'">
           <ng-container *ngIf="produto.type == 'salgados'">
             <ng-container *ngIf="produto.enabled">
@@ -226,7 +226,7 @@
                       </ion-col>
                       <ion-col size="12" class="ion-margin-top">
                         <ion-row>
-                          <ion-col size="10">
+                          <ion-col size="8">
                             <ion-label>
                               <h2 class="price"> R$ {{ produto.price }}</h2>
                             </ion-label>
@@ -243,7 +243,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>              
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -262,6 +262,7 @@
             </ng-container>
           </ng-container>
         </ng-container>
+        <!-- sorvetes -->
         <ng-container *ngIf="trocarElement == 'sorvetes'">
           <ng-container *ngIf="produto.type == 'sorvetes'">
             <ng-container *ngIf="produto.enabled">
@@ -292,7 +293,7 @@
                         <ion-row>
                           <ion-col size="10" class="quantidade">
                             <ng-container *ngIf="!produto.selected">     
-                              <ion-input label="Quantidade" type="number" placeholder="000" id="quantidade"></ion-input>                      
+                              <ion-input label="quantidade" placeholder="quantidade" type="number" [(ngModel)]="produto.quantidade" (ionChange)="calcularTotal()" min="0"></ion-input>                
                             </ng-container>
                           </ion-col>
                         </ion-row>
@@ -315,82 +316,6 @@
       
       </ion-row>
     </ng-container>
-    <ion-footer>
-      <div class="footer-top">
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="" class="col-footer-1 ion-text-start">
-            <img src="../../assets/icons usado no footer/hamburguer footer.png" alt="hambueguer" width="300px">
-          </ion-col>
-          <ion-col size="2" class="col-footer-2 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>Fale Conosco</h2>
-              </ion-col>
-              <ion-col size="12">
-                <img src="../../assets/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px" class="img-footer">
-                <ion-label>(15)99999-9999</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <img src="../../assets/icons usado no footer/e-mail cópia.png" alt="email" width="25px">
-                <ion-label>flavor.fleet@gmail.com</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="2" class="col-footer-3 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>Institucional</h2>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Home</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Sobre</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Contato</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="2" class="col-footer-4 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>O que Procura ?</h2>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Combos</ion-label>
-              </ion-col>
-              <ion-col size="12">
-                <ion-label>Promoções</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="3" class="col-footer-5 ion-text-center">
-            <ion-row>
-              <ion-col size="12">
-                <h2>Onde nos encontrar?</h2>
-              </ion-col>
-              <ion-col size="6" class="ion-text-end">
-                <img src="../../assets/icons usado no footer/instagram cópia.png" alt="logo instagram" width="25px">
-              </ion-col>
-              <ion-col size="6" class="ion-text-start">
-                <img src="../../assets/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px">
-              </ion-col>
-              <ion-col size="12" class="ion-text-end">
-                <img src="../../assets/icons usado no footer/footer hamburguer.png" alt="hambueguer" width="200px">
-              </ion-col>
-            </ion-row>
-          </ion-col>    
-        </ion-row>
-      </div>
-      <div class="footer-bottom">
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="12" class="ion-text-center text-footer">
-            <ion-label class="ion-margin-top">&copy; Flavor Fleet 2023. Todos os direitos reservados</ion-label>
-          </ion-col>
-        </ion-row>
-      </div>
-    </ion-footer>
   </ion-content> 
    
    <!-- Cart -->
@@ -421,7 +346,7 @@
         </ng-container>
         <ion-item lines="none">
           <div *ngIf="hasCartItem && hasCartItem.length > 0">
-            <p>Total: R$ {{ totalpreco.toFixed(2) }}</p>
+            <p>Total: R$ {{ total.toFixed(2) }}</p>
           </div>          
           <ion-button slot="end" size="small" (click)="setOpen(true)" class="carrinho-btn">Finalizar</ion-button>
         </ion-item>
@@ -462,10 +387,10 @@
                     <ion-input label="Nome" name="nome" ngModel type="text"></ion-input>
                   </ion-item>
                   <ion-item>
-                    <ion-input label="Telefone" name="telefone" ngModel type="text"></ion-input>
+                    <ion-input label="Telefone" name="telefone" ngModel type="tel"></ion-input>
                   </ion-item>
                   <ion-item>
-                    <ion-input label="CEP" name="cep" ngModel type="text"></ion-input>
+                    <ion-input label="CEP" name="cep" ngModel type="text" minlength="8" maxlength="8"></ion-input>
                   </ion-item>
                   <ion-item>
                     <ion-input label="Bairro" name="bairro" ngModel type="text"></ion-input>
@@ -474,7 +399,7 @@
                     <ion-input label="Rua" name="rua" ngModel type="text"></ion-input>
                   </ion-item>
                   <ion-item>
-                    <ion-input label="Numero" name="numero" ngModel type="text"></ion-input>
+                    <ion-input label="Numero" name="numero" ngModel type="number"></ion-input>
                   </ion-item>
                     <ion-button color="light" slot="end" type="submit" class="bnt__infos-loc">Enviar</ion-button>
                 </form>
@@ -541,5 +466,5 @@
       </ng-container>  
   </ng-template>
 </ion-modal>
-
 </div>
+
