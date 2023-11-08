@@ -377,8 +377,6 @@ export class HomePage implements AfterViewInit {
       image: `https://i.pinimg.com/564x/9e/e3/49/9ee349e1b8eae6dba323059914d95813.jpgg`
     },
   ];
-
-  
   
   ngAfterViewInit(): void {
     console.log(this.cart);
@@ -400,6 +398,7 @@ export class HomePage implements AfterViewInit {
     });
     this.calcularTotal();
     this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
+    console.log(selected);
   }
   
   upDownCart(){
