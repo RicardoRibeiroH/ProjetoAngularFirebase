@@ -380,11 +380,15 @@ export class HomePage implements AfterViewInit {
       image: `https://i.pinimg.com/564x/9e/e3/49/9ee349e1b8eae6dba323059914d95813.jpgg`
     },
   ];
+
+
+
+  
   
   inserirInfo(dados: any){
     let usuario = dados;
     // console.log(usuario);
-    fetch('http://localhost/tcc2/cadastro/cadastro.php',
+    fetch('http://localhost/tcc2/cadastroLocal/cadastro.php',
     {
       method: 'POST',
       headers: {
@@ -407,6 +411,10 @@ export class HomePage implements AfterViewInit {
   ngAfterViewInit(): void {
     console.log(this.cart);
   }
+
+
+
+
 
   adicionarcarrinho(item_id: any,  selected: boolean, add: any){
     this.produtos.forEach(produto=> {
