@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="top-side">
+  <!-- <div class="top-side">
     <ion-header class="ion-no-border">
         <ion-row>
           <ion-col size="6">
@@ -17,16 +17,79 @@
           </ion-col>
         </ion-row>
       </ion-header>
-        <ion-row class="ion-justify-content-center conteudo-top">
-          <ion-col size="8" class="ion-text-center">
-            <div class="conteudo-text">
-              <h1 class="text-title-top ion-text-uppercase">Delicie-se com uma explosão de sabores </h1>
-              <p class="text-title-second">Explore nosso site e descubra um mundo de sabores! Navegue em nosso cardápio, faça reservas, e mantenha-se atualizado com ofertas especiais e eventos emocionantes. Sua jornada gastronômica começa aqui.</p>
-              <ion-button shape="round" routerLink="/home">VER CARDAPIO</ion-button>
+        
+  </div> -->
+
+  <div class="imagem-fundo">
+    <header>
+      <img src="../../assets/logo branco e preto/logo cópia.png" alt="Logo" width="150px" class="logo">
+      <nav class="navigation">
+        <a routerLink="#">Home</a>
+        <a routerLink="#">About</a>
+        <a routerLink="#">Services</a>
+        <a routerLink="#">Contact</a>
+        <ion-button class="btnLogin-popup" (click)="onBtnPopupClick()">Login</ion-button>
+      </nav>
+    </header>
+
+    <div class="wrapper">
+      <span class="icon-close" (click)="onIconCloseClick()"><ion-icon name="close"></ion-icon></span>
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required>
+            <label>Email</label>
           </div>
-          </ion-col>
-        </ion-row>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label><ion-checkbox  labelPlacement="end">Remember me</ion-checkbox></label>
+            <a routerLink="#">Forgot password?</a>
+          </div>
+          <ion-button type="submit" class="btn">Login</ion-button>
+          <div class="login-register">
+            <p>Don't have an account?<a routerLink="#" class="register" (click)="onRegisterClick()">Register</a></p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input type="text" required>
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required>
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label><ion-checkbox  labelPlacement="end">I agree to the terms & conditions</ion-checkbox></label>
+          </div>
+          <ion-button type="submit" class="btn">Register</ion-button>
+          <div class="login-register">
+            <p>Already have an account?<a routerLink="#" class="register" (click)="onLoginClick()">Login</a></p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
   </div>
+
   <ion-row class="ion-justify-content-center  segments">
     <ion-col size="6" class="ion-text-center">
       <ion-segment>
