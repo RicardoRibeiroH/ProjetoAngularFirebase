@@ -380,11 +380,6 @@ export class HomePage implements AfterViewInit {
       image: `https://i.pinimg.com/564x/9e/e3/49/9ee349e1b8eae6dba323059914d95813.jpgg`
     },
   ];
-
-
-
-  
-  
   inserirInfo(dados: any){
     let usuario = dados;
     // console.log(usuario);
@@ -412,27 +407,52 @@ export class HomePage implements AfterViewInit {
     console.log(this.cart);
   }
 
-
-
-
-
-  adicionarcarrinho(item_id: any,  selected: boolean, add: any){
-    this.produtos.forEach(produto=> {
-      if (produto.id == item_id)
-      produto.selected = add;
+  enviarPedido(){
+    let usuario = this.produtos.forEach(produto => {
+      if (produto.selected) {
+          console.log(`ID: ${produto.id}, Descrição: ${produto.description}, Quantidade: ${produto.quantidade}, Preço: ${this.total}`);
+      }
   });
-  this.calcularTotal();
-  this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
+    // console.log(usuario);
+    fetch('http://localhost/tcc2/cadastroLocal/cadastro.php',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(usuario)
+    })
+    .then(resp => resp.json())
+    .then(resp=> {
+     
+      console.log(resp);
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{   
+      console.log('processo finalizado');
+    })
   }
 
-  selected(item_id: any, selected: boolean){
-    this.produtos.forEach(produto=> {
+adicionarcarrinho(item_id: any, selected: boolean, add: any){
+    this.produtos.forEach(produto => {
         if (produto.id == item_id)
-        produto.selected = !selected;
+            produto.selected = add;
     });
     this.calcularTotal();
     this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
-  }
+}
+
+selected(item_id: any, selected: boolean){
+    this.produtos.forEach(produto => {
+        if (produto.id == item_id)
+            produto.selected = !selected;
+    });
+    this.calcularTotal();
+    this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
+}
+
   
   upDownCart(){
     if (this.showCart) {
@@ -443,8 +463,6 @@ export class HomePage implements AfterViewInit {
       this.showCart = true;
     }
   }
- 
-  
   calcularTotal() {
     this.total = 0; // Zere o total para recalcular
     for (const produto of this.produtos) {
