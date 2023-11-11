@@ -408,11 +408,7 @@ export class HomePage implements AfterViewInit {
   }
 
   enviarPedido(){
-    let usuario = this.produtos.forEach(produto => {
-      if (produto.selected) {
-          console.log(`ID: ${produto.id}, Descrição: ${produto.description}, Quantidade: ${produto.quantidade}, Preço: ${this.total}`);
-      }
-  });
+    let usuario = this.hasCartItem;
     // console.log(usuario);
     fetch('http://localhost/tcc2/cadastroLocal/cadastro.php',
     {
