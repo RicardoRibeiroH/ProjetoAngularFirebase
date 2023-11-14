@@ -12,17 +12,20 @@ export class DashboardPage {
 
   ionViewDidEnter() {
     new Chart(this.elemento.nativeElement, {
-      type: 'line', 
+      type: 'doughnut', 
       data: {
-        labels: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
-        datasets: [
-          {
-            data: [85, 72, 88, 33, 53, 86, 11]
-          }
-        ]
+        
+        datasets: [{
+          label: 'My First Dataset',
+          data: [300, 100],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+          ],
+          hoverOffset: 4
+        }]
       }
     });
-    
   }
   
   

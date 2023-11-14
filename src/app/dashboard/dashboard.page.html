@@ -18,82 +18,81 @@
     </ion-toolbar>   
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-row>
-      <ion-col size="1">
-        <ion-row class="icons">
-          <ion-col size="12">
-            <ion-icon name="mail-outline"></ion-icon>
-          </ion-col>
-          <ion-col size="12">
-            <ion-icon name="document-text-outline"></ion-icon>
-          </ion-col>
-          <ion-col size="12">
-            <ion-icon name="radio-outline"></ion-icon>
-          </ion-col>
-          <ion-col size="12">
-            <ion-icon name="location-outline"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-      <ion-col size="11">
-        <ion-row>
-          <ion-col size="12">
-            <ion-row>
-              <ion-col size="4">
-                <ion-card>
-                  <ion-card-header>
-                    <ion-row>
-                      <ion-col size="6">NOVAS MENSAGENS</ion-col>
-                      <ion-col size="6" class="ion-text-end"><ion-icon name="chatbubble-ellipses"></ion-icon></ion-col>
-                    </ion-row>
-                  </ion-card-header>   
-                  <ion-card-content> 
-                    <h1>85</h1>
-                    <ion-label>TAXA DE RESPOSTA</ion-label>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-    
-              <ion-col size="4">
-                <ion-card>
-                  <ion-card-header>
-                    <ion-row>
-                      <ion-col size="6">NOVAS METAS</ion-col>
-                      <ion-col size="6" class="ion-text-end"><ion-icon name="calendar-outline"></ion-icon></ion-col>
-                    </ion-row>
-                  </ion-card-header>   
-                  <ion-card-content> 
-                    <h1>21</h1>
-                    <ion-label>60% METAS DIARIAS</ion-label>
-                    <ion-label>72 ESSA SEMANA</ion-label>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-    
-              <ion-col size="4">
-                <ion-card>
-                  <ion-card-header>
-                    <ion-row>
-                      <ion-col size="6">NOVAS MENSAGENS</ion-col>
-                      <ion-col size="6" class="ion-text-end"><ion-icon name="chatbubble-ellipses"></ion-icon></ion-col>
-                    </ion-row>
-                  </ion-card-header>   
-                  <ion-card-content> 
-                    <h1>85</h1>
-                    <ion-label>TAXA DE RESPOSTA</ion-label>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="12">
-            <div style="width: 50%; height: 50%; margin-left: 10%;">
-              <canvas #meuCanvas></canvas>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-      
-    </ion-row>
+  <ion-row>  
+    <ion-col size="1">
+      <ion-row class="icons">
+        <ion-col size="12">
+          <ion-icon name="mail-outline"></ion-icon> <br/>
+          <ion-icon name="document-text-outline"></ion-icon> <br/>
+          <ion-icon name="radio-outline"></ion-icon> <br/>
+          <ion-icon name="location-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="11">
+      <ion-row>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-row>
+                <ion-col size="6">NOVAS MENSAGENS</ion-col>
+                <ion-col size="6" class="ion-text-end"><ion-icon name="chatbubble-ellipses"></ion-icon></ion-col>
+              </ion-row>
+            </ion-card-header>   
+            <ion-card-content> 
+              <ion-row>
+                <ion-col size="12">
+                  <h1>85</h1>
+                </ion-col>
+                <ion-col size="12">
+                  <ion-label>TAXA DE RESPOSTA</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-row>
+                <ion-col size="6">NOVAS METAS</ion-col>
+                <ion-col size="6" class="ion-text-end">
+                  <ion-icon name="today"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-card-header>   
+            <ion-card-content> 
+              <ion-row>
+                <ion-col size="6">
+                  <h1>21</h1>
+                  <ion-label>67% META DIÁRIA</ion-label><br/>
+                  <ion-label>72 ESSA SEMANA</ion-label>
+                </ion-col>
+                <ion-col size="6"> 
+                  <div class="grafico_card-2">
+                    <canvas #meuCanvas></canvas>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
   </ion-content>
 </div>

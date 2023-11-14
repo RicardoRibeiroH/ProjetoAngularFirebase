@@ -11,13 +11,18 @@ ion-header{
 }
 .icons{
     background-color:  #F29F05;
-    width: 35px;
+    width: 43px;
     height: 250px;
     border-radius: 15px;
     & ion-icon{
-        font-size: 1.5em;
+        font-size: 2em;
+        margin-bottom: 25px;
     }
 }
-.card-1{
-    width: 100%;
+ion-card{
+    height: 150px;
+    & .grafico_card-2{
+        margin: 0;
+        width: 50px;
+    }
 }
