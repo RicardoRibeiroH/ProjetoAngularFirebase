@@ -410,7 +410,7 @@ export class HomePage implements AfterViewInit {
   enviarPedido(){
     let usuario = this.hasCartItem;
     // console.log(usuario);
-    fetch('http://localhost/tcc2/cadastroLocal/cadastro.php',
+    fetch('http://localhost/tcc2/pedidos/adicionar.php',
     {
       method: 'POST',
       headers: {
@@ -427,7 +427,7 @@ export class HomePage implements AfterViewInit {
       console.log(erro);
     })
     .finally(()=>{   
-      console.log('processo finalizado');
+      console.log('pedido finalizado');
     })
   }
 
