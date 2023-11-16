@@ -431,6 +431,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-row class="escolhaPagamento ion-justify-content-center">
+        <ion-col size="6" class="ion-text-center">
           <ion-accordion-group>
             <ion-radio-group [(ngModel)]="selectedValue">
               <ion-accordion value="first">
@@ -462,6 +463,7 @@
             </ion-radio-group>
           </ion-accordion-group>  
           <ion-button color="light" type="submit" (click)="enviarInformacao()">Enviar</ion-button> 
+        </ion-col> 
       </ion-row>
       </ng-container>  
   </ng-template>
