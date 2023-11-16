@@ -25,6 +25,8 @@ export class HomePage implements AfterViewInit {
   total: number = 0;
   trocarElement = 'lanches';
   produtoSelecionado: any;
+  selectedValue: string = '';
+
   trocarElemento(event: any){
     console.log(event);
    this.trocarElement = event.detail.value;
@@ -429,6 +431,11 @@ export class HomePage implements AfterViewInit {
     .finally(()=>{   
       console.log('pedido finalizado');
     })
+  }
+
+  enviarInformacao() {
+    console.log(this.selectedValue);
+    // Aqui você pode fazer o que quiser com o valor selecionado, como enviá-lo para um servidor ou processá-lo de alguma forma.
   }
 
 adicionarcarrinho(item_id: any, selected: boolean, add: any){

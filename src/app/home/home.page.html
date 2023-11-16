@@ -431,36 +431,37 @@
         </ion-toolbar>
       </ion-header>
       <ion-row class="escolhaPagamento ion-justify-content-center">
-        <ion-accordion-group>
-          <ion-radio-group value="money">
-            <ion-accordion value="first">
-              <ion-item slot="header" color="light">
-                <ion-label>Pagar na Entrega</ion-label>
-              </ion-item>
-              <div class="ion-padding" slot="content">
-                <ion-item>
-                  <ion-radio value="local-money">Dinheiro</ion-radio><br />
+          <ion-accordion-group>
+            <ion-radio-group [(ngModel)]="selectedValue">
+              <ion-accordion value="first">
+                <ion-item slot="header" color="light">
+                  <ion-label>Pagar na Entrega</ion-label>
                 </ion-item>
-                <ion-item>
-                  <ion-radio value="local-credit-card">Cartão</ion-radio><br />
+                <div class="ion-padding" slot="content">
+                  <ion-item>
+                    <ion-radio value="dinheiro">Dinheiro</ion-radio><br />
+                  </ion-item>
+                  <ion-item>
+                    <ion-radio value="cartao-entrega">Cartão</ion-radio><br />
+                  </ion-item>
+                </div>
+              </ion-accordion>
+              <ion-accordion value="second">
+                <ion-item slot="header" color="light">
+                  <ion-label>Pagar Online</ion-label>
                 </ion-item>
-              </div>
-            </ion-accordion>
-            <ion-accordion value="second">
-              <ion-item slot="header" color="light">
-                <ion-label>Pagar Online</ion-label>
-              </ion-item>
-              <div class="ion-padding" slot="content">
-                <ion-item>
-                  <ion-radio value="online-credit-card">Cartão</ion-radio><br />
-                </ion-item>
-                <ion-item>
-                  <ion-radio value="online-pix">Pix</ion-radio><br />
-                </ion-item>
-              </div>
-            </ion-accordion>
-          </ion-radio-group>
-        </ion-accordion-group>
+                <div class="ion-padding" slot="content">
+                  <ion-item>
+                    <ion-radio value="cartao-online">Cartão</ion-radio><br />
+                  </ion-item>
+                  <ion-item>
+                    <ion-radio value="pix">Pix</ion-radio><br />
+                  </ion-item>
+                </div>
+              </ion-accordion>
+            </ion-radio-group>
+          </ion-accordion-group>  
+          <ion-button color="light" type="submit" (click)="enviarInformacao()">Enviar</ion-button> 
       </ion-row>
       </ng-container>  
   </ng-template>
