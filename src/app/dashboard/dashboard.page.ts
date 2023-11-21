@@ -12,7 +12,7 @@ export class DashboardPage {
   @ViewChild("graficoMain", { static: true }) elemento2!: ElementRef;
 
   constructor(){
-    this.getAllFuncionarios()
+    this.getAllUsuarios()
   }
   ionViewDidEnter() {
     new Chart(this.elemento.nativeElement, {
@@ -51,21 +51,21 @@ export class DashboardPage {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  getAllFuncionarios(){
-    let funcionario = { CodFun: '' };
+  getAllUsuarios(){
+    let usuarios = { CodFun: '' };
     fetch('http://localhost/exercicio/funcionario/listarTodos_funcionario.php',
 			{
 			  method: 'POST',
 			  headers: {
 			    'Content-Type': 'application/json',
 			  },
-			  body: JSON.stringify(funcionario)
+			  body: JSON.stringify(usuarios)
 			}
 		)
     .then(response => response.json())
     .then(response => {
       console.log(response);
-      this.funcionarios = response['funcionarios'];
+      this.funcionarios = response['usuarios'];
     })
     .catch(erro => {
       console.log(erro);
