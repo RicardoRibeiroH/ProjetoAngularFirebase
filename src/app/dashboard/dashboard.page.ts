@@ -31,15 +31,20 @@ export class DashboardPage {
       data: {
         labels: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
         datasets: [{
-          label: 'My First Dataset',
+          label: 'Valores',
           data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
+          
+          borderColor: '#F29F05',
+          
         }]
       }
     });
   }
+ 
+  trocarTela = 'grafico_preco';
+  isModalOpen = false;
   
-  
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 }
