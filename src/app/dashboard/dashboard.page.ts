@@ -11,6 +11,9 @@ export class DashboardPage {
   @ViewChild("meuCanvas", { static: true }) elemento!: ElementRef;
   @ViewChild("graficoMain", { static: true }) elemento2!: ElementRef;
 
+  constructor(){
+    this.getAllFuncionarios()
+  }
   ionViewDidEnter() {
     new Chart(this.elemento.nativeElement, {
       type: 'doughnut', 
@@ -43,8 +46,32 @@ export class DashboardPage {
  
   trocarTela = 'grafico_preco';
   isModalOpen = false;
+  funcionarios: any;
   
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+  getAllFuncionarios(){
+    let funcionario = { CodFun: '' };
+    fetch('http://localhost/exercicio/funcionario/listarTodos_funcionario.php',
+			{
+			  method: 'POST',
+			  headers: {
+			    'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(funcionario)
+			}
+		)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      this.funcionarios = response['funcionarios'];
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{
+      console.log('processo finalizado');
+    })
   }
 }
