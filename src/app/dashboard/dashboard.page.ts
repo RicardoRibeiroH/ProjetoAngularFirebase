@@ -46,10 +46,14 @@ export class DashboardPage {
  
   trocarTela = 'grafico_preco';
   isModalOpen = false;
-  funcionarios: any;
+  isModalOpen2 = false;
+  usuarios: any;
   
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+  setOpen2(isOpen: boolean) {
+    this.isModalOpen2 = isOpen;
   }
   getAllUsuarios(){
     let usuarios = { CodFun: '' };
@@ -65,7 +69,7 @@ export class DashboardPage {
     .then(response => response.json())
     .then(response => {
       console.log(response);
-      this.funcionarios = response['usuarios'];
+      this.usuarios = response['usuarios'];
     })
     .catch(erro => {
       console.log(erro);

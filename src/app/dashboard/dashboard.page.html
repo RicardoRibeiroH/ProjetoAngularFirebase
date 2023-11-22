@@ -24,12 +24,11 @@
         <ion-col size="12">
           <ion-icon name="mail-outline"></ion-icon> <br/>
           <ion-icon name="document-text-outline"  (click)="setOpen(true)"></ion-icon> <br/>
-          <ion-icon name="radio-outline"></ion-icon> <br/>
+          <ion-icon name="receipt-outline" (click)="setOpen2(true)"></ion-icon> <br/>
           <ion-icon name="location-outline"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-col>
-   
       <ion-col size="11">
         <ion-row>
           <ion-col size="4">
@@ -109,24 +108,69 @@
       </ion-col>
   </ion-row>
 
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Modal</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <ng-container *ngFor="let usuarios of this.funcionarios">
-          <ion-item>
-            <ion-label>{{ usuarios.Nome }}</ion-label>
-          </ion-item>
-        </ng-container>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-row>
+              <ion-col size="4">
+                <ion-title>Nome</ion-title>
+              </ion-col>
+              <ion-col size="4">
+                <ion-title>Email</ion-title>
+              </ion-col>
+            </ion-row>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)"><ion-icon name="close-outline"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-row>
+            <ion-col size="4">
+              <ng-container *ngFor="let usuarios of this.usuarios">
+                <ion-item>
+                  <ion-row>
+                      <ion-label>{{ usuarios.Nome }}</ion-label>
+                  </ion-row>
+                </ion-item>
+              </ng-container>
+            </ion-col>
+            <ion-col size="8">
+              <ng-container *ngFor="let usuarios of this.usuarios">
+                <ion-item>
+                  <ion-row>
+                      <ion-label>{{ usuarios.Sobrenome }}</ion-label>
+                  </ion-row>
+                </ion-item>
+              </ng-container>
+            </ion-col>
+          </ion-row>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <ion-modal [isOpen]="isModalOpen2" class="modal-pedidos">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-row>
+                <ion-title>Pedidos</ion-title>
+            </ion-row>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen2(false)"><ion-icon name="close-outline"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ng-container *ngFor="let usuarios of this.usuarios">
+            <ion-item>
+              <ion-label>{{usuarios.CodFun}} Pedido</ion-label>
+              <ion-button shape="round" color="none" class="button-ped">Ver pedido completo</ion-button>
+            </ion-item>
+          </ng-container>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
   </ion-content>
 </div>
