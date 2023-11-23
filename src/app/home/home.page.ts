@@ -422,7 +422,6 @@ export class HomePage implements AfterViewInit {
     })
     .then(resp => resp.json())
     .then(resp=> {
-     
       console.log(resp);
     })
     .catch(erro => {
@@ -434,8 +433,25 @@ export class HomePage implements AfterViewInit {
   }
 
   enviarInformacao() {
-    console.log(this.selectedValue);
-    // Aqui você pode fazer o que quiser com o valor selecionado, como enviá-lo para um servidor ou processá-lo de alguma forma.
+    let metodoPag = this.selectedValue;
+    fetch('http://localhost/tcc2/pedidos/metodo-pagamento.php',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(metodoPag)
+    })
+    .then(resp => resp.json())
+    .then(resp=> {
+      console.log(resp);
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{   
+      console.log('pedido finalizado');
+    })
   }
 
 adicionarcarrinho(item_id: any, selected: boolean, add: any){

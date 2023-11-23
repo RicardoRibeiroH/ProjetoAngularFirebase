@@ -22,7 +22,7 @@ export class CadastroPage implements OnInit {
   adicionarFuncionarios(form: any){
     let usuario = form;
     // console.log(form);
-    fetch('http://localhost/tcc2/cadastro/cadastro.php',
+    fetch('http://localhost/tcc2/cadastro_usuario/cadastro.php',
     {
       method: 'POST',
       headers: {
