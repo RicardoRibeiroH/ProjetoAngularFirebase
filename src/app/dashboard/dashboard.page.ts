@@ -22,8 +22,8 @@ export class DashboardPage {
           label: 'My First Dataset',
           data: [300, 100],
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
+            '#D92D07',
+            '#F29F05',
           ],
           hoverOffset: 4
         }]
@@ -37,7 +37,7 @@ export class DashboardPage {
           label: 'Valores',
           data: [65, 59, 80, 81, 56, 55, 40],
           
-          borderColor: '#F29F05',
+          borderColor: '#D92D07',
           
         }]
       }
