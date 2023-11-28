@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PedidosPage implements OnInit {
 
   pedidos: any;
+  isModalOpen: any;
 
   constructor(){
     this.getAllUsuarios()
@@ -16,6 +17,9 @@ export class PedidosPage implements OnInit {
   ngOnInit() {
   }
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   getAllUsuarios(){
     let pedidos = { id: '' };
     fetch('http://localhost/tcc2/pedidos/enviar.php',

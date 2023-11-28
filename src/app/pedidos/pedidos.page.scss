@@ -1,0 +1,11 @@
+.button-ped{
+    height: 35px;
+    border-radius: 15px;
+    background-color: #F27405;
+}
+ion-accordion-group{
+    width: 100%;
+    & ion-icon{
+        margin-right: 20px;
+    }
+}

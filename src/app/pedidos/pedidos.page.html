@@ -36,8 +36,54 @@
   <ion-content class="ion-padding">
     <ng-container *ngFor="let pedidos of this.pedidos">
       <ion-item>
-        <ion-label>{{pedidos.id}}  Pedidos</ion-label>
-        <ion-button shape="round" color="none" class="button-ped">Ver pedido completo</ion-button>
+        <ion-accordion-group>
+          <ion-accordion>
+            <ion-item slot="header">
+              <ion-label>{{pedidos.id}} - Pedidos</ion-label>
+              <ion-icon name="trash-outline" color="danger"></ion-icon>
+              <ion-icon name="checkmark-done-outline" color="success"></ion-icon>
+              <ion-button shape="round" color="none" class="button-ped" (click)="setOpen(true)">Ver pedido completo</ion-button>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <ion-row >
+                <ion-col size="2" class="ion-text-center">
+                  CODIGO PEDIDO
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  NOME
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  VALOR
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  DESCRIÇÃO
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  CODIGO CLIENTE
+                </ion-col>
+              </ion-row>
+
+
+              <ion-row>
+                <ion-col size="2" class="ion-text-center">
+                  {{pedidos.id}}
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  {{pedidos.nome}}
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  R$ {{pedidos.valor}}
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  {{pedidos.descricao}}
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  2
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
       </ion-item>
     </ng-container>
   </ion-content>
