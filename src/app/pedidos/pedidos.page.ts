@@ -43,4 +43,54 @@ export class PedidosPage implements OnInit {
       console.log('processo finalizado');
     })
   }
+  apagarPedido(CodFun: any){
+		let funcionario = { CodFun: CodFun };
+
+    fetch('http://localhost/exercicio/funcionario/remover_funcionario.php',
+			{
+			  method: 'DELETE',
+			  headers: {
+			    'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(funcionario)
+			}
+		)
+    .then(resp => resp.json())
+    .then(dados => {
+      console.log(dados);
+      this.pedidos = dados['mensagem'];
+      this. getAllUsuarios();
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => {
+      console.log('processo finalizado');
+    })
+  }
+  finalizarPedido(CodFun: any){
+		let funcionario = { CodFun: CodFun };
+
+    fetch('http://localhost/exercicio/funcionario/remover_funcionario.php',
+			{
+			  method: 'DELETE',
+			  headers: {
+			    'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(funcionario)
+			}
+		)
+    .then(resp => resp.json())
+    .then(dados => {
+      console.log(dados);
+      this.pedidos = dados['mensagem'];
+      this. getAllUsuarios();
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => {
+      console.log('processo finalizado');
+    })
+  }
 }
