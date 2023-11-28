@@ -432,7 +432,7 @@ export class HomePage implements AfterViewInit {
     })
   }
 
-  enviarInformacao() {
+  enviarMetodoPag() {
     let metodoPag = this.selectedValue;
     fetch('http://localhost/tcc2/pedidos/metodo-pagamento.php',
     {
