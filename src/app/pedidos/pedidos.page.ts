@@ -9,9 +9,10 @@ export class PedidosPage implements OnInit {
 
   pedidos: any;
   isModalOpen: any;
+  isLoading: boolean = false;
 
   constructor(){
-    this.getAllUsuarios()
+    this.getAllpedidos()
   }
 
   ngOnInit() {
@@ -20,7 +21,7 @@ export class PedidosPage implements OnInit {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  getAllUsuarios(){
+  getAllpedidos(){
     let pedidos = { id: '' };
     fetch('http://localhost/tcc2/pedidos/enviar.php',
 			{
@@ -45,27 +46,29 @@ export class PedidosPage implements OnInit {
   }
 
   apagarPedido(id: any){
-		let pedidos = { id: id };
+    this.isLoading = true;
+    let pedidos = { id: id };
     fetch('http://localhost/tcc2/pedidos/deletar.php',
-			{
-			  method: 'DELETE',
-			  headers: {
-			    'Content-Type': 'application/json',
-			  },
-			  body: JSON.stringify(pedidos)
-			}
-		)
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(pedidos)
+        }
+    )
     .then(resp => resp.json())
     .then(dados => {
       console.log(dados);
       this.pedidos = dados['mensagem'];
-      this.getAllUsuarios();
+      this.getAllpedidos();
     })
     .catch(error => {
       console.log(error);
     })
     .finally(() => {
+      this.isLoading = false;
       console.log('processo finalizado');
     })
-  }
+}
 }
