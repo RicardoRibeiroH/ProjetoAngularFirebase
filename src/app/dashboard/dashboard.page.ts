@@ -56,8 +56,8 @@ export class DashboardPage {
     this.isModalOpen2 = isOpen;
   }
   getAllUsuarios(){
-    let usuarios = { CodFun: '' };
-    fetch('http://localhost/exercicio/funcionario/listarTodos_funcionario.php',
+    let usuarios = { id: '' };
+    fetch('http://localhost/tcc2/pedidos/enviar.php',
 			{
 			  method: 'POST',
 			  headers: {
