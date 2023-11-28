@@ -7,9 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosPage implements OnInit {
 
-  constructor() { }
+  pedidos: any;
+
+  constructor(){
+    this.getAllUsuarios()
+  }
 
   ngOnInit() {
   }
 
+  getAllUsuarios(){
+    let pedidos = { id: '' };
+    fetch('http://localhost/tcc2/pedidos/enviar.php',
+			{
+			  method: 'POST',
+			  headers: {
+			    'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(pedidos)
+			}
+		)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      this.pedidos = response['pedidos'];
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{
+      console.log('processo finalizado');
+    })
+  }
 }

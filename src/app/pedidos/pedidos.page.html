@@ -33,5 +33,12 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+  <ion-content class="ion-padding">
+    <ng-container *ngFor="let pedidos of this.pedidos">
+      <ion-item>
+        <ion-label>{{pedidos.id}}  Pedidos</ion-label>
+        <ion-button>Ver Pedido</ion-button>
+      </ion-item>
+    </ng-container>
+  </ion-content>
 </div>
