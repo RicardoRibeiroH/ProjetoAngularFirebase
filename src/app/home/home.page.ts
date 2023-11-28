@@ -1,3 +1,5 @@
+
+
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { AuthenticateService } from '../services/auth.service';
 import { CrudService } from '../services/crud.service';
@@ -23,6 +25,7 @@ export class HomePage implements AfterViewInit {
   total: number = 0;
   trocarElement = 'lanches';
   produtoSelecionado: any;
+  selectedValue: string = '';
   trocarElemento(event: any){
     console.log(event);
    this.trocarElement = event.detail.value;
@@ -378,30 +381,96 @@ export class HomePage implements AfterViewInit {
       image: `https://i.pinimg.com/564x/9e/e3/49/9ee349e1b8eae6dba323059914d95813.jpgg`
     },
   ];
-
-  
-  
+  inserirInfo(dados: any){
+    let usuario = dados;
+    // console.log(usuario);
+    fetch('http://localhost/tcc2/cadastroLocal/cadastro.php',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(usuario)
+    })
+    .then(resp => resp.json())
+    .then(resp=> {
+     
+      console.log(resp);
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{   
+      console.log('processo finalizado');
+    })
+  }
   ngAfterViewInit(): void {
     console.log(this.cart);
   }
 
-  adicionarcarrinho(item_id: any,  selected: boolean, add: any){
-    this.produtos.forEach(produto=> {
-      if (produto.id == item_id)
-      produto.selected = add;
-  });
-  this.calcularTotal();
-  this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
+  enviarPedido(){
+    let usuario = this.hasCartItem;
+    // console.log(usuario);
+    fetch('http://localhost/tcc2/pedidos/adicionar.php',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(usuario)
+    })
+    .then(resp => resp.json())
+    .then(resp=> {
+      console.log(resp);
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{   
+      console.log('pedido finalizado');
+    })
   }
 
-  selected(item_id: any, selected: boolean){
-    this.produtos.forEach(produto=> {
+  enviarMetodoPag() {
+    let metodoPag = this.selectedValue;
+    fetch('http://localhost/tcc2/pedidos/metodo-pagamento.php',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(metodoPag)
+    })
+    .then(resp => resp.json())
+    .then(resp=> {
+      console.log(resp);
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{   
+      console.log('pedido finalizado');
+    })
+  }
+
+adicionarcarrinho(item_id: any, selected: boolean, add: any){
+    this.produtos.forEach(produto => {
         if (produto.id == item_id)
-        produto.selected = !selected;
+            produto.selected = add;
     });
     this.calcularTotal();
     this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
-  }
+}
+
+selected(item_id: any, selected: boolean){
+    this.produtos.forEach(produto => {
+        if (produto.id == item_id)
+            produto.selected = !selected;
+    });
+    this.calcularTotal();
+    this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
+}
+
   
   upDownCart(){
     if (this.showCart) {
@@ -412,8 +481,6 @@ export class HomePage implements AfterViewInit {
       this.showCart = true;
     }
   }
- 
-  
   calcularTotal() {
     this.total = 0; // Zere o total para recalcular
     for (const produto of this.produtos) {
@@ -431,156 +498,5 @@ export class HomePage implements AfterViewInit {
   swiperSlideChanged(e: any){
     console.log('changed: ', e);
   } 
-
-
-
   isLoading: boolean = false;
-
-  alunos = [];
-  aluno = {
-    nome: null,
-    idade: null,
-    ra: null,
-    id: null
-  }
-  infos = [];
-  info = {
-    nome: null,
-    telefone: null,
-    cep: null,
-    bairro: null,
-    rua: null,
-    numero : null
-  }
-  
-  public file: any = {};
-
-  constructor(
-    public _authenticate: AuthenticateService,
-    private _crudService: CrudService,
-    public storage: Storage,
-    private _message: MessageService
-  ) { }
-
-  criarConta(dados: any){
-    this._authenticate.register(dados.email, dados.password)
-  }
-
-  realizarLogin(dados: any) {
-    this._authenticate.login(dados.email, dados.password);
-  }
-  inserirAluno(dados: any){
-    this.aluno.nome = dados.nome;
-    this.aluno.idade = dados.idade;
-    this.aluno.ra = dados.ra;
-    this.aluno.id = dados.id;
-    this._crudService.insert(this.aluno, 'teste');
-  }
-  inserirInfo(dados: any){
-    this.info.nome = dados.nome;
-    this.info.telefone = dados.telefone;
-    this.info.cep = dados.cep;
-    this.info.bairro = dados.bairro;
-    this.info.rua = dados.rua;
-    this.info.numero = dados.numero;
-    this._crudService.insert(this.info, 'professores');
-  }
-
-  listarAlunos(){
-    this._crudService.fetchAll('alunos')
-    .then( alunos => {
-      this.alunos = alunos;
-    })
-  }
-
-  removerAluno(aluno: any){
-    console.log(aluno);
-    this._crudService.remove(aluno.id, 'alunos')
-  }
-
-  consultarAluno(dados: any){
-    console.log(dados);
-    this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'alunos')
-    .then( aluno => {
-      console.log(aluno[0].id);
-    })
-  }
-
-  atualizarDadosAluno(dados: any){
-    if (this.aluno.id == null) {
-      this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'alunos')
-      .then( aluno => {
-        this.aluno = aluno[0];
-        console.log(this.aluno);
-      })
-    } else {
-      this._crudService.update(this.aluno.id, dados, 'alunos');
-    }
-  }
-
-  memorizarArquivo(event: any) {
-    this.file = event.target.files[0];
-  }
-
-  fazerUpload() {
-    if (!this.file.name) {
-      this._message.show('Favor selecionar o arquivo a ser enviado', 5000);
-      return;
-    }
-
-    // Upload file and metadata to the object 'images/mountains.jpg'
-      const storageRef = ref(this.storage, this.file.name);
-      const uploadTask = uploadBytesResumable(storageRef, this.file);
-
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on('state_changed',
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-
-          console.log('Upload is ' + progress + '% done');
-
-          switch (snapshot.state) {
-            case 'paused':
-              console.log('Envio pausado');
-              break;
-            case 'running':
-              console.log('Carregando arquivo');
-              this._message.show('Carregando arquivo, favor aguardar!', 2000);
-              break;
-          }
-        },
-        (error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              console.log('Não enviado! Usuário sem permissão');
-              this._message.show('Não enviado! Usuário sem permissão!');
-              break;
-            case 'storage/canceled':
-              // User canceled the upload
-              console.log('Não enviado: upload cancelado');
-              this._message.show('Erro: Upload cancelado!');
-              break;
-            case 'storage/unknown':
-              // Unknown error occurred, inspect error.serverResponse
-              console.log('Não enviado. Ocorreu um erro desconhecido!');
-              this._message.show('Oops! Ocorreu um erro desconhecido!');
-              break;
-          }
-
-          console.log('Arquivo enviado');
-          this._message.show('Arquivo enviado com sucesso!');
-        },
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log('Url do arquivo é ' + downloadURL)
-          });
-        }
-      );
-  }
-// chartJS
 }

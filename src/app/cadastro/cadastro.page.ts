@@ -19,4 +19,27 @@ export class CadastroPage implements OnInit {
   setOpen(isOpen: boolean) {
     this.isAlertOpen = isOpen;
   }
+  adicionarFuncionarios(form: any){
+    let usuario = form;
+    // console.log(form);
+    fetch('http://localhost/tcc2/cadastro_usuario/cadastro.php',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(usuario)
+    })
+    .then(resp => resp.json())
+    .then(resp=> {
+     
+      console.log(resp);
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{   
+      console.log('processo finalizado');
+    })
+  }
 }

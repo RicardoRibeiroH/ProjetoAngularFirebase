@@ -7,17 +7,40 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  email: string = ''; // Adicionei um valor padrão aqui
-  senha: string = ''; // Adicionei um valor padrão aqui
-
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  clicarBotao(): void {
-    console.log('Botão clicado!');
-    // Adicione a lógica desejada aqui
+  getDados(form: any){
+    let usuario = form;
+
+    fetch('http://localhost/tcc2/login/validacaoLogin.php',
+			{
+			  method: 'POST',
+			  headers: {
+			    'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(usuario)
+			}
+		)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      if(response === true){
+        this.router.navigate(['/inicio']);
+      }else{
+        console.log('erro');
+      }
+    })    
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{
+      
+      console.log('processo finalizado');
+    })
   }
+ 
+  
 }
