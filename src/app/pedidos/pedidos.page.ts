@@ -1,3 +1,4 @@
+import { BoundElementProperty } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +11,7 @@ export class PedidosPage implements OnInit {
   pedidos: any;
   isModalOpen: any;
   isLoading: boolean = false;
+  corTexto: string = 'black';
 
   constructor(){
     this.getAllpedidos()
@@ -61,14 +63,18 @@ export class PedidosPage implements OnInit {
     .then(dados => {
       console.log(dados);
       this.pedidos = dados['mensagem'];
-      this.getAllpedidos();
     })
     .catch(error => {
       console.log(error);
+      this.getAllpedidos();
     })
     .finally(() => {
       this.isLoading = false;
       console.log('processo finalizado');
     })
-}
+ }
+
+  finalizarPedido(pedido: any) {
+    pedido.corTexto = '#2dd36f';
+  }
 }
