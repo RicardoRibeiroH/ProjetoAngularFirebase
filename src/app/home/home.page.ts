@@ -382,6 +382,7 @@ export class HomePage implements AfterViewInit {
       image: `https://i.pinimg.com/564x/9e/e3/49/9ee349e1b8eae6dba323059914d95813.jpgg`
     },
   ];
+
   inserirInfo(dados: any){
     let usuario = dados;
     // console.log(usuario);
@@ -411,7 +412,6 @@ export class HomePage implements AfterViewInit {
 
   enviarPedido(){
     let usuario = this.hasCartItem;
-    // console.log(usuario);
     fetch('http://localhost/tcc2/pedidos/adicionar.php',
     {
       method: 'POST',
@@ -460,7 +460,7 @@ adicionarcarrinho(item_id: any, selected: boolean, add: any){
             produto.selected = add;
     });
     this.calcularTotal();
-    this.hasCartItem = this.produtos.filter(produto => produto.selected == true);
+    this.hasCartItem = this.produtos.filter(produto => produto.selected == true), this.selectedValue;
 }
 
 selected(item_id: any, selected: boolean){
