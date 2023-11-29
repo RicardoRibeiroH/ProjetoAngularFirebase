@@ -433,25 +433,25 @@ export class HomePage implements AfterViewInit {
   }
 
   enviarMetodoPag() {
-    let metodoPag = this.selectedValue;
-    fetch('http://localhost/tcc2/pedidos/metodo-pagamento.php',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(metodoPag)
-    })
-    .then(resp => resp.json())
-    .then(resp=> {
-      console.log(resp);
-    })
-    .catch(erro => {
-      console.log(erro);
-    })
-    .finally(()=>{   
-      console.log('pedido finalizado');
-    })
+    // let metodoPag = this.selectedValue;
+    // fetch('http://localhost/tcc2/pedidos/metodo-pagamento.php',
+    // {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(metodoPag)
+    // })
+    // .then(resp => resp.json())
+    // .then(resp=> {
+    //   console.log(resp);
+    // })
+    // .catch(erro => {
+    //   console.log(erro);
+    // })
+    // .finally(()=>{   
+    //   console.log('pedido finalizado');
+    // })
   }
 
 adicionarcarrinho(item_id: any, selected: boolean, add: any){
