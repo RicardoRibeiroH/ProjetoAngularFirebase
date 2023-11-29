@@ -5,6 +5,9 @@
 }
 ion-accordion-group{
     width: 100%;
+    & .text{
+        color:   #F27405;
+    }
     & ion-icon{
         margin-right: 20px;
     }

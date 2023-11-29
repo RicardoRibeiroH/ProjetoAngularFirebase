@@ -1,5 +1,6 @@
 import { BoundElementProperty } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pedidos',
@@ -13,7 +14,7 @@ export class PedidosPage implements OnInit {
   isLoading: boolean = false;
   corTexto: string = 'black';
 
-  constructor(){
+  constructor(private alertController: AlertController){
     this.getAllpedidos()
   }
 
@@ -23,29 +24,44 @@ export class PedidosPage implements OnInit {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  getAllpedidos(){
+  getAllpedidos() {
     let pedidos = { id: '' };
-    fetch('http://localhost/tcc2/pedidos/enviar.php',
-			{
-			  method: 'POST',
-			  headers: {
-			    'Content-Type': 'application/json',
-			  },
-			  body: JSON.stringify(pedidos)
-			}
-		)
+    fetch('http://localhost/tcc2/pedidos/enviar.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(pedidos),
+    })
     .then(response => response.json())
     .then(response => {
       console.log(response);
-      this.pedidos = response['pedidos'];
+  
+      // Mapeia os pedidos e inverte a data
+      this.pedidos = response['pedidos'].map((pedido: any) => {
+        if (pedido.dataPed) {
+          pedido.dataPedInvertida = this.inverterData(pedido.dataPed);
+        }
+        return pedido;
+      });
     })
     .catch(erro => {
       console.log(erro);
     })
-    .finally(()=>{
+    .finally(() => {
       console.log('processo finalizado');
-    })
+    });
   }
+  
+  inverterData(data: string): string {
+    const partesData = data.split("-");
+    const dataInvertida = partesData.reverse().join("-");
+    return dataInvertida;
+  }
+  
+  
+  
+  
 
   apagarPedido(id: any){
     this.isLoading = true;
@@ -77,4 +93,54 @@ export class PedidosPage implements OnInit {
   finalizarPedido(pedido: any) {
     pedido.corTexto = '#2dd36f';
   }
+
+ 
+
+  
+
+
+  async presentAlert(pedido: any) {
+    const alert = await this.alertController.create({
+      header: 'Finalizar pedido?',
+      cssClass: 'custom-alert',
+      buttons: [
+        {
+          text: 'Não',
+          cssClass: 'alert-button-cancel',
+        },
+        {
+          text: 'Sim',
+          cssClass: 'alert-button-confirm',
+          handler: () => {
+            this.finalizarPedido(pedido);
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
+
+  async presentAlert2(id: any) {
+    const alert = await this.alertController.create({
+      header: 'Apagar pedido?',
+      cssClass: 'custom-alert',
+      buttons: [
+        {
+          text: 'Não',
+          cssClass: 'alert-button-cancel',
+        },
+        {
+          text: 'Sim',
+          cssClass: 'alert-button-confirm',
+          handler: () => {
+            this.apagarPedido(id);
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
+  
 }
