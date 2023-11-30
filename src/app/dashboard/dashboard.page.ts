@@ -32,10 +32,10 @@ export class DashboardPage {
     new Chart(this.elemento2.nativeElement, {
       type: 'line', 
       data: {
-        labels: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
           label: 'Valores',
-          data: [65, 59, 80, 81, 56, 55, 40],
+          data: [65, 59, 80, 81, 56, 55, 40, 40, 78, 33, 38, 50],
           
           borderColor: '#D92D07',
           
