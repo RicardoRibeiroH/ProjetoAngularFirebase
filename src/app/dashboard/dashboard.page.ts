@@ -47,6 +47,7 @@ export class DashboardPage {
   trocarTela = 'grafico_preco';
   isModalOpen = false;
   isModalOpen2 = false;
+  isModalOpen3 = false;
   usuarios: any;
   
   setOpen(isOpen: boolean) {
@@ -54,6 +55,9 @@ export class DashboardPage {
   }
   setOpen2(isOpen: boolean) {
     this.isModalOpen2 = isOpen;
+  }
+  setOpen3(isOpen: boolean) {
+    this.isModalOpen3 = isOpen;
   }
   getAllUsuarios(){
     let usuarios = { id: '' };

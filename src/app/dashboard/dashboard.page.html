@@ -22,7 +22,7 @@
     <ion-col size="2">
       <ion-row class="icons">
         <ion-col size="12">
-          <ion-icon name="mail-outline" class="icon1"></ion-icon> <br/>
+          <ion-icon name="mail-outline" class="icon1" (click)="setOpen3(true)"></ion-icon> <br/>
           <ion-icon name="document-text-outline"  (click)="setOpen(true)" class="icon2"></ion-icon> <br/>
           <ion-icon name="receipt-outline" (click)="setOpen2(true)" class="icon3"></ion-icon> <br/>
           <ion-icon name="location-outline" class="icon4"></ion-icon>
@@ -35,8 +35,10 @@
             <ion-card>
               <ion-card-header>
                 <ion-row>
-                  <ion-col size="6">NOVAS MENSAGENS</ion-col>
-                  <ion-col size="6" class="ion-text-end"><ion-icon name="chatbubble-ellipses"></ion-icon></ion-col>
+                  <ion-col size="8">NOVAS MENSAGENS</ion-col>
+                  <ion-col size="4" class="ion-text-end">
+                    <ion-icon name="chatbubble-ellipses"></ion-icon>
+                  </ion-col>
                 </ion-row>
               </ion-card-header>   
               <ion-card-content> 
@@ -57,7 +59,7 @@
                 <ion-row>
                   <ion-col size="6">NOVAS METAS</ion-col>
                   <ion-col size="6" class="ion-text-end">
-                    <ion-icon name="receipt-outline"></ion-icon>
+                    <ion-icon name="calendar-number-outline"></ion-icon>
                   </ion-col>
                 </ion-row>
               </ion-card-header>   
@@ -81,8 +83,10 @@
             <ion-card>
               <ion-card-header>
                 <ion-row>
-                  <ion-col size="6">NOVAS MENSAGENS</ion-col>
-                  <ion-col size="6" class="ion-text-end"><ion-icon name="chatbubble-ellipses"></ion-icon></ion-col>
+                  <ion-col size="8">TOTAL DE PEDIDOS</ion-col>
+                  <ion-col size="4" class="ion-text-end">
+                    <ion-icon name="receipt-outline"></ion-icon>
+                  </ion-col>
                 </ion-row>
               </ion-card-header>   
               <ion-card-content> 
@@ -91,7 +95,7 @@
                     <h1>85</h1>
                   </ion-col>
                   <ion-col size="12">
-                    <ion-label>TAXA DE RESPOSTA</ion-label>
+                    <ion-label>NÚMEROS DE PEDIDOS</ion-label>
                   </ion-col>
                 </ion-row>
               </ion-card-content>
@@ -108,16 +112,13 @@
       </ion-col>
   </ion-row>
 
-    <ion-modal [isOpen]="isModalOpen">
-      <ng-template>
+    <ion-modal [isOpen]="isModalOpen" >
+      <ng-template class="modal-usuarios">
         <ion-header>
           <ion-toolbar>
             <ion-row>
-              <ion-col size="4">
-                <ion-title>Nome</ion-title>
-              </ion-col>
-              <ion-col size="4">
-                <ion-title>Email</ion-title>
+              <ion-col size="12">
+                <ion-title>USUARIOS</ion-title>
               </ion-col>
             </ion-row>
             <ion-buttons slot="end">
@@ -172,6 +173,30 @@
         </ion-content>
       </ng-template>
     </ion-modal>
+
+    <ion-modal [isOpen]="isModalOpen3" class="modal-pedidos">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-row>
+                <ion-title>MENSAGENS</ion-title>
+            </ion-row>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen3(false)"><ion-icon name="close-outline"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ng-container *ngFor="let usuarios of this.usuarios">
+            <ion-item>
+              <ion-label>{{usuarios.CodFun}} Pedido</ion-label>
+              <ion-button shape="round" color="none" class="button-ped">Ver pedido completo</ion-button>
+            </ion-item>
+          </ng-container>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
   </ion-content>
 </div>
 
