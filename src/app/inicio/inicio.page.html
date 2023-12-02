@@ -1,168 +1,169 @@
-<ion-content>
-  <div class="top-side">
-    <ion-header class="ion-no-border">
-        <ion-row>
-          <ion-col size="6">
-            <img src="../../assets/logo branco e preto/logo cópia.png" alt="logo flavor fleet" width="150px">
-          </ion-col>
-          <ion-col size="6">
-            <div class="menu-link">
-            <ion-row>
-              <ion-col size="2"><a routerLink="/inicio">HOME</a></ion-col>
-              <ion-col size="2"><a routerLink="/home">CARDAPIO</a></ion-col>
-              <ion-col size="2"><a routerLink="/politica">POLITICA</a></ion-col>
-              <ion-col size="2"><a routerLink="/login">LOGIN</a></ion-col>
-            </ion-row>
-          </div>
-          </ion-col>
-        </ion-row>
-      </ion-header>
-        <ion-row class="ion-justify-content-center conteudo-top">
-          <ion-col size="8" class="ion-text-center">
-            <div class="conteudo-text">
-              <h1 class="text-title-top ion-text-uppercase">Delicie-se com uma explosão de sabores </h1>
-              <p class="text-title-second">Explore nosso site e descubra um mundo de sabores! Navegue em nosso cardápio, faça reservas, e mantenha-se atualizado com ofertas especiais e eventos emocionantes. Sua jornada gastronômica começa aqui.</p>
-              <ion-button shape="round" routerLink="/home">VER CARDAPIO</ion-button>
-          </div>
-          </ion-col>
-        </ion-row>
-  </div>
-  <ion-row class="ion-justify-content-center  segments">
-    <ion-col size="6" class="ion-text-center">
-      <ion-segment>
-        <ion-segment-button value="home" routerLink="/home">
-          <img src="../../assets/produtos/hambueguer.png" alt="" width="70px" >
-        </ion-segment-button>
-        <ion-segment-button value="heart" routerLink="/home">
-         <img src="../../assets/produtos/sorvete 2.png" alt="" width="70px">
-        </ion-segment-button>
-        <ion-segment-button value="pin" routerLink="/home">
-       <img src="../../assets/produtos/chicket.png" alt="" width="70px">
-        </ion-segment-button>
-        <ion-segment-button value="star" routerLink="/home">
-        <img src="../../assets/produtos/batata.png" alt="" width="70px">
-        </ion-segment-button>
-        <ion-segment-button value="call" routerLink="/home">
-        <img src="../../assets/produtos/istockphoto-508707347-170667a.png" alt="" width="70px">
-        </ion-segment-button>
-      </ion-segment>
-    </ion-col>
-  </ion-row>
+<ion-content [fullscreen]="true" *ngIf="!isMobileDevice()">
+  <div class="imagem-fundo">
+    <ion-header>
+      <ion-row>
+        <ion-col size="6">
+          <img src="../../assets/img/logo cópia.png" width="100px" class="img-logo">
+        </ion-col>
+        <ion-col size="6" class="navigation">
+          <a routerLink="#">Home</a>
+          <a routerLink="/home">Cardápio</a>
+          <a routerLink="/politica">Termos</a>
+          <ng-container *ngIf="!this.user.conectado">
+            <ion-button class="btnLogin" (click)="onBtnPopupClick()">Login</ion-button>
+          </ng-container>
+          <ng-container *ngIf="this.user.conectado">
+            <p>Olá, {{ this.user.nome }}</p>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    </ion-header>
 
-  <div class="card-mid">
-    <ion-row class="ion-justify-content-center item-mid">
+    <div class="wrapper">
+      <ion-icon class="icon-close" name="close" (click)="onIconCloseClick()"></ion-icon>
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#" (ngSubmit)="onLoginClick()">
+          <form #buscar="ngForm" (ngSubmit)="getDados(buscar.value)">
+
+            <div class="input-box">
+              <ion-icon class="icon" name="mail"></ion-icon>
+              <ion-input ngModel name="email" type="email" fill="solid" label="Email" labelPlacement="floating"
+                helperText="Insira um E-mail válido" errorText="E-mail inválido" ngModel email></ion-input>
+            </div>
+
+            <div class="input-box">
+              <ion-icon class="icon" name="lock-closed"></ion-icon>
+              <ion-input ngModel name="password" type="password" fill="solid" label="Senha"
+                labelPlacement="floating"></ion-input>
+            </div>
+
+            <div class="remmember-forgot">
+              <label><ion-checkbox labelPlacement="end"> Lembre-se de mim</ion-checkbox></label>
+              <a routerLink="#">Esqueceu a senha?</a>
+            </div>
+
+            <ion-button type="submit" class="btn" (click)="onIconCloseClick()">Login</ion-button>
+            <div class="login-register">
+              <p>Não possui uma conta? <a routerLink="#" class="register" (click)="onRegisterClick()">Cadastrar</a></p>
+            </div>
+
+          </form>
+        </form>
+      </div>
+
+
+      <div class="form-box register">
+        <h2>Cadastro</h2>
+        <!-- <form action="#"> -->
+        <form #inserir="ngForm" (ngSubmit)="adicionarFuncionarios(inserir.value)">
+          <div class="input-box">
+            <ion-icon class="icon" name="person"></ion-icon>
+            <ion-input ngModel name="nome" fill="solid" label="Nome" labelPlacement="floating"></ion-input>
+          </div>
+          <!-- type="email" fill="solid" labelPlacement="floating" helperText="Enter a valid email" errorText="Invalid email" -->
+
+          <div class="input-box">
+            <ion-icon class="icon" name="mail"></ion-icon>
+            <ion-input ngModel name="email" type="email" fill="solid" label="Email" labelPlacement="floating"
+              helperText="Insira um E-mail válido" errorText="E-mail inválido" ngModel email></ion-input>
+          </div>
+
+          <div class="input-box">
+            <ion-icon class="icon" name="lock-closed"></ion-icon>
+            <ion-input ngModel name="password" type="password" fill="solid" label="Senha"
+              labelPlacement="floating"></ion-input>
+          </div>
+
+          <div class="remmember-forgot">
+            <label><ion-checkbox labelPlacement="end">Eu aceito os termos e condiçoes</ion-checkbox></label>
+          </div>
+
+          <ion-button type="submit" class="btn">Cadastrar</ion-button>
+          <div class="login-register">
+            <p>Já possui uma conta? <a routerLink="#" class="register" (click)="onLoginClick()">Login</a></p>
+          </div>
+        </form>
+        <!-- </form> -->
+      </div>
+
+    </div>
+
+    <ion-row class="ion-justify-content-center conteudo-top">
       <ion-col size="8" class="ion-text-center">
-        <ion-row>
-          <ion-col size="4">
-            <ion-card>
-              <ion-row>
-                <ion-col size="8">
-                  <ion-row>
-                    <ion-col size="12" class="text-title-card">
-                      <ion-label>Qualquer Dia Oferece</ion-label>
-                    </ion-col>
-                    <ion-col size="12" class="text-title-second-card">
-                      <ion-label>10.99 R$</ion-label>
-                    </ion-col>
-                  </ion-row>      
-                </ion-col>
-                <ion-col size="4" class="img-card-1">
-                  <img src="../../assets/logo branco e preto/hamburguer.png" alt="imagem hambuerguer" width="120px">
-                </ion-col>
-              </ion-row>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card color="danger">
-              <ion-row>
-                <ion-col size="8">
-                  <ion-row>
-                    <ion-col size="12" class="text-title-card-2">
-                      <ion-label>Outros <br/> Sabores</ion-label>
-                    </ion-col>
-                    <ion-col size="12" class="text-title-second-card-2">
-                      <ion-label>9.99 R$</ion-label>
-                    </ion-col>
-                  </ion-row>      
-                </ion-col>
-                <ion-col size="4" class="img-card-2">
-                  <img src="../../assets/itens usado/cokie.png" alt="imagem hambuerguer" width="100px">
-                </ion-col>
-              </ion-row>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card>
-              <ion-row>
-                <ion-col size="8">
-                  <ion-row>
-                    <ion-col size="12" class="text-title-card">
-                      <ion-label>Diversas Sobremesas</ion-label>
-                    </ion-col>
-                    <ion-col size="12" class="text-title-second-card">
-                      <ion-label>5.99 R$</ion-label>
-                    </ion-col>
-                  </ion-row>      
-                </ion-col>
-                <ion-col size="4" class="img-card-3">
-                  <img src="../../assets/itens usado/sorvete.png" alt="imagem hambuerguer" width="100px">
-                </ion-col>
-              </ion-row>
-            </ion-card>
-          </ion-col>
-          <ion-col size="6">
-            <ion-card class="card-bottom">
-              <ion-row>
-                <ion-col size="8">
-                  <ion-row>
-                    <ion-col size="12" class="text-title-card-4">
-                      <ion-label>Feito com muito amor e carinho <br/> chef de alta categoria</ion-label>
-                    </ion-col>
-                  </ion-row>      
-                </ion-col>
-                <ion-col size="2.5" class="img-card-4">
-                   <img src="../../assets/itens usado/chef.png" alt="imagem hambuerguer" width="40px">
-                </ion-col>
-              </ion-row>
-            </ion-card>
-          </ion-col>
-          <ion-col size="6">
-            <ion-card class="card-bottom">
-              <ion-row>
-                <ion-col size="8">
-                  <ion-row>
-                    <ion-col size="12" class="text-title-card-5">
-                      <ion-label>Você quer ser uma esperança?</ion-label>
-                    </ion-col>
-                    <ion-col size="12" class="button-card-5">
-                      <ion-button color="danger" shape="round">Ajuda aqui</ion-button>
-                    </ion-col>
-                  </ion-row>      
-                </ion-col>
-                <ion-col size="2.5" class="img-card-5">
-                   <img src="../../assets/itens usado/coracao.png" alt="imagem hambuerguer" width="100px">
-                </ion-col>
-              </ion-row>
-            </ion-card>
-          </ion-col>
-        </ion-row>
+        <div class="conteudo-text">
+          <h1 class="text-title-top ion-text-uppercase">Delicie-se com uma explosão de sabores</h1>
+          <p class="text-title-second">Explore nosso site e descubra um mundo de sabores! Navegue em nosso cardápio,
+            faça reservas, e mantenha-se atualizado com ofertas especiais e eventos emocionantes. Sua jornada
+            gastronômica começa aqui.</p>
+          <ion-button shape="round" routerLink="/home">VER CARDAPIO</ion-button>
+        </div>
       </ion-col>
     </ion-row>
   </div>
-  <div class="sobre-nos">
-    <ion-row class="ion-justify-content-center row-sobre">
-      <ion-col size="8" class="ion-text-center">
-        <h1 class="text-title-sobre">Sobre nós</h1>
+
+  <div>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="card_sobrenos">
+          <h2>Sobre Nós</h2>
+          <p>O restaurante em questão começou de forma simples, em um pequeno espaço, com poucas mesas e um cardápio
+            limitado. Mas com muito trabalho e dedicação, o proprietário conseguiu conquistar clientes fiéis e expandir
+            o negócio. Hoje, é um local renomado, com um ambiente aconchegante, um menu diversificado e um serviço de
+            alta qualidade. O sucesso do restaurante se deve à paixão pela culinária e ao compromisso em oferecer uma
+            experiência única para os clientes. Além disso, o atendimento é sempre atencioso e personalizado, fazendo
+            com que os clientes se sintam em casa. Tudo isso contribui para o sucesso e a reputação do restaurante, que
+            é frequentado por pessoas de todas as idades e gostos gastronômicos.</p>
+        </ion-card>
       </ion-col>
-      <ion-col size="8" class="ion-text-center"><p class="text-title-second-sobre">O Flavor Fleet é um  sistema de delivery é uma plataforma ou conjunto de processos que facilitam a entrega de produtos ou serviços diretamente ao cliente, muitas vezes de forma conveniente e rápida. Eles são amplamente usados por empresas para levar produtos até os consumidores em suas casas ou locais de escolha. Esses sistemas incluem aplicativos móveis, sites, logística de entregas e opções de pagamento online, proporcionando comodidade aos clientes e aumentando as vendas das empresas.</p>   
+
+      <ion-col size="6">
+        <img src="../../assets/img/img sobre nos.jpeg" class="img_sobrenos">
+        <img src="../../assets/img/img erva sobre nos.jpeg" class="img_erva_sobrenos">
       </ion-col>
     </ion-row>
   </div>
+
+  <div>
+    <ion-row>
+      <ion-col class="card_sobre">
+        <ion-card>
+          <img src="../../assets/img/img foto sobre.jpg" class="card_img">
+          <h2>Chefe</h2>
+          <p>Cláudio, um talentoso chef de cozinha, se destacava no renomado restaurante "Flavor Fleet". Sua
+            criatividade e habilidade em transformar ingredientes simples em pratos extraordinários o tornaram uma
+            figura admirada na gastronomia. Sua dedicação e paixão deixaram uma marca duradoura no restaurante e na cena
+            culinária em geral. </p>
+        </ion-card>
+      </ion-col>
+      <ion-col class="card_sobre_elevado">
+        <ion-card>
+          <img src="../../assets/img/img foto sobre1.jpg" class="card_img">
+          <h2>Dono</h2>
+          <p>Miguel, um talentoso chef apaixonado pela culinária, realizou seu sonho de abrir o restaurante "Flavor
+            Fleet". Com pratos inovadores e uma atmosfera acolhedora, seu restaurante logo se tornou um sucesso,
+            conquistando críticos e clientes fiéis. Com humildade e dedicação, Miguel inspirou sua equipe e deixou um
+            legado duradouro na cena gastronômica.</p>
+        </ion-card>
+      </ion-col>
+      <ion-col class="card_sobre">
+        <ion-card>
+          <img src="../../assets/img/img foto sobre.png" class="card_img">
+          <h2>Gerência</h2>
+          <p>Carolina, uma líder experiente e apaixonada pela área gastronômica, assumiu a gerência do restaurante
+            "Flavor Fleet". Com sua visão estratégica e habilidades organizacionais, ela trouxe uma nova dinâmica à
+            equipe e ao estabelecimento. Sob sua gestão, o restaurante alcançou novos patamares de excelência e se
+            tornou um ponto de referência na indústria.</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+
   <ion-footer>
     <div class="footer-top">
       <ion-row class="ion-justify-content-center">
         <ion-col size="" class="col-footer-1 ion-text-start">
-          <img src="../../assets/icons usado no footer/hamburguer footer.png" alt="hambueguer" width="300px">
+          <img src="../../assets/img/icons usado no footer/hamburguer footer.png" alt="hambueguer" width="300px">
         </ion-col>
         <ion-col size="2" class="col-footer-2 ion-text-center">
           <ion-row>
@@ -170,11 +171,12 @@
               <h2>Fale Conosco</h2>
             </ion-col>
             <ion-col size="12">
-              <img src="../../assets/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px" class="img-footer">
+              <img src="../../assets/img/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px"
+                class="img-footer">
               <ion-label>(15)99999-9999</ion-label>
             </ion-col>
             <ion-col size="12">
-              <img src="../../assets/icons usado no footer/e-mail cópia.png" alt="email" width="25px">
+              <img src="../../assets/img/icons usado no footer/e-mail cópia.png" alt="email" width="25px">
               <ion-label>flavor.fleet@gmail.com</ion-label>
             </ion-col>
           </ion-row>
@@ -214,16 +216,16 @@
               <h2>Onde nos encontrar?</h2>
             </ion-col>
             <ion-col size="6" class="ion-text-end">
-              <img src="../../assets/icons usado no footer/instagram cópia.png" alt="logo instagram" width="25px">
+              <img src="../../assets/img/icons usado no footer/instagram cópia.png" alt="logo instagram" width="25px">
             </ion-col>
             <ion-col size="6" class="ion-text-start">
-              <img src="../../assets/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px">
+              <img src="../../assets/img/icons usado no footer/whatsapp cópia.png" alt="logo whatssap" width="25px">
             </ion-col>
             <ion-col size="12" class="ion-text-end">
-              <img src="../../assets/icons usado no footer/footer hamburguer.png" alt="hambueguer" width="200px">
+              <img src="../../assets/img/icons usado no footer/footer hamburguer.png" alt="hambueguer" width="200px">
             </ion-col>
           </ion-row>
-        </ion-col>    
+        </ion-col>
       </ion-row>
     </div>
     <div class="footer-bottom">
@@ -236,3 +238,128 @@
   </ion-footer>
 </ion-content>
 
+<ion-content [fullscreen]="true" *ngIf="isMobileDevice()">
+  <ion-menu contentId="main-content">
+
+    <ion-content color="dark">
+      <a routerLink="#" class="navigation_menu"> <ion-icon name="home-outline"></ion-icon> Home </a>
+      <a routerLink="/home" class="navigation_menu"> <ion-icon name="restaurant-outline"></ion-icon> Cardápio </a>
+      <a routerLink="/politica" class="navigation_menu"> <ion-icon name="document-text-outline"></ion-icon> Termos </a>
+      <a routerLink="/login" class="navigation_menu"> <ion-icon name="log-in-outline"></ion-icon>Login </a>
+    </ion-content>
+  </ion-menu>
+
+
+  <ion-content [fullscreen]="true">
+    <div class="imagem-fundo">
+      <div class="ion-page" id="main-content">
+
+
+        <ion-header>
+          <ion-toolbar color="secondary">
+
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title class="text_logo">Flavor Fleet</ion-title>
+            <img src="../../assets/img/logo cópia.png" width="80px" slot="end">
+          </ion-toolbar>
+        </ion-header>
+
+          <ion-row>
+            <ion-col size="12" class="text_welcome">
+              <h1>Delicie-se com uma explosão de sabores</h1>
+              <ion-button class="btn_menu" routerLink="/home">Cardápio</ion-button>
+            </ion-col>
+          </ion-row>
+
+        
+
+      </div>
+    </div>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="card_sobrenos_mobile">
+          <h2>Sobre Nós</h2>
+          <p>O restaurante em questão começou de forma simples, em um pequeno espaço, com poucas mesas e um cardápio
+            limitado. Mas com muito trabalho e dedicação, o proprietário conseguiu conquistar clientes fiéis e expandir
+            o negócio. Hoje, é um local renomado, com um ambiente aconchegante, um menu diversificado e um serviço de
+            alta qualidade. O sucesso do restaurante se deve à paixão pela culinária e ao compromisso em oferecer uma
+            experiência única para os clientes. Além disso, o atendimento é sempre atencioso e personalizado, fazendo
+            com que os clientes se sintam em casa. Tudo isso contribui para o sucesso e a reputação do restaurante, que
+            é frequentado por pessoas de todas as idades e gostos gastronômicos.</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+      <ion-row>
+      <ion-col class="card_sobre">
+        <ion-card>
+          <img src="../../assets/img/img foto sobre1.jpg" class="card_img">
+          <h2>Dono</h2>
+          <p>Miguel, um talentoso chef apaixonado pela culinária, realizou seu sonho de abrir o restaurante "Flavor
+            Fleet". Com pratos inovadores e uma atmosfera acolhedora, seu restaurante logo se tornou um sucesso,
+            conquistando críticos e clientes fiéis. Com humildade e dedicação, Miguel inspirou sua equipe e deixou um
+            legado duradouro na cena gastronômica.</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="card_sobre">
+        <ion-card>
+          <img src="../../assets/img/img foto sobre.jpg" class="card_img">
+          <h2>Chefe</h2>
+          <p>Cláudio, um talentoso chef de cozinha, se destacava no renomado restaurante "Flavor Fleet". Sua
+            criatividade e habilidade em transformar ingredientes simples em pratos extraordinários o tornaram uma
+            figura admirada na gastronomia. Sua dedicação e paixão deixaram uma marca duradoura no restaurante e na cena
+            culinária em geral. </p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+      <ion-row>
+      <ion-col class="card_sobre">
+        <ion-card>
+          <img src="../../assets/img/img foto sobre.png" class="card_img">
+          <h2>Gerência</h2>
+          <p>Carolina, uma líder experiente e apaixonada pela área gastronômica, assumiu a gerência do restaurante
+            "Flavor Fleet". Com sua visão estratégica e habilidades organizacionais, ela trouxe uma nova dinâmica à
+            equipe e ao estabelecimento. Sob sua gestão, o restaurante alcançou novos patamares de excelência e se
+            tornou um ponto de referência na indústria.</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-footer class="footer">
+      <ion-row>
+        <ion-col size="6" class="contact">
+          <h2>Fale Conosco</h2>
+          <p><img src="../../assets/img/icons usado no footer/whatsapp cópia.png" width="20px"> (15) 4002-8922</p>
+          <p><img src="../../assets/img/icons usado no footer/e-mail cópia.png" width="20px"> flavor.fleet@hmail.com</p>
+        </ion-col>
+        <ion-col size="6" class="combos_promocoes">
+          <h2>O que procura?</h2>
+          <p>Combos</p>
+          <p>Promoções</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" class="pagina">
+          <h2>Institucional</h2>
+          <p><a routerLink="#">Home</a></p>
+          <p><a routerLink="#">Sobre</a></p>
+          <p><a routerLink="#">Contato</a></p>
+        </ion-col>
+        <ion-col size="6" class="local">
+          <h2>Onde nos encontrar?</h2>
+          <img src="../../assets/img/icons usado no footer/instagram cópia.png" width="20px">
+          <img src="../../assets/img/icons usado no footer/whatsapp cópia.png" width="20px">
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-content>
+
+  
