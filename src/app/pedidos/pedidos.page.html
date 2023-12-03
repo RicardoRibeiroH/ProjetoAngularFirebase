@@ -30,7 +30,7 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Menu</ion-title>
+      <img src="../../assets/logo nova tcc/sem fundo/logo.png" alt="logo" width="100px">
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
@@ -39,9 +39,9 @@
         <ion-accordion-group>
           <ion-accordion>
             <ion-item slot="header">
-              <ion-label>{{pedido.id}} - Pedidos</ion-label>
-              <ion-icon name="trash-outline" (click)="apagarPedido(pedido.id)" class="icon"></ion-icon>
-              <ion-icon name="checkmark-done-outline" color="success"></ion-icon>
+              <ion-label [style.color]="pedido.corTexto" class="text">{{pedido.id}} - Pedidos - {{ pedido.dataPedInvertida }}</ion-label>
+              <ion-icon name="trash-outline"  color="danger" class="icon" (click)="presentAlert2(pedido.id)"></ion-icon>
+              <ion-icon name="checkmark-done-outline" color="success" class="icon-finalizar" (click)="presentAlert(pedido)"></ion-icon>
               <ion-button shape="round" color="none" class="button-ped" (click)="setOpen(true)">Ver pedido completo</ion-button>
             </ion-item>
             <div class="ion-padding" slot="content">
@@ -57,6 +57,9 @@
                 </ion-col>
                 <ion-col size="2" class="ion-text-center">
                   DESCRIÇÃO
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  MÉTODO DE PAGAMENTO
                 </ion-col>
                 <ion-col size="2" class="ion-text-center">
                   CODIGO CLIENTE
@@ -75,6 +78,9 @@
                 </ion-col>
                 <ion-col size="2" class="ion-text-center">
                   {{pedido.descricao}}
+                </ion-col>
+                <ion-col size="2" class="ion-text-center">
+                  {{pedido.metodoPag}}
                 </ion-col>
                 <ion-col size="2" class="ion-text-center">
                   2
