@@ -417,9 +417,9 @@
             </ng-container>
           </ion-buttons>
           <ion-buttons slot="end">
-            <ion-button id="present-alert" (click)="setOpen(false)" (click)="enviarPedido()">
+            <ion-button id="present-alert" (click)="setOpen(false)" >
               <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
-              <ion-label class="text-modal-next">Finalizar</ion-label>
+              <ion-label class="text-modal-next" (click)="enviarPedido()">Finalizar</ion-label>
             </ion-button>
             <ion-alert
               trigger="present-alert"

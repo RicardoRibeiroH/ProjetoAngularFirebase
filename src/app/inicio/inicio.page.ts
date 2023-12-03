@@ -81,7 +81,7 @@ export class InicioPage implements OnInit {
     })
   }
 
-  adicionarFuncionarios(form: any){
+  adicionarUsuario(form: any){
     let usuario = form;
     // console.log(form);
     fetch('http://localhost/tcc2/cadastro_usuario/cadastro.php',
