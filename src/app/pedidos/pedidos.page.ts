@@ -1,5 +1,6 @@
+import { BoundElementProperty } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-pedidos',
   templateUrl: './pedidos.page.html',
