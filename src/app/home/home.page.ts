@@ -434,7 +434,7 @@ export class HomePage implements AfterViewInit {
 
   enviarMetodoPag() {
     let metodoPag = this.selectedValue;
-    fetch('http://localhost/tcc2/pedidos/metodoPagamento.php',
+    fetch('http://localhost/tcc2/metodopagamento/cadastrar.php',
     {
       method: 'POST',
       headers: {

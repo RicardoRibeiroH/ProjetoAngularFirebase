@@ -66,11 +66,6 @@ export class InicioPage implements OnInit {
     .then(response => {
       this.user = response;
       console.log(this.user);
-      // if(response === true){
-      //   this.router.navigate(['/home']);
-      // }else{
-      //   console.log('erro');
-      // }
     })    
     .catch(erro => {
       console.log(erro);
