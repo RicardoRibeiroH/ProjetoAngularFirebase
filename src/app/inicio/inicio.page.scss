@@ -84,12 +84,13 @@ ion-header .img-logo{
 
 .navigation p {
   position: relative;
+  margin-left: 40px;
   // display: flex;
   font-size: 1.4em;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  top: 40%;
+  // top: 40%;
 }
 
 // .navigation .img-logo {
@@ -284,7 +285,7 @@ ion-header .img-logo{
 }
 
 .conteudo-top {
-  margin-top: -15%;
+  margin-top: -25%;
 
   & .conteudo-text {
     width: 100%;
@@ -325,18 +326,18 @@ ion-card {
 }
 
 .img_sobrenos {
-  // margin-top: 43%;
-  // margin-left: 12%;
-  margin-top: 40%;
-  margin-left: -5%;
+  margin-top: 43%;
+  margin-left: 12%;
+  // margin-top: 40%;
+  // margin-left: -5%;
   width: 400px;
 }
 
 .img_erva_sobrenos {
-  // margin-top: 78%;
-  // margin-left: -115%;
-  margin-top: 58%;
-  margin-left: -85%;
+  margin-top: 78%;
+  margin-left: -115%;
+  // margin-top: 58%;
+  // margin-left: -85%;
 }
 
 .card_sobrenos h2 {
